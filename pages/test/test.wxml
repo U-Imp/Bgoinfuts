@@ -1,0 +1,38 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <i-grid>
+    <i-grid-item>
+        <i-grid-icon>
+            <i-icon type="brush_fill" size="28" color="#80848f" />
+        </i-grid-icon>
+        <i-grid-label>Grid</i-grid-label>
+    </i-grid-item>
+    <i-grid-item>Grid</i-grid-item>
+    <i-grid-item>{{test.testword}}</i-grid-item>
+</i-grid>
+<van-button type="primary">按钮</van-button>
+<icon type="success" size="23"></icon>
+<icon type="success_no_circle" size="23"></icon>
+<icon type="circle" size="23"></icon>
+<icon type="warn" size="23" color="#F43530"></icon>
+<icon type="download" size="23"></icon>
+<icon type="info_circle" size="23"></icon>
+<icon type="cancel" size="23"></icon>
+<icon type="search" size="20"></icon>
+<van-icon name="success" />
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+</view>
+<view>
+  <view class='animated bounce fr'><van-icon name="like-o" /></view> 
+</view>
+<rich-text>
+</rich-text>

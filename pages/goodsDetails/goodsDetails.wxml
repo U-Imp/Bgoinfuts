@@ -1,0 +1,85 @@
+<view class='goods-details'>
+  <view class='goods-details-wrap'>
+    <view class="goods-details-header">
+      <view class="header-text">
+        <view class="header-text-title">{{goodsForm.title}}</view>
+        <view class="header-text-desc">{{goodsForm.brief}}</view>
+      </view>
+      <view class="header-logo">
+        <image class="header-logo-img" src="http://img.ui.cn/data/file/3/6/4/1053463.gif?imageMogr2/auto-orient/strip" />
+      </view>
+    </view>
+    <view class="goods-details-cards">
+      <swiper class='goods-details-cards-swiper' indicator-dots="{{goodsForm.indicatorDots}}" vertical="{{goodsForm.vertical}}" autoplay="{{goodsForm.autoplay}}" interval="{{goodsForm.interval}}" circular="{{goodsForm.circular}}" duration="{{goodsForm.duration}}"
+        previous-margin="60rpx" next-margin="60rpx">
+        <block wx:for-items="{{goodsForm.goodsList}}">
+          <swiper-item>
+            <view class="cards-swiper-item">
+              <image class="cards-item-image" src="{{item.imgUrl}}" />
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <view class="goods-details-number">
+      <text class="goods-pirce">￥{{goodsForm.price}}</text>
+      <text class="goods-sold">已售{{goodsForm.sold}}</text>
+    </view>
+    <!-- <view class="goods-details-icon">
+      <block wx:for-items="{{goodsForm.iconList}}">
+        <view class="icon-item">
+          <van-icon class="icon-item-img" name="{{item.name}}" size="40rpx" color="#666666" />
+          <view class="icon-item-title">{{item.title}}</view>
+        </view>
+      </block>
+    </view> -->
+    <view class="goods-details-btn">
+      <i-button data-id='btn-item-1' i-class='btn-item' inline="true" type="warning" shape="circle" size="small" bind:click="showPopup">加入购物车</i-button>
+      <i-button data-id='btn-item-2' i-class='btn-item' inline="true" type="primary" shape="circle" size="small" bind:click="showPopup">立即兑换</i-button>
+    </view>
+    <!--吸顶容器 -->
+    <view class="i-sticky-demo">
+      <i-sticky scrollTop="{{scrollTop}}">
+        <i-sticky-item i-class="i-sticky-demo-title">
+          <view class="i-sticky-title" slot="title">商品详情</view>
+          <view class="" slot="content">
+            <block wx:for-items="{{goodsForm.detailsList}}">
+              <view wx:if="{{item.detailStatus == 0}}">
+                <image class="sticky-item-img" src="{{item.imgUrl}}" />
+              </view>
+              <view class="sticky-item-text" wx:if="{{item.detailStatus == 1}}">{{item.textMes}}
+              </view>
+            </block>
+          </view>
+        </i-sticky-item>
+      </i-sticky>
+    </view>
+  </view>
+  <view class="goods-details-popup">
+    <van-popup show="{{ popupForm.visible }}" position="{{ popupForm.position }}" overlay="{{ popupForm.overlay }}" overlay-style="background-color: rgba(0,0,0,0.5)" bind:close="closePopup">
+      <!--卡片  -->
+      <view class="weui-media-box weui-media-box_appmsg">
+        <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+          <image class="weui-media-box__thumb" src="{{popupForm.imgUrl}}" />
+        </view>
+        <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+          <view class="weui-media-box__title">{{ popupForm.title }}</view>
+          <view class="weui-media-box__desc">￥{{ popupForm.price }}</view>
+        </view>
+      </view>
+      <!--单元格  -->
+      <van-cell-group>
+        <van-cell title="{{ popupForm.status == 1 ? '添加数量' : '兑换数量' }}" border="true">
+          <i-panel slot="right-icon" title="基础用法">
+            <i-input-number value="{{popupForm.status == 1 ? popupForm.numCart : popupForm.numConvert}}" min="0" max="100" bindchange="numChange" data-status='{{popupForm.status}}'/>
+          </i-panel>
+        </van-cell>
+      </van-cell-group>
+      <!--按钮  -->
+      <i-button data-status='{{popupForm.status}}' bind:click="addPopup" shape="circle" type="warning">
+        {{ popupForm.status == 1 ? '加入购物车' : '立即兑换' }}
+      </i-button>
+    </van-popup>
+  </view>
+
+</view>

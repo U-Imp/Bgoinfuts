@@ -1,0 +1,20 @@
+<view class="container">
+  <view class="left_tabbar">
+    <scroll-view scroll-y="true" style="height:{{deviceHeight}}px;" class="left_tabbar_list">
+      <view bindtap="changeTab" data-index="{{index}}" data-name="{{item.tabName}}" class="left_tabbar_item {{activeIndex==index?'active':''}}" wx:for="{{tabs}}">{{item.tabName}}</view>
+    </scroll-view>
+  </view>
+  <view class="right_content">
+    <scroll-view bindscrolltolower="getMore" scroll-y="true" style="height:{{deviceHeight}}px;" class="tab_panel">
+      <view>
+        <view class='unit' wx:for="{{contentList}}">
+          <view class='unit-title'>Now{{content}}</view>
+          <rich-text class='unit-content'>{{index+1}}</rich-text>
+          <view class='unit-ems'>
+            <em></em><em></em><em></em>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>

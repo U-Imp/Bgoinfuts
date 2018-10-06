@@ -1,0 +1,37 @@
+<view class='order-confirmation'>
+  <view class='order-confirmation-wrap'>
+    <view class="order-confirmation-header">
+      <view class="header-text">
+        <view class="header-text-title">订单确认</view>
+      </view>
+      <view class="header-logo">
+        <image class="header-logo-img" src="http://img.ui.cn/data/file/3/6/4/1053463.gif?imageMogr2/auto-orient/strip" />
+      </view>
+    </view>
+    <!--兑换地址  -->
+    <view class="weui-media-box weui-media-box_text">
+      <view class="weui-media-box__title weui-media-box__title_in-text">兑换地址:</view>
+      <view class="weui-media-box__desc">大城市辽宁省铁岭市莲花乡池水沟子李家村1001-1-1</view>
+    </view>
+    <!--商品信息  -->
+    <view class="order-confirmation-card">
+      <van-card thumb="{{orderForm.imgUrl}}">
+        <view slot="title">{{orderForm.title}}</view>
+        <view slot="desc">{{orderForm.price}}</view>
+        <view slot="footer">×{{orderForm.num}}</view>
+      </van-card>
+    </view>
+    <!--订单备注  -->
+    <van-cell-group>
+      <van-field value="{{ value }}" placeholder="订单备注(选填)" border="{{ false }}" bind:change="onChange" />
+    </van-cell-group>
+    <!--合计  -->
+    <van-cell-group>
+      <van-cell title="合计" value="{{'￥'+orderForm.total}}" />
+    </van-cell-group>
+    <!--提交按钮  -->
+    <view class="order-confirmation-submit">
+      <i-button bind:click="submit" type="success" long="true">提交订单</i-button>
+    </view>
+  </view>
+</view>

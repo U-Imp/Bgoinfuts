@@ -1,0 +1,128 @@
+Page {
+  /* background: url('http://img.ui.cn/data/file/8/0/0/1569008.gif') no-repeat 0 0;
+  background-size: 100% 100%; */
+}
+Page::after{
+  content: "";  
+  background: url(http://img.ui.cn/data/file/3/6/1/1429163.gif?imageMogr2/auto-orient/strip) no-repeat center; 
+  background-size: 100% 50%; 
+  opacity: 0.5;  
+  top: 0;  
+  left: 0;  
+  bottom: 0;  
+  right: 0;  
+  position: absolute;  
+  z-index: -1; 
+}
+.container {
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+}
+
+.left_tabbar {
+  width: 25%;
+}
+
+.right_content {
+  width: 75%;
+}
+
+.left_tabbar_item {
+  color: #7c7c7c;
+  font-size: 26rpx;
+  width: 100%;
+  padding: 20rpx 0;
+  text-align: center;
+  border-bottom: 3rpx solid transparent;
+  position: relative;
+}
+
+.left_tabbar_list {
+  
+  /* background: #eee; */
+}
+
+.left_tabbar .active {
+  /* background: #fff; */
+  /* border-top: 10rpx solid blue; */
+  color: #000;
+  transition: all 0.5s;
+  animation: show 0.5s;
+}
+.left_tabbar .active::after{
+  content: "";  
+  width: 60rpx;
+  color:  red;
+  border-top: 10rpx solid red;
+  top: 0;  
+  left: 0;  
+  bottom: 0;  
+  right: 0;  
+  position: absolute;  
+}
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+@-webkit-keyframes show {
+  0% {
+    opacity: 0;
+    transform: rotateY(180deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+    transform: rotateY(180deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: rotateY(360deg);
+  }
+}
+
+
+
+.tab_panel {
+  /* margin: 0 20rpx; */
+  font-size: 26rpx;
+}
+
+.tab_panel>view {
+  padding: 20rpx;
+}
+.unit{
+  width: 260rpx;
+  height: 165rpx;
+  background: rgba(255, 255, 255,0.8);
+  margin: 20rpx 20rpx 0rpx 0rpx;
+  float: right;
+}
+.unit-title{
+
+}
+.unit-content{
+  text-align: center;
+  font-size: 50rpx;
+}
+.unit-ems{
+  line-height:0;
+  text-align: center;
+}
+.unit-ems em{
+  width:30rpx;
+  height:5rpx;
+  display:inline-block;
+  background:red;
+  margin: 4rpx;
+}

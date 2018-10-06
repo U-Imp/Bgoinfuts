@@ -1,0 +1,18 @@
+<view class='goods-list'>
+  <view class='goods-list-wrap'>
+    <block wx:for="{{cardsList}}" wx:key="id">
+      <view class="cards">
+        <view class="cards-block">
+          <view class="cards-block-bg">
+            <image class="cards-block-bg-image" src="{{item.imgUrl}}" />
+          </view>
+          <view class="cards-block-title">{{item.title}}</view>
+        </view>
+      </view>
+    </block>
+    <!-- <i-row>
+      <i-col span="11" i-class="col-class col-12">col-12</i-col>
+      <i-col span="11" i-class="col-class col-12" offset="2">col-12</i-col>
+    </i-row> -->
+  </view>
+</view>

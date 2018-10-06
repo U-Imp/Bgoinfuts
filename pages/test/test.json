@@ -1,0 +1,14 @@
+{
+  "navigationBarTitleText": "流连代购助手",
+  
+  "usingComponents": {
+    "i-grid": "../../iview/grid/index",
+    "i-grid-item": "../../iview/grid-item/index",
+    "i-grid-icon": "../../iview/grid-icon/index",
+    "i-grid-label": "../../iview/grid-label/index",
+    "i-icon": "../../iview/icon/index",
+
+    "van-button": "../../vant/button/index",
+    "van-icon": "../../vant/icon/index"
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "订单确认",
+  "usingComponents": {
+    "i-button": "../../iview/button/index",
+    "van-cell": "../../vant/cell/index",
+    "van-cell-group": "../../vant/cell-group/index",
+    "van-card": "../../vant/card/index",
+    "van-field": "../../vant/field/index"
+  }
+}
