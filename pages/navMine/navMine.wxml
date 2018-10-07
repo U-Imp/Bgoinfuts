@@ -16,25 +16,25 @@
   <view class='content'> 
     <view class='content_all'>
       <view class='' bindtap='consumptionfunction'  >
-        <navigator class='looks-view' url="/pages/CRrecord/CRrecord?num=0">
+        <navigator class='looks-view' url="/pages/orderList/orderList?status=0">
         <text class='content_num'>{{1}}</text>
         <text class='content_method'>待付款</text>
         </navigator>
       </view>
       <view class='borL'>
-      <navigator class='looks-view' url="/pages/CRrecord/CRrecord?num=1">
+      <navigator class='looks-view' url="/pages/orderList/orderList?status=1">
         <text class='content_num'>{{0}}</text>
         <text class='content_method'>已付款</text>
       </navigator>
       </view>
       <view class='borL borR'>
-      <navigator class='looks-view' url="/pages/CRrecord/CRrecord?num=2">
+      <navigator class='looks-view' url="/pages/orderList/orderList?status=2">
         <text class='content_num'>{{0}}</text>
         <text class='content_method'>待取货</text>
       </navigator>
       </view>
       <view class=''>
-      <navigator class='looks-view' url="/pages/CRrecord/CRrecord?num=2">
+      <navigator class='looks-view' url="/pages/orderList/orderList?status=3">
         <text class='content_num'>{{0}}</text>
         <text class='content_method'>已完成</text>
       </navigator>
@@ -46,12 +46,12 @@
   
 
     <view class='main'>
-      <view class='main_nav' bindtap='card'>
+      <view class='main_nav' bindtap='membershipCard'>
         <text class='main_title'>我的会员卡</text>
         <text class='main_theme'></text>
         <text class='main_logo weui-cell__ft weui-cell__ft_in-access'></text>
       </view>
-      <view class='main_nav' bindtap='card'>
+      <view class='main_nav' bindtap='giftCredits'>
         <text class='main_title'>积分兑换❤值</text>
         <text class='main_theme'></text>
         <text class='main_logo weui-cell__ft weui-cell__ft_in-access'></text>
@@ -60,7 +60,7 @@
         <!-- style='opacity:0' -->
     <view class='main_nav' >
       <view class='serviceWrap' >
-        <contact-button wx:for="{{13}}" class='service' style='opacity:0' size="30" session-from="weapp" type="default-dark" ></contact-button>
+        <contact-button wx:for="{{13}}" wx:key="index" class='service' style='opacity:0' size="30" session-from="weapp" type="default-dark" ></contact-button>
       </view>
       
       

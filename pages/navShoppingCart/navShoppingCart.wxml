@@ -12,7 +12,7 @@
 
     
 
-    <block wx:for-items="{{cartForm.cartList}}">
+    <block wx:for-items="{{cartForm.cartList}}" wx:key="index">
       <view class='shopping-cart-card'>
         <van-card thumb="{{item.goodsImg}}">
           <view slot="title">商品名称: {{item.goodsName}}</view>

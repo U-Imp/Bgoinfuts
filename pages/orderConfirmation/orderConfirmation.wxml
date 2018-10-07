@@ -14,7 +14,7 @@
       <view class="weui-media-box__desc">大城市辽宁省铁岭市莲花乡池水沟子李家村1001-1-1</view>
     </view>
     <!--商品信息  -->
-    <block wx:for-items="{{orderForm.orderList}}">
+    <block wx:for-items="{{orderForm.orderList}}" wx:key="index">
       <view class="order-confirmation-card">
         <van-card thumb="{{item.goodsImg}}">
           <view slot="title">商品名称: {{item.goodsName}}</view>

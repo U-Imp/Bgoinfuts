@@ -9,16 +9,7 @@ Page({
   
   onLoad: function () {
   },
-  iphone: function(){
-    wx.navigateTo({
-      url: '../modifyPhone/modifyPhone',
-    })
-  },
-  card: function () {
-    wx.navigateTo({
-      url: '../modifyBankcard/modifyBankcard',
-    })
-  },
+
 
   /**
    * 生命周期函数--监听页面显示
@@ -50,6 +41,20 @@ Page({
   //     }
   //   )
   },
+  
+  // 我的会员卡
+  membershipCard: function (e) {
+    // wx.navigateTo({
+    //   url: '../modifyPhone/modifyPhone',
+    // })
+  },
+  // 积分兑换
+  giftCredits: function (e) {
+    // wx.navigateTo({
+    //   url: '../modifyBankcard/modifyBankcard',
+    // })
+  },
+
 });
 
 

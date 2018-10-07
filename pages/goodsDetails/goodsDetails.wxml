@@ -12,7 +12,7 @@
     <view class="goods-details-cards">
       <swiper class='goods-details-cards-swiper' indicator-dots="{{goodsForm.indicatorDots}}" vertical="{{goodsForm.vertical}}" autoplay="{{goodsForm.autoplay}}" interval="{{goodsForm.interval}}" circular="{{goodsForm.circular}}" duration="{{goodsForm.duration}}"
         previous-margin="60rpx" next-margin="60rpx">
-        <block wx:for-items="{{goodsForm.goodsList}}">
+        <block wx:for-items="{{goodsForm.goodsList}}" wx:key="index">
           <swiper-item>
             <view class="cards-swiper-item">
               <image class="cards-item-image" src="{{item.imgUrl}}" />
@@ -43,7 +43,7 @@
         <i-sticky-item i-class="i-sticky-demo-title">
           <view class="i-sticky-title" slot="title">商品详情</view>
           <view class="" slot="content">
-            <block wx:for-items="{{goodsForm.detailsList}}">
+            <block wx:for-items="{{goodsForm.detailsList}}" wx:key="index">
               <view wx:if="{{item.detailStatus == 0}}">
                 <image class="sticky-item-img" src="{{item.imgUrl}}" />
               </view>

@@ -12,7 +12,7 @@
     <view class="index-cards">
       <swiper class='index-cards-swiper' indicator-dots="{{cardsForm.indicatorDots}}" vertical="{{cardsForm.vertical}}" autoplay="{{cardsForm.autoplay}}" interval="{{cardsForm.interval}}" circular="{{cardsForm.circular}}" duration="{{cardsForm.duration}}" previous-margin="100rpx"
         next-margin="100rpx">
-        <block wx:for-items="{{cardsForm.cardList}}">
+        <block wx:for-items="{{cardsForm.cardList}}" wx:key="index">
           <swiper-item bindtap='gotoGoodsDetails'>
             <view class="cards-swiper-item">
               <view class="cards-item-bg">

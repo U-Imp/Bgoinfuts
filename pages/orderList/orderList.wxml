@@ -11,12 +11,12 @@
 
     <view class="order-details-tabs">
       <i-tabs current="{{ tabForm.tabCurrent }}" color="#f759ab" bindchange="tabHandel">
-        <block wx:for-items="{{tabForm.tabList}}">
+        <block wx:for-items="{{tabForm.tabList}}" wx:key="index">
           <i-tab key="{{item.value}}" title="{{item.name}}"></i-tab>
         </block>
       </i-tabs>
 
-      <block wx:for-items="{{ tabForm.orderList }}">
+      <block wx:for-items="{{ tabForm.orderList }}" wx:key="index">
         <view class="order-details-tabs-panel" bind:click="examineIt">
           <van-panel title="订单编号" status="{{item.serialNumber}}">
             <i-card title="{{item.title}}" extra="额外内容" full="true" thumb="{{item.imgUrl}}">
