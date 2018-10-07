@@ -82,7 +82,7 @@ page {
   height: 100rpx;
   line-height: 100rpx;
   text-align: center;
-  margin-top: 20rpx;
+  margin: 20rpx 0;
 }
 
 .goods-pirce {
@@ -113,10 +113,16 @@ page {
 .goods-details-btn {
   width: 100%;
   text-align: center;
+  position: fixed;
+  bottom: 30rpx;
 }
-
+.goods-details-btn button{
+  height: 70rpx;
+  line-height: 70rpx;
+}
 .btn-item {
-  width: 40%;
+  width: 35%;
+  
 }
 
 .goods-details-sticky-title {

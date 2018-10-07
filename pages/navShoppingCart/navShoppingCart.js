@@ -1,50 +1,80 @@
 Page({
   data: {
     cartForm: {
-      title: '',
-      brief: '暂时不知道写点啥',
-      price: '',
-      imgUrl: '',
-      num: 0,
-      total: 0
+      cartTotal: 0,
+      cartNums: 2,
+      cartList: [
+        {
+          goodsId: 'ww123456',
+          goodsName: '丑娃娃',
+          goodsImg: 'http://img.ui.cn/data/file/7/7/6/992677.png',
+          goodsPrice: 30,
+          goodsNum: 2,
+          goodsTotal: 60,
+          change: false
+        },
+        {
+          goodsId: 'ww567890',
+          goodsName: '皮卡丘',
+          goodsImg: 'http://img.ui.cn/data/file/5/7/3/725375.jpg',
+          goodsPrice: 50,
+          goodsNum: 5,
+          goodsTotal: 250,
+          change: false
+        }
+      ]
     }
   },
-
   onLoad: function (options) {
     // 生命周期函数--监听页面加载
     var that = this;
-    that.setData({
-      'cartForm.title': options.title,
-      'cartForm.price': options.price,
-      'cartForm.imgUrl': options.imgUrl,
-      'cartForm.num': Number(options.num),
-      'cartForm.total': Number(options.num) * Number(options.price),
-    })
-    console.log(this.data.cartForm);
+    this.computed();
   },
-  addNum(e){
-    console.log(e)
+  // 计算总积分
+  computed() {
+    var cartTotal = 0;
+    for (var i = 0; i < this.data.cartForm.cartList.length; i++) {
+      cartTotal += this.data.cartForm.cartList[i].goodsTotal
+    }
     this.setData({
-      'cartForm.num': e.detail.value,
+      'cartForm.cartTotal': cartTotal
+    })
+  },
+  // 编辑单条
+  handelIt(e) {
+    var index = e.currentTarget.dataset.index;
+    var item = 'cartForm.cartList[' + index + '].change';
+    this.setData({
+      [item]: true
+    })
+  },
+  // 完成编辑单条
+  finishIt(e) {
+    var index = e.currentTarget.dataset.index;
+    var item = 'cartForm.cartList[' + index + '].change';
+    var totalAll = 0;
+    this.setData({
+      [item]: false
+    });
+    this.computed();
+  },
+  // 修改数量
+  addNum(e) {
+    var index = e.currentTarget.dataset.index;
+    var itemNum = 'cartForm.cartList[' + index + '].goodsNum';
+    var itemTotal = 'cartForm.cartList[' + index + '].goodsTotal';
+    this.setData({
+      [itemNum]: e.detail.value,
     });
     this.setData({
-      'cartForm.total': Number(this.data.cartForm.num) * Number(this.data.cartForm.price)
+      [itemTotal]: Number(this.data.cartForm.cartList[index].goodsNum) * Number(this.data.cartForm.cartList[index].goodsPrice)
     })
   },
-  toSettlement(){
-    var options = JSON.stringify({
-      title: this.data.cartForm.title,
-      price: this.data.cartForm.price,
-      num: this.data.cartForm.num,
-      imgUrl: this.data.cartForm.imgUrl,
-      total: this.data.cartForm.total
-    })  
-  //   wx.navigateTo({
-  //     url: '../orderConfirmation/orderConfirmation?imgUrl=' + this.data.cartForm.imgUrl + '&price=' + this.data.cartForm.price + '&title=' + this.data.cartForm.title + '&num=' + this.data.cartForm.num
-  //   })
-  // }
+  // 去结算
+  toSettlement() {
+    var options = JSON.stringify(this.data.cartForm)
     wx.navigateTo({
-      url: '../orderConfirmation/orderConfirmation?options='+options
+      url: '../orderConfirmation/orderConfirmation?options=' + options
     })
   }
 })

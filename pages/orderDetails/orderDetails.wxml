@@ -1,43 +1,37 @@
-<view class='order-details'>
-  <view class='order-details-wrap'>
-    <view class="order-details-header">
+<view class='order-list'>
+  <view class='order-list-wrap'>
+    <view class="order-list-header">
       <view class="header-text">
-        <view class="header-text-title">订单列表</view>
+        <view class="header-text-title">{{orderForm.title}}</view>
       </view>
       <view class="header-logo">
         <image class="header-logo-img" src="http://img.ui.cn/data/file/3/6/4/1053463.gif?imageMogr2/auto-orient/strip" />
       </view>
     </view>
-
-    <view class="order-details-tabs">
-      <i-tabs current="{{ tabForm.tabCurrent }}" color="#f759ab" bindchange="tabHandel">
-        <block wx:for-items="{{tabForm.tabList}}">
-          <i-tab key="{{item.value}}" title="{{item.name}}"></i-tab>
-        </block>
-      </i-tabs>
-
-      <block wx:for-items="{{ tabForm.orderList }}">
-        <view class="order-details-tabs-panel" bind:click="examineIt">
-          <van-panel title="订单编号" status="{{item.serialNumber}}">
-            <i-card title="{{item.title}}" extra="额外内容" full="true" thumb="{{item.imgUrl}}">
-              <view slot="content">应使用积分: {{item.integral}}</view>
-              <view slot="footer" class="tabs-panel-btn" wx:if="{{item.status==0}}">
-                <van-button size="small" class="tabs-panel-btn-item">取消订单</van-button>
-                <van-button size="small" type="primary" plain>立即兑换</van-button>
-              </view>
-              <view slot="footer" class="tabs-panel-btn" wx:if="{{item.status==1}}">
-                <van-button size="small" type="primary" plain>立即取货</van-button>
-              </view>
-              <view slot="footer" class="tabs-panel-btn" wx:if="{{item.status==2}}">
-                <van-button size="small" type="primary" plain>评价</van-button>
-              </view>
-              <view slot="footer" class="tabs-panel-btn" wx:if="{{item.status==3}}">
-                <van-button size="small" type="primary" disabled plain>已完成</van-button>
-              </view>
-            </i-card>
-          </van-panel>
-        </view>
-      </block>
+    <view class="order-list-ceil">
+      <view class="weui-media-box__title weui-media-box__title_in-text">订单编号</view>
+      <view class="weui-media-box__desc">131341235647fhm</view>
     </view>
+    <view class="order-list-ceil">
+      <view class="weui-media-box__title weui-media-box__title_in-text">兑换地址</view>
+      <view class="weui-media-box__desc">大城市辽宁省铁岭市莲花乡池水沟子李家村1001-1-1</view>
+    </view>
+
+    <van-card thumb="{{orderForm.goodsImg}}">
+      <view slot="title">{{orderForm.goodsName}}</view>
+      <view slot="desc">积分: {{orderForm.goodsTotal}}</view>
+      <view slot="footer">
+        数量: {{orderForm.goodsNum}}
+      </view>
+    </van-card>
+
+    <i-cell-group>
+      <i-cell title="商品名称" value="{{orderForm.goodsName}}"></i-cell>
+      <i-cell title="兑换数量" value="{{orderForm.goodsNum}}"></i-cell>
+      <i-cell title="单品积分" value="{{orderForm.goodsPrice}}"></i-cell>
+      <i-cell title="共用积分" value="{{orderForm.goodsTotal}}"></i-cell>
+    </i-cell-group>
+
+
   </view>
 </view>

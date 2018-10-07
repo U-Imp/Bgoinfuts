@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "订单列表",
+  "usingComponents": {
+    "i-button": "../../iview/button/index",
+    "i-tabs": "../../iview/tabs/index",
+    "i-tab": "../../iview/tab/index",
+    "i-card": "../../iview/card/index",
+
+    "van-panel": "../../vant/panel/index",
+    "van-button": "../../vant/button/index"
+  }
+}

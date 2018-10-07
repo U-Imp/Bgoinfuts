@@ -48,7 +48,7 @@ page {
 }
 
 .order-confirmation-card {
-  margin-top: 40rpx;
+  margin-top: 20rpx;
 }
 
 .order-confirmation-submit{

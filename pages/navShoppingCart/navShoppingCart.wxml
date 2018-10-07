@@ -3,27 +3,36 @@
     <view class="shopping-cart-header">
       <view class="header-text">
         <view class="header-text-title">购物车</view>
-        <view class="header-text-desc">{{cartForm.brief}}</view>
+        <view class="header-text-desc">共{{cartForm.cartNums}}件宝贝</view>
       </view>
       <view class="header-logo">
         <image class="header-logo-img" src="http://img.ui.cn/data/file/3/6/4/1053463.gif?imageMogr2/auto-orient/strip" />
       </view>
     </view>
 
-    <van-card thumb="{{cartForm.imgUrl}}">
-      <view slot="title">{{cartForm.title}}</view>
-      <view slot="desc">{{cartForm.price}}</view>
-      <view slot="footer">
-        <i-panel slot="right-icon">
-          <i-input-number value="{{cartForm.num}}" min="0" max="100" bindchange="addNum" />
-        </i-panel>
-      </view>
-    </van-card>
+    
 
-    <view class="shopping-cart-total">合计{{cartForm.total}}元</view>
+    <block wx:for-items="{{cartForm.cartList}}">
+      <view class='shopping-cart-card'>
+        <van-card thumb="{{item.goodsImg}}">
+          <view slot="title">商品名称: {{item.goodsName}}</view>
+          <view slot="desc">单品积分: {{item.goodsPrice}}</view>
+          <view slot="tags">
+            <view wx:if="{{item.change == false}}">数量: {{item.goodsNum}}</view>
+            <i-panel slot="right-icon" wx:if="{{item.change == true}}">
+              <i-input-number data-index="{{index}}" value="{{item.goodsNum}}" min="0" max="100" bindchange="addNum" />
+            </i-panel>
+          </view>
+          <view slot="footer">
+            <button class="weui-btn mini-btn" type="default" size="mini" wx:if="{{item.change == false}}" data-name="{{item.goodsId}}" data-index="{{index}}" bindtap="handelIt">编辑</button>
+            <button class="weui-btn mini-btn" type="primary" size="mini" wx:if="{{item.change == true}}" data-name="{{item.goodsId}}" data-index="{{index}}" bindtap="finishIt">完成</button>
+          </view>
+        </van-card>
+      </view>
+    </block>
+    <view class="shopping-cart-total">合计{{cartForm.cartTotal}}积分</view>
     <view class="shopping-cart-button">
-      <i-button bind:click="toSettlement" shape="circle" type="success">
-        去结算
+      <i-button bind:click="toSettlement" shape="circle" type="success">去结算
       </i-button>
     </view>
   </view>

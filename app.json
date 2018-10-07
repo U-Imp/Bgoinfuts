@@ -1,25 +1,28 @@
 {
   "pages":[
+    "pages/navMine/navMine",
     "pages/index/index",
     "pages/navClassify/navClassify",
     "pages/navShoppingCart/navShoppingCart",
+    
     "pages/goodsList/goodsList",
     "pages/goodsDetails/goodsDetails",
     "pages/orderConfirmation/orderConfirmation",
+    "pages/orderList/orderList",
     "pages/orderDetails/orderDetails",
       "pages/test/test"
 
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#38aef8",
+    "navigationBarBackgroundColor": "#f54281",
     "navigationBarTitleText": "嗨~",
     "navigationBarTextStyle":"#fff"
   },
 
   "tabBar": {
     "color": "#a9b7b7",
-    "selectedColor": "#548fd6",
+    "selectedColor": "#f54281",
     "borderStyle": "#FAFAFC",
     "list": [
       {
@@ -39,7 +42,7 @@
       },{
         "selectedIconPath": "static/img/mine_selected.png",
         "iconPath": "static/img/mine_normal.png",
-        "pagePath": "pages/navShoppingCart/navShoppingCart",
+        "pagePath": "pages/navMine/navMine",
         "text": "我的"
       }
     ]

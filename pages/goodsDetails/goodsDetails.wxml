@@ -76,7 +76,7 @@
         </van-cell>
       </van-cell-group>
       <!--按钮  -->
-      <i-button data-status='{{popupForm.status}}' bind:click="addPopup" shape="circle" type="warning">
+      <i-button data-status='{{popupForm.status}}' bind:click="addPopup" shape="circle" type="{{ popupForm.status == 1 ? 'warning' : 'primary' }}">
         {{ popupForm.status == 1 ? '加入购物车' : '立即兑换' }}
       </i-button>
     </van-popup>

@@ -46,6 +46,12 @@ page {
   height: 100%;
 }
 
+.shopping-cart-card{
+  margin-top: 20rpx;
+}
+
+
+
 .shopping-cart-total{
   text-align: center;
   margin-top: 120rpx;

@@ -3,6 +3,7 @@
   "usingComponents": {
     "i-button": "../../iview/button/index",
     "i-input-number": "../../iview/input-number/index",
+    "i-swipeout": "../../iview/swipeout/index",
     "van-card": "../../vant/card/index"
   }
 }

@@ -132,9 +132,15 @@ Page({
     this.closePopup();
     var options;
     if (e.currentTarget.dataset.status == 1) {
-      wx.navigateTo({
-        url: '../navShoppingCart/navShoppingCart?imgUrl=' + this.data.popupForm.imgUrl + '&price=' + this.data.popupForm.price + '&title=' + this.data.popupForm.title + '&num=' + this.data.popupForm.numCart
+      wx.showToast({
+        title:'已成功加入购物车'
       })
+      // wx.navigateTo({
+      //   url: '../navShoppingCart/navShoppingCart?imgUrl=' + this.data.popupForm.imgUrl + '&price=' + this.data.popupForm.price + '&title=' + this.data.popupForm.title + '&num=' + this.data.popupForm.numCart
+      // })
+      // wx.switchTab({
+      //   url: '../navShoppingCart/navShoppingCart'
+      // })
     }
     else {
       var obj = {

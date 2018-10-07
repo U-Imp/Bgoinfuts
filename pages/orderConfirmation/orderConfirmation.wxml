@@ -14,20 +14,23 @@
       <view class="weui-media-box__desc">大城市辽宁省铁岭市莲花乡池水沟子李家村1001-1-1</view>
     </view>
     <!--商品信息  -->
-    <view class="order-confirmation-card">
-      <van-card thumb="{{orderForm.imgUrl}}">
-        <view slot="title">{{orderForm.title}}</view>
-        <view slot="desc">{{orderForm.price}}</view>
-        <view slot="footer">×{{orderForm.num}}</view>
-      </van-card>
-    </view>
+    <block wx:for-items="{{orderForm.orderList}}">
+      <view class="order-confirmation-card">
+        <van-card thumb="{{item.goodsImg}}">
+          <view slot="title">商品名称: {{item.goodsName}}</view>
+          <view slot="desc">单品积分: {{item.goodsPrice}}</view>
+          <view slot="footer">×{{item.goodsNum}}</view>
+        </van-card>
+      </view>
+    </block>
+
     <!--订单备注  -->
     <van-cell-group>
-      <van-field value="{{ value }}" placeholder="订单备注(选填)" border="{{ false }}" bind:change="onChange" />
+      <van-field value="{{ orderForm.orderRemark }}" placeholder="订单备注(选填)" border="{{ false }}" bind:change="onChangeRemark" />
     </van-cell-group>
     <!--合计  -->
     <van-cell-group>
-      <van-cell title="合计" value="{{'￥'+orderForm.total}}" />
+      <van-cell title="合计" value="{{'￥'+orderForm.orderTotal}}" />
     </van-cell-group>
     <!--提交按钮  -->
     <view class="order-confirmation-submit">

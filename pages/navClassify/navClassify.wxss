@@ -4,8 +4,10 @@ Page {
 }
 Page::after{
   content: "";  
-  background: url(http://img.ui.cn/data/file/3/6/1/1429163.gif?imageMogr2/auto-orient/strip) no-repeat center; 
-  background-size: 100% 50%; 
+  background: url('http://img.ui.cn/data/file/8/6/4/1053468.gif?imageMogr2/auto-orient/strip') no-repeat center;
+  background-size: 100% 100%; 
+  /* background: url(http://img.ui.cn/data/file/3/6/1/1429163.gif?imageMogr2/auto-orient/strip) no-repeat center;  */
+  /* background-size: 100% 50%;  */
   opacity: 0.5;  
   top: 0;  
   left: 0;  
@@ -21,6 +23,7 @@ Page::after{
 }
 
 .left_tabbar {
+  background: #fdf1f6;
   width: 25%;
 }
 
@@ -29,7 +32,7 @@ Page::after{
 }
 
 .left_tabbar_item {
-  color: #7c7c7c;
+  color: #f34393;
   font-size: 26rpx;
   width: 100%;
   padding: 20rpx 0;
@@ -44,6 +47,7 @@ Page::after{
 }
 
 .left_tabbar .active {
+  font-size: 32rpx;
   /* background: #fff; */
   /* border-top: 10rpx solid blue; */
   color: #000;
@@ -54,8 +58,8 @@ Page::after{
   content: "";  
   width: 60rpx;
   color:  red;
-  border-top: 10rpx solid red;
-  top: 0;  
+  border-top: 10rpx solid #f34393;
+  top: 20rpx;  
   left: 0;  
   bottom: 0;  
   right: 0;  
@@ -104,12 +108,12 @@ Page::after{
 .unit{
   width: 260rpx;
   height: 165rpx;
-  background: rgba(255, 255, 255,0.8);
+  background: rgba(255, 255, 255,0.85);
   margin: 20rpx 20rpx 0rpx 0rpx;
   float: right;
 }
 .unit-title{
-
+color: #777;
 }
 .unit-content{
   text-align: center;
@@ -123,6 +127,6 @@ Page::after{
   width:30rpx;
   height:5rpx;
   display:inline-block;
-  background:red;
+  background:#f4a2d0;
   margin: 4rpx;
 }

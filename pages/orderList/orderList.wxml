@@ -1,0 +1,43 @@
+<view class='order-details'>
+  <view class='order-details-wrap'>
+    <view class="order-details-header">
+      <view class="header-text">
+        <view class="header-text-title">订单列表</view>
+      </view>
+      <view class="header-logo">
+        <image class="header-logo-img" src="http://img.ui.cn/data/file/3/6/4/1053463.gif?imageMogr2/auto-orient/strip" />
+      </view>
+    </view>
+
+    <view class="order-details-tabs">
+      <i-tabs current="{{ tabForm.tabCurrent }}" color="#f759ab" bindchange="tabHandel">
+        <block wx:for-items="{{tabForm.tabList}}">
+          <i-tab key="{{item.value}}" title="{{item.name}}"></i-tab>
+        </block>
+      </i-tabs>
+
+      <block wx:for-items="{{ tabForm.orderList }}">
+        <view class="order-details-tabs-panel" bind:click="examineIt">
+          <van-panel title="订单编号" status="{{item.serialNumber}}">
+            <i-card title="{{item.title}}" extra="额外内容" full="true" thumb="{{item.imgUrl}}">
+              <view slot="content">应使用积分: {{item.integral}}</view>
+              <view slot="footer" class="tabs-panel-btn" wx:if="{{item.status==0}}">
+                <van-button size="small" class="tabs-panel-btn-item">取消订单</van-button>
+                <van-button size="small" type="primary" plain>立即兑换</van-button>
+              </view>
+              <view slot="footer" class="tabs-panel-btn" wx:if="{{item.status==1}}">
+                <van-button size="small" type="primary" plain>立即取货</van-button>
+              </view>
+              <view slot="footer" class="tabs-panel-btn" wx:if="{{item.status==2}}">
+                <van-button size="small" type="primary" plain>评价</van-button>
+              </view>
+              <view slot="footer" class="tabs-panel-btn" wx:if="{{item.status==3}}">
+                <van-button size="small" type="primary" disabled plain>已完成</van-button>
+              </view>
+            </i-card>
+          </van-panel>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

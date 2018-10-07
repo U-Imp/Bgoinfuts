@@ -1,0 +1,87 @@
+<!--pages/navMine/navMine.wxml-->
+<!-- <text>我的</text> -->
+<view class='index'>
+   <view class='header'>
+   <!-- 获取头像 名字 -->
+    <view class="header_background {{sex==2?'F':'M'}}"></view>
+    <view class="container">
+        <view class="userinfo">
+            <open-data  class="userinfo-avatar"  type="userAvatarUrl"></open-data>
+            <open-data type="userNickName" class="userinfo-nickname"></open-data>
+        </view>
+      </view>  
+      <!-- 获取头像 名字 -->
+    </view>
+  
+  <view class='content'> 
+    <view class='content_all'>
+      <view class='' bindtap='consumptionfunction'  >
+        <navigator class='looks-view' url="/pages/CRrecord/CRrecord?num=0">
+        <text class='content_num'>{{1}}</text>
+        <text class='content_method'>待付款</text>
+        </navigator>
+      </view>
+      <view class='borL'>
+      <navigator class='looks-view' url="/pages/CRrecord/CRrecord?num=1">
+        <text class='content_num'>{{0}}</text>
+        <text class='content_method'>已付款</text>
+      </navigator>
+      </view>
+      <view class='borL borR'>
+      <navigator class='looks-view' url="/pages/CRrecord/CRrecord?num=2">
+        <text class='content_num'>{{0}}</text>
+        <text class='content_method'>待取货</text>
+      </navigator>
+      </view>
+      <view class=''>
+      <navigator class='looks-view' url="/pages/CRrecord/CRrecord?num=2">
+        <text class='content_num'>{{0}}</text>
+        <text class='content_method'>已完成</text>
+      </navigator>
+      </view>
+    </view>
+    <view class='hot' type="default" type="default" bindtap="openConfirm" >剩余❤值</view>
+    <view class='cash'>❤ <text>{{getData.payMoney}}</text></view>
+  </view>
+  
+
+    <view class='main'>
+      <view class='main_nav' bindtap='card'>
+        <text class='main_title'>我的会员卡</text>
+        <text class='main_theme'></text>
+        <text class='main_logo weui-cell__ft weui-cell__ft_in-access'></text>
+      </view>
+      <view class='main_nav' bindtap='card'>
+        <text class='main_title'>积分兑换❤值</text>
+        <text class='main_theme'></text>
+        <text class='main_logo weui-cell__ft weui-cell__ft_in-access'></text>
+      </view>
+    </view>
+        <!-- style='opacity:0' -->
+    <view class='main_nav' >
+      <view class='serviceWrap' >
+        <contact-button wx:for="{{13}}" class='service' style='opacity:0' size="30" session-from="weapp" type="default-dark" ></contact-button>
+      </view>
+      
+      
+      <text class='main_title'>联系客服</text>
+      <text class='main_theme'></text>
+      <text class='main_logo weui-cell__ft weui-cell__ft_in-access'></text>
+    </view>
+    <view class='clear'></view>
+    
+    <!-- 弹窗图层 -->
+      <view class="drawer_screen" bindtap="setModalStatus" data-status="0" wx:if="{{showModalStatus}}"></view>
+      <view animation="{{animationData}}" class="drawer_attr_box" wx:if="{{showModalStatus}}">
+      <!-- <view class="close_icon" bindtap="setModalStatus" data-status="0">×</view> -->
+        <view class="drawer_attr_content">
+          <view class="drawer_attr_content_name">提现申请成功</view>
+          <view class="drawer_attr_content_text">提现金额： {{applyRecordData.applyAddr==''?'¥':'₩'}} {{applyRecordData.money}}</view>
+          <view class="drawer_attr_content_text">{{applyRecordData.applyAddr==''?'提现方式':'提现地址'}}：{{applyRecordData.applyAddr==''?'银行卡':applyRecordData.applyAddr}}</view>
+          <view class="drawer_attr_content_text">{{applyRecordData.applyAddr==''?'预计转账时间':'最早提现时间'}}：{{applyRecordData.payTime}}</view>
+          <view class="drawer_attr_content_ok" bindtap="setModalStatus" data-status="0">我知道了</view>
+        </view>
+      </view>
+    <!-- 弹窗图层 -->
+   
+</view>
