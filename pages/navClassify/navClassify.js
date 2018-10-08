@@ -79,6 +79,11 @@ Page({
   onShow: function () {
     // 页面显示
   },
+  gotoDoodsList:function(){
+    wx.navigateTo({
+      url: '../goodsList/goodsList',
+    })
+  },
   onHide: function () {
     // 页面隐藏
   },

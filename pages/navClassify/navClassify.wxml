@@ -7,7 +7,7 @@
   <view class="right_content">
     <scroll-view bindscrolltolower="getMore" scroll-y="true" style="height:{{deviceHeight}}px;" class="tab_panel">
       <view>
-        <view class='unit' wx:for="{{contentList}}">
+        <view class='unit' wx:for="{{contentList}}" bindtap='gotoDoodsList'>
           <view class='unit-title'>Now{{content}}</view>
           <rich-text class='unit-content'>{{index+1}}</rich-text>
           <view class='unit-ems'>
