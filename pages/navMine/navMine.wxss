@@ -113,7 +113,7 @@ page {
 }
 .cash {
   font-size: 80rpx;
-  color: #000000;
+  color: #f54281;
   text-align: center;
   margin-bottom: 48rpx;
 }

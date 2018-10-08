@@ -2,17 +2,17 @@
   <view class='index-wrap'>
     <view class="index-header">
       <view class="index-header-text">
-        <view class="index-header-text-title">swiper</view>
-        <view class="index-header-text-desc">swiper</view>
+        <view class="index-header-text-title">{{getData.h1}}</view>
+        <view class="index-header-text-desc">{{getData.desc}}</view>
       </view>
       <view class="index-header-logo">
         <image class="index-header-logo-img" src="http://img.ui.cn/data/file/3/6/4/1053463.gif?imageMogr2/auto-orient/strip" />
       </view>
     </view>
     <view class="index-cards">
-      <swiper class='index-cards-swiper' indicator-dots="{{cardsForm.indicatorDots}}" vertical="{{cardsForm.vertical}}" autoplay="{{cardsForm.autoplay}}" interval="{{cardsForm.interval}}" circular="{{cardsForm.circular}}" duration="{{cardsForm.duration}}" previous-margin="100rpx"
+      <swiper class='index-cards-swiper' indicator-dots="{{indicatorDots}}" vertical="{{vertical}}" autoplay="{{autoplay}}" interval="{{interval}}" circular="{{circular}}" duration="{{duration}}" previous-margin="100rpx"
         next-margin="100rpx">
-        <block wx:for-items="{{cardsForm.cardList}}" wx:key="index">
+        <block wx:for-items="{{getData.cardList}}" wx:key="index">
           <swiper-item bindtap='gotoGoodsDetails'>
             <view class="cards-swiper-item">
               <view class="cards-item-bg">
@@ -20,7 +20,7 @@
               </view>
               <view class="cards-item-mes">
                 <view class="cards-item-title">{{item.title}}</view>
-                <view class="cards-item-price">$ {{item.price}}</view>
+                <view class="cards-item-price">♥ {{item.price}}</view>
                 <van-icon class="cards-item-icon1" name="cart" size="50rpx" color="#80848f" catchtap='addtoCart'/>
                  <van-icon class="cards-item-icon2" name="like" size="50rpx" color="#f54281"/> 
                 <!-- <i-icon class="cards-item-icon2" type="activity" size="30" color="#80848f" /> -->

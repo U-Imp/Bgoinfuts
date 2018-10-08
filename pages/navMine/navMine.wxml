@@ -41,7 +41,7 @@
       </view>
     </view>
     <view class='hot' type="default" type="default" bindtap="openConfirm" >剩余❤值</view>
-    <view class='cash'>❤ <text>{{getData.payMoney}}</text></view>
+    <view class='cash'>❤<text>{{getData.payMoney}}</text></view>
   </view>
   
 

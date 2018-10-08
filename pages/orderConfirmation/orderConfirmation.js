@@ -27,13 +27,13 @@ Page({
     }
   },
   onLoad: function (options) {
-    var that = this;
-    var obj = JSON.parse(options.options);
-    console.log(obj)
-    this.setData({
-      'orderForm.orderTotal': obj.cartTotal,
-      'orderForm.orderList': obj.cartList,
-    })
+    // var that = this;
+    // var obj = JSON.parse(options.params);
+    // console.log(obj)
+    // this.setData({
+    //   'orderForm.orderTotal': obj.cartTotal,
+    //   'orderForm.orderList': obj.cartList,
+    // })
   },
   // 添加备注
   onChangeRemark({detail}){

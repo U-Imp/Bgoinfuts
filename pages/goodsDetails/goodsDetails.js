@@ -1,25 +1,10 @@
 Page({
   data: {
-    goodsForm: {
+    getData:{
       title: '老狐狸玩偶',
       brief: '贼丑',
       price: '20',
       sold: '100',
-      // 图标
-      iconList: [
-        {
-          name: 'like-o',
-          title: '收藏'
-        },
-        {
-          name: 'pending-evaluate',
-          title: '客服'
-        },
-        {
-          name: 'share',
-          title: '分享'
-        }
-      ],
       // 中部图片列表
       goodsList: [
         {
@@ -47,7 +32,7 @@ Page({
         },
         {
           detailStatus: 1,
-          textMes: '我们初始化一个小程序（本示例基础版本库为 1.7 ），删掉里面的示例代码，并新建一个 components 文件夹，用于存放我们以后开发中的所用组件'
+          textMes: ''
         },
         {
           detailStatus: 0,
@@ -55,7 +40,7 @@ Page({
         },
         {
           detailStatus: 1,
-          textMes: '今天我们的目的是实现一个 弹框 组件，因此，我们在 components 组件中新建一个 Dialog 文件夹来存放我们的弹窗组件'
+          textMes: ''
         },
         {
           detailStatus: 0,
@@ -71,9 +56,26 @@ Page({
         },
         {
           detailStatus: 1,
-          textMes: '在 Dialog 下右击新建 Component 并命名为 dialog 后，会生成对应的 json wxml wxss js 4个文件，也就是一个自定义组件的组成部分，此时你的项目结构应该如下图所示'
+          textMes: ''
         },
 
+      ],
+    },
+    goodsForm: { 
+      // 图标
+      iconList: [
+        {
+          name: 'like-o',
+          title: '收藏'
+        },
+        {
+          name: 'pending-evaluate',
+          title: '客服'
+        },
+        {
+          name: 'share',
+          title: '分享'
+        }
       ],
       // 是否显示面板指示点
       indicatorDots: false,
@@ -98,14 +100,13 @@ Page({
       imgUrl: '',
       numCart: 1,
       numConvert: 1,
-      toPage: ''
     }
   },
   // 显示蒙板层
   showPopup(e) {
-    var title = this.data.goodsForm.title;
-    var price = this.data.goodsForm.price;
-    var imgUrl = this.data.goodsForm.goodsList[0].imgUrl;
+    var title = this.data.getData.title;
+    var price = this.data.getData.price;
+    var imgUrl = this.data.getData.goodsList[0].imgUrl;
     this.setData({
       'popupForm.visible': true,
       'popupForm.title': title,
@@ -150,10 +151,12 @@ Page({
         num: this.data.popupForm.numConvert,
         total: Number(this.data.popupForm.price) * Number(this.data.popupForm.numConvert)
       }
-      options = JSON.stringify(obj)
       wx.navigateTo({
-        url: '../orderConfirmation/orderConfirmation?options=' + options
+        url: '../orderConfirmation/orderConfirmation'
       })
+      // wx.navigateTo({
+      //   url: '../orderConfirmation/orderConfirmation?params=' + JSON.stringify(obj)
+      // })
     }
   },
   numChange(e) {
@@ -173,11 +176,11 @@ Page({
   //   console.log(event.detail, 'click right menu callback data')
   // },
   //页面滚动执行方式
-  onPageScroll(event) {
-    var that = this;
-    this.setData({
-      scrollTop: event.scrollTop
-    })
-  }
+  // onPageScroll(event) {
+  //   var that = this;
+  //   this.setData({
+  //     scrollTop: event.scrollTop
+  //   })
+  // }
 
 })

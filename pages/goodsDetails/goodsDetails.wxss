@@ -136,7 +136,7 @@ page {
 }
 
 .sticky-item-text {
-  padding: 20rpx;
+  /* padding: 20rpx; */
 }
 
 /* .i-sticky-title{

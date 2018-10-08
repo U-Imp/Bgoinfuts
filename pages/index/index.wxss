@@ -41,8 +41,8 @@ page {
 }
 
 .index-header-text-desc {
-  font-size: 35rpx;
-  color: #888;
+  font-size: 32rpx;
+  color: #333;
 }
 
 .index-header-logo {
