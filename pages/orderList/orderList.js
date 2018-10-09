@@ -133,7 +133,11 @@ Page({
     });
     console.log(detail)
   },
-
+  gotoOrderDetails:function(){
+    wx.navigateTo({
+      url: '../orderDetails/orderDetails'
+    })
+  },
   examineIt(){
     console.log(1)
     wx.navigateTo({

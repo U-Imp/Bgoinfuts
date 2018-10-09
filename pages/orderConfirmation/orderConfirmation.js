@@ -52,7 +52,7 @@ Page({
     // wx.navigateTo({
     //   url: '../orderDetails/orderDetails?options=' + options
     // })
-    wx.navigateTo({
+    wx.redirectTo({
       url: '../orderList/orderList'
     })
   }

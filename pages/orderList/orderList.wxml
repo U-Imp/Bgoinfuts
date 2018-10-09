@@ -17,7 +17,44 @@
         </block>
       </i-tabs>
       <view class='order-details-tabs-content'>
-        <block wx:if="{{tabForm.tabCurrent=='2'}}" wx:for-items="{{ tabForm.orderList }}" wx:key="index">
+        
+        <!-- ---------待付款------------ -->
+        <block wx:if="{{tabForm.tabCurrent=='0'}}" wx:for-items="{{ getData.status0OrderList }}" wx:key="index">
+          <view class='unit' bindtap='gotoOrderDetails'>
+            <view class='unit-top borBotGray clearfix '>
+              <text class='fl'>订单号：{{item.orderNum}}</text>
+              <text class='fr unit-top-right'>{{item.stutus}}</text>
+            </view>
+            <scroll-view class="recommend_scroll_x_box borBotGray" scroll-x="true">
+              <view class="recommend_hot_box" wx:for="{{item.goods}}" wx:key="index">
+                <image src="{{item.src}}" class="recommend_hot_image"></image>
+              </view>
+            </scroll-view>
+            <view class='unit-bottom clearfix '>
+              <text class='fl unit-bottom-left'>应付：♥ {{item.price}}</text>
+              <button class="fr" type="primary" size="mini" plain="true">立即支付</button>
+            </view>
+          </view>
+        </block>
+        <!-- ---------已付款------------ -->
+        <block wx:if="{{tabForm.tabCurrent=='1'}}" wx:for-items="{{ getData.status1OrderList }}" wx:key="index">
+          <view class='unit' bindtap='gotoOrderDetails'>
+            <view class='unit-top borBotGray clearfix '>
+              <text class='fl'>订单号：{{item.orderNum}}</text>
+              <text class='fr unit-top-right'>{{item.stutus}}</text>
+            </view>
+            <scroll-view class="recommend_scroll_x_box borBotGray" scroll-x="true">
+              <view class="recommend_hot_box" wx:for="{{item.goods}}" wx:key="index">
+                <image src="{{item.src}}" class="recommend_hot_image"></image>
+              </view>
+            </scroll-view>
+            <view class='unit-bottom clearfix '>
+              <text class='fl unit-bottom-left'>已付：♥ {{item.price}}</text>
+            </view>
+          </view>
+        </block>
+        <!-- ---------待取货------------ -->
+<block wx:if="{{tabForm.tabCurrent=='2'}}" wx:for-items="{{ tabForm.orderList }}" wx:key="index">
           <view class="order-details-tabs-panel" bind:click="examineIt">
             <van-panel title="订单编号" status="{{item.serialNumber}}">
               <i-card title="{{item.title}}" extra="额外内容" full="true" thumb="{{item.imgUrl}}">
@@ -39,52 +76,15 @@
             </van-panel>
           </view>
         </block>
-        <!-- ---------待付款------------ -->
-        <block wx:if="{{tabForm.tabCurrent=='0'}}" wx:for-items="{{ getData.status0OrderList }}" wx:key="index">
+        <!-- ---------已完成------------ -->
+        <block wx:if="{{tabForm.tabCurrent=='3'}}" wx:for-items="{{ getData.status3OrderList }}" wx:key="index">
           <view class='unit' bindtap='gotoOrderDetails'>
             <view class='unit-top borBotGray clearfix '>
               <text class='fl'>订单号：{{item.orderNum}}</text>
               <text class='fr unit-top-right'>{{item.stutus}}</text>
             </view>
             <scroll-view class="recommend_scroll_x_box borBotGray" scroll-x="true">
-              <view class="recommend_hot_box" wx:for="{{item.goods}}">
-                <image src="{{item.src}}" class="recommend_hot_image"></image>
-              </view>
-            </scroll-view>
-            <view class='unit-bottom clearfix '>
-              <text class='fl unit-bottom-left'>应付：♥ {{item.price}}</text>
-              <button class="fr" type="primary" size="mini" plain="true">立即支付</button>
-            </view>
-          </view>
-        </block>
-        <!-- ---------已付款------------ -->
-        <block wx:if="{{tabForm.tabCurrent=='1'}}" wx:for-items="{{ getData.status1OrderList }}" wx:key="index">
-          <view class='unit'>
-            <view class='unit-top borBotGray clearfix '>
-              <text class='fl'>订单号：{{item.orderNum}}</text>
-              <text class='fr unit-top-right'>{{item.stutus}}</text>
-            </view>
-            <scroll-view class="recommend_scroll_x_box borBotGray" scroll-x="true">
-              <view class="recommend_hot_box" wx:for="{{item.goods}}">
-                <image src="{{item.src}}" class="recommend_hot_image"></image>
-              </view>
-            </scroll-view>
-            <view class='unit-bottom clearfix '>
-              <text class='fl unit-bottom-left'>已付：♥ {{item.price}}</text>
-            </view>
-          </view>
-        </block>
-        <!-- ---------待取货------------ -->
-
-        <!-- ---------已完成------------ -->
-        <block wx:if="{{tabForm.tabCurrent=='3'}}" wx:for-items="{{ getData.status3OrderList }}" wx:key="index">
-          <view class='unit'>
-            <view class='unit-top borBotGray clearfix '>
-              <text class='fl'>订单号：{{item.orderNum}}</text>
-              <text class='fr unit-top-right'>{{item.stutus}}</text>
-            </view>
-            <scroll-view class="recommend_scroll_x_box borBotGray" scroll-x="true">
-              <view class="recommend_hot_box" wx:for="{{item.goods}}">
+              <view class="recommend_hot_box" wx:for="{{item.goods}}" wx:key="index">
                 <image src="{{item.src}}" class="recommend_hot_image"></image>
               </view>
             </scroll-view>

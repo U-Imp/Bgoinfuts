@@ -1,37 +1,53 @@
-<view class='order-list'>
-  <view class='order-list-wrap'>
-    <view class="order-list-header">
+<view class='order-confirmation'>
+  <view class='order-confirmation-wrap'>
+    <view class="order-confirmation-header">
       <view class="header-text">
-        <view class="header-text-title">{{orderForm.title}}</view>
+        <view class="header-text-title">{{getData.status}}</view>
       </view>
       <view class="header-logo">
         <image class="header-logo-img" src="http://img.ui.cn/data/file/3/6/4/1053463.gif?imageMogr2/auto-orient/strip" />
       </view>
     </view>
-    <view class="order-list-ceil">
-      <view class="weui-media-box__title weui-media-box__title_in-text">订单编号</view>
-      <view class="weui-media-box__desc">131341235647fhm</view>
+    <!--订单号  -->
+    <view class="pickAddress">
+      <view class="pickAddress-title">订单号:</view>
+      <view class="">{{getData.orderNumber}}</view>
     </view>
-    <view class="order-list-ceil">
-      <view class="weui-media-box__title weui-media-box__title_in-text">兑换地址</view>
-      <view class="weui-media-box__desc">大城市辽宁省铁岭市莲花乡池水沟子李家村1001-1-1</view>
+    <!--兑换地址  -->
+    <view class="pickAddress">
+      <view class="pickAddress-title">领取地址:</view>
+      <view class="">{{getData.pickAddress}}</view>
     </view>
-
-    <van-card thumb="{{orderForm.goodsImg}}">
-      <view slot="title">{{orderForm.goodsName}}</view>
-      <view slot="desc">积分: {{orderForm.goodsTotal}}</view>
-      <view slot="footer">
-        数量: {{orderForm.goodsNum}}
+    <!--商品信息  -->
+    <block wx:for-items="{{getData.orderList}}" wx:key="index">
+      <view class="unit clearfix">
+        <view class='fl unit-left'>
+          <image class='unit-left-pic' src='http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/mao.gif' mode='widthFix'></image>
+        </view>
+        <view class='fr unit-right'>
+          <rich-text class='unit-right-name'>{{item.goodsName}}</rich-text>
+          <rich-text>
+            <text>{{item.goodsPrice}}❤</text>
+            <text class='fr'>{{item.goodsNum}}</text>
+          </rich-text>
+        </view>
       </view>
-    </van-card>
-
-    <i-cell-group>
-      <i-cell title="商品名称" value="{{orderForm.goodsName}}"></i-cell>
-      <i-cell title="兑换数量" value="{{orderForm.goodsNum}}"></i-cell>
-      <i-cell title="单品积分" value="{{orderForm.goodsPrice}}"></i-cell>
-      <i-cell title="共用积分" value="{{orderForm.goodsTotal}}"></i-cell>
-    </i-cell-group>
-
-
+    </block>
+   
+    <view class='cell'>
+      <text>合计：</text>
+      <text class='fr'>{{getData.orderTotal}} ❤</text>
+    </view>
+    
+    <!--订单备注  -->
+    <!-- <van-cell-group>
+      <van-field value="{{ orderForm.orderRemark }}" placeholder="订单备注(选填)" border="{{ false }}" bind:change="onChangeRemark" />
+    </van-cell-group> -->
+    <!--合计  -->
+    <!-- <van-cell-group>
+      <van-cell title="合计" value="{{'￥'+orderForm.orderTotal}}" />
+    </van-cell-group> -->
+    <!--提交按钮  -->
+    
   </view>
 </view>

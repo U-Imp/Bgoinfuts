@@ -2,7 +2,8 @@ page {
   height: 100%;
 }
 
-.order-list {
+.order-confirmation {
+  font-size: 26rpx;
   position: relative;
   width: 100%;
   height: 100%;
@@ -10,7 +11,7 @@ page {
   background-size: 100% 100%;
 }
 
-.order-list-wrap {
+.order-confirmation-wrap {
   width: 100%;
   height: 100%;
   margin: auto;
@@ -18,7 +19,7 @@ page {
   background-color: rgba(255, 255, 255, 0.8);
 }
 
-.order-list-header {
+.order-confirmation-header {
   width: 680rpx;
   height: 160rpx;
   margin: 20rpx auto 0;
@@ -46,22 +47,47 @@ page {
   width: 100%;
   height: 100%;
 }
-
-.order-list-ceil{
-  padding: 20rpx 40rpx;
-  position: relative;
+.pickAddress{
+  /* font-size: 30rpx; */
+  padding: 10rpx 30rpx;
 }
-
-.order-details-tabs{
+.pickAddress-title{
+  font-size: 32rpx;
+}
+.order-confirmation-card {
   margin-top: 20rpx;
-  background-color: rgba(255, 255, 255, 0.8)
 }
-.order-details-tabs-panel{
-   margin-bottom: 20rpx; 
+.unit{
+  padding: 20rpx 30rpx 20rpx;
+  border-top: 1px dashed #eeeeee;
 }
-.tabs-panel-btn{
-  text-align: right;
+.unit-left{
+  width: 160rpx;
+  height: 160rpx;
+  overflow: hidden;
+
 }
-.tabs-panel-btn-item{
-  margin-right: 20rpx;
+.unit-left-pic{
+  width: 100%
+  
 }
+.unit-right{
+  width: 72%;
+  font-size: 28rpx;
+}
+.unit-right-name{
+  display: inline-block;
+  margin-bottom: 40rpx;
+}
+.cell{
+  padding: 20rpx 30rpx;
+  border-bottom: 1px solid #eee;
+  border-top: 1px solid #eee;
+}
+.order-confirmation-submit{
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+}
+
