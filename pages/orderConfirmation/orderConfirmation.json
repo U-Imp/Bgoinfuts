@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "订单确认",
+  "navigationBarTitleText": "",
   "usingComponents": {
     "i-button": "../../iview/button/index",
     "van-cell": "../../vant/cell/index",

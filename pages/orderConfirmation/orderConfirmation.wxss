@@ -46,7 +46,13 @@ page {
   width: 100%;
   height: 100%;
 }
-
+.pickAddress{
+  font-size: 30rpx;
+  padding: 10rpx 30rpx;
+}
+.pickAddress-title{
+  font-size: 36rpx;
+}
 .order-confirmation-card {
   margin-top: 20rpx;
 }

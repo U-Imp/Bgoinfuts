@@ -9,9 +9,9 @@
       </view>
     </view>
     <!--兑换地址  -->
-    <view class="weui-media-box weui-media-box_text">
-      <view class="weui-media-box__title weui-media-box__title_in-text">领取地址:</view>
-      <view class="weui-media-box__desc">{{getData.pickAddress}}</view>
+    <view class="pickAddress">
+      <view class="pickAddress-title">领取地址:</view>
+      <view class="">{{getData.pickAddress}}</view>
     </view>
     <!--商品信息  -->
     <block wx:for-items="{{getData.orderList}}" wx:key="index">
