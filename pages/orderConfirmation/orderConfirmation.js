@@ -1,10 +1,8 @@
 Page({
   data: {
-    orderForm: {
-      orderRemark: '',
-      orderTotal: 0,
+    getData:{
+      pickAddress:'港湾广场2338店',
       orderList: [
-
         {
           goodsId: 'ww123456',
           goodsName: '丑娃娃',
@@ -23,8 +21,10 @@ Page({
           goodsTotal: 250,
           change: false
         }
-      ]
-    }
+      ],
+      orderRemark: '',
+      orderTotal: 0,
+    },
   },
   onLoad: function (options) {
     // var that = this;
@@ -36,17 +36,24 @@ Page({
     // })
   },
   // 添加备注
-  onChangeRemark({detail}){
+  bindKeyInput:function(e){
     this.setData({
-      'orderForm.orderRemark': detail
+      'getData.orderRemark': e.detail.value
     })
   },
   // 订单提交
-  submit(){
-    var that = this;
-    var options = JSON.stringify(this.data.orderForm);
+  submit(e){
+    // 提交订单 成功后 支付心值 成功扣除心值  跳转到首页
+    //                        支付失败 提示失败原因 跳转到列表待支付页
+    // 提交订单 失败 保留当前页 重新提交 
+    console.log(this.data)
+    // var that = this;
+    // var options = JSON.stringify(this.data.orderForm);
+    // wx.navigateTo({
+    //   url: '../orderDetails/orderDetails?options=' + options
+    // })
     wx.navigateTo({
-      url: '../orderDetails/orderDetails?options=' + options
+      url: '../orderList/orderList'
     })
   }
 });

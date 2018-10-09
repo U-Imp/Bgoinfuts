@@ -50,7 +50,32 @@ page {
 .order-confirmation-card {
   margin-top: 20rpx;
 }
+.unit{
+  padding: 20rpx 30rpx 20rpx;
+  border-top: 1px dashed #eeeeee;
+}
+.unit-left{
+  width: 160rpx;
+  height: 160rpx;
+  overflow: hidden;
 
+}
+.unit-left-pic{
+  width: 100%
+  
+}
+.unit-right{
+  width: 72%;
+  font-size: 30rpx;
+}
+.unit-right-name{
+  display: inline-block;
+  margin-bottom: 40rpx;
+}
+.cell{
+  padding: 20rpx 30rpx;
+  border-bottom: 1px solid #eee;
+}
 .order-confirmation-submit{
   width: 100%;
   position: fixed;

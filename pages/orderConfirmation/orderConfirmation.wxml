@@ -10,31 +10,42 @@
     </view>
     <!--兑换地址  -->
     <view class="weui-media-box weui-media-box_text">
-      <view class="weui-media-box__title weui-media-box__title_in-text">兑换地址:</view>
-      <view class="weui-media-box__desc">大城市辽宁省铁岭市莲花乡池水沟子李家村1001-1-1</view>
+      <view class="weui-media-box__title weui-media-box__title_in-text">领取地址:</view>
+      <view class="weui-media-box__desc">{{getData.pickAddress}}</view>
     </view>
     <!--商品信息  -->
-    <block wx:for-items="{{orderForm.orderList}}" wx:key="index">
-      <view class="order-confirmation-card">
-        <van-card thumb="{{item.goodsImg}}">
-          <view slot="title">商品名称: {{item.goodsName}}</view>
-          <view slot="desc">单品积分: {{item.goodsPrice}}</view>
-          <view slot="footer">×{{item.goodsNum}}</view>
-        </van-card>
+    <block wx:for-items="{{getData.orderList}}" wx:key="index">
+      <view class="unit clearfix">
+        <view class='fl unit-left'>
+          <image class='unit-left-pic' src='http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/mao.gif' mode='widthFix'></image>
+        </view>
+        <view class='fr unit-right'>
+          <rich-text class='unit-right-name'>{{item.goodsName}}</rich-text>
+          <rich-text>
+            <text>{{item.goodsPrice}}❤</text>
+            <text class='fr'>{{item.goodsNum}}</text>
+          </rich-text>
+        </view>
       </view>
     </block>
-
+    <view class='cell'>
+      <input type="text"  placeholder="订单备注（选填）" bindinput="bindKeyInput"></input>
+    </view>
+    <view class='cell'>
+      <text>合计：</text>
+      <text class='fr'>{{getData.orderTotal}} ❤</text>
+    </view>
     <!--订单备注  -->
-    <van-cell-group>
+    <!-- <van-cell-group>
       <van-field value="{{ orderForm.orderRemark }}" placeholder="订单备注(选填)" border="{{ false }}" bind:change="onChangeRemark" />
-    </van-cell-group>
+    </van-cell-group> -->
     <!--合计  -->
-    <van-cell-group>
+    <!-- <van-cell-group>
       <van-cell title="合计" value="{{'￥'+orderForm.orderTotal}}" />
-    </van-cell-group>
+    </van-cell-group> -->
     <!--提交按钮  -->
     <view class="order-confirmation-submit">
-      <i-button bind:click="submit" type="success" long="true">提交订单</i-button>
+      <i-button bind:click="submit" type="primary" long="true">提交订单</i-button>
     </view>
   </view>
 </view>

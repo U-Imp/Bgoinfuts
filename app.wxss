@@ -46,6 +46,9 @@ page{
 .mt20{
   margin-top: 20rpx;
 }
+.mt100{
+  margin-top: 100rpx;
+}
 .ml05{
   margin-left: 5rpx;
 }
