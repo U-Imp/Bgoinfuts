@@ -10,34 +10,91 @@
     </view>
 
     <view class="order-details-tabs">
-      <i-tabs current="{{ tabForm.tabCurrent }}" color="#f759ab" bindchange="tabHandel">
+      <i-tabs current="{{ tabForm.tabCurrent }}" color="#f44393" bindchange="tabHandel">
+      
         <block wx:for-items="{{tabForm.tabList}}" wx:key="index">
           <i-tab key="{{item.value}}" title="{{item.name}}"></i-tab>
         </block>
       </i-tabs>
+      <view class='order-details-tabs-content'>
+        <block wx:if="{{tabForm.tabCurrent=='2'}}" wx:for-items="{{ tabForm.orderList }}" wx:key="index">
+          <view class="order-details-tabs-panel" bind:click="examineIt">
+            <van-panel title="订单编号" status="{{item.serialNumber}}">
+              <i-card title="{{item.title}}" extra="额外内容" full="true" thumb="{{item.imgUrl}}">
+                <view slot="content">应使用积分: {{item.integral}}</view>
+                <view slot="footer" class="tabs-panel-btn" wx:if="{{item.status==0}}">
+                  <van-button size="small" class="tabs-panel-btn-item">取消订单</van-button>
+                  <van-button size="small" type="primary" plain>立即兑换</van-button>
+                </view>
+                <view slot="footer" class="tabs-panel-btn" wx:if="{{item.status==1}}">
+                  <van-button size="small" type="primary" plain>立即取货</van-button>
+                </view>
+                <view slot="footer" class="tabs-panel-btn" wx:if="{{item.status==2}}">
+                  <van-button size="small" type="primary" plain>评价</van-button>
+                </view>
+                <view slot="footer" class="tabs-panel-btn" wx:if="{{item.status==3}}">
+                  <van-button size="small" type="primary" disabled plain>已完成</van-button>
+                </view>
+              </i-card>
+            </van-panel>
+          </view>
+        </block>
+        <!-- ---------待付款------------ -->
+        <block wx:if="{{tabForm.tabCurrent=='0'}}" wx:for-items="{{ getData.status0OrderList }}" wx:key="index">
+          <view class='unit' bindtap='gotoOrderDetails'>
+            <view class='unit-top borBotGray clearfix '>
+              <text class='fl'>订单号：{{item.orderNum}}</text>
+              <text class='fr unit-top-right'>{{item.stutus}}</text>
+            </view>
+            <scroll-view class="recommend_scroll_x_box borBotGray" scroll-x="true">
+              <view class="recommend_hot_box" wx:for="{{item.goods}}">
+                <image src="{{item.src}}" class="recommend_hot_image"></image>
+              </view>
+            </scroll-view>
+            <view class='unit-bottom clearfix '>
+              <text class='fl unit-bottom-left'>应付：♥ {{item.price}}</text>
+              <button class="fr" type="primary" size="mini" plain="true">立即支付</button>
+            </view>
+          </view>
+        </block>
+        <!-- ---------已付款------------ -->
+        <block wx:if="{{tabForm.tabCurrent=='1'}}" wx:for-items="{{ getData.status1OrderList }}" wx:key="index">
+          <view class='unit'>
+            <view class='unit-top borBotGray clearfix '>
+              <text class='fl'>订单号：{{item.orderNum}}</text>
+              <text class='fr unit-top-right'>{{item.stutus}}</text>
+            </view>
+            <scroll-view class="recommend_scroll_x_box borBotGray" scroll-x="true">
+              <view class="recommend_hot_box" wx:for="{{item.goods}}">
+                <image src="{{item.src}}" class="recommend_hot_image"></image>
+              </view>
+            </scroll-view>
+            <view class='unit-bottom clearfix '>
+              <text class='fl unit-bottom-left'>已付：♥ {{item.price}}</text>
+            </view>
+          </view>
+        </block>
+        <!-- ---------待取货------------ -->
 
-      <block wx:for-items="{{ tabForm.orderList }}" wx:key="index">
-        <view class="order-details-tabs-panel" bind:click="examineIt">
-          <van-panel title="订单编号" status="{{item.serialNumber}}">
-            <i-card title="{{item.title}}" extra="额外内容" full="true" thumb="{{item.imgUrl}}">
-              <view slot="content">应使用积分: {{item.integral}}</view>
-              <view slot="footer" class="tabs-panel-btn" wx:if="{{item.status==0}}">
-                <van-button size="small" class="tabs-panel-btn-item">取消订单</van-button>
-                <van-button size="small" type="primary" plain>立即兑换</van-button>
+        <!-- ---------已完成------------ -->
+        <block wx:if="{{tabForm.tabCurrent=='3'}}" wx:for-items="{{ getData.status3OrderList }}" wx:key="index">
+          <view class='unit'>
+            <view class='unit-top borBotGray clearfix '>
+              <text class='fl'>订单号：{{item.orderNum}}</text>
+              <text class='fr unit-top-right'>{{item.stutus}}</text>
+            </view>
+            <scroll-view class="recommend_scroll_x_box borBotGray" scroll-x="true">
+              <view class="recommend_hot_box" wx:for="{{item.goods}}">
+                <image src="{{item.src}}" class="recommend_hot_image"></image>
               </view>
-              <view slot="footer" class="tabs-panel-btn" wx:if="{{item.status==1}}">
-                <van-button size="small" type="primary" plain>立即取货</van-button>
-              </view>
-              <view slot="footer" class="tabs-panel-btn" wx:if="{{item.status==2}}">
-                <van-button size="small" type="primary" plain>评价</van-button>
-              </view>
-              <view slot="footer" class="tabs-panel-btn" wx:if="{{item.status==3}}">
-                <van-button size="small" type="primary" disabled plain>已完成</van-button>
-              </view>
-            </i-card>
-          </van-panel>
-        </view>
-      </block>
+            </scroll-view>
+            <view class='unit-bottom clearfix '>
+              <text class='fl unit-bottom-left'>已付：♥ {{item.price}}</text>
+              <text class='fr'>兑换成功</text>
+            </view>
+          </view>
+        </block>
+      </view>
     </view>
   </view>
 </view>

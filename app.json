@@ -1,6 +1,6 @@
 {
   "pages":[
-    
+    "pages/orderList/orderList",
     "pages/navMine/navMine",
     "pages/index/index",
     "pages/navClassify/navClassify",
@@ -9,7 +9,7 @@
     "pages/goodsList/goodsList",
     "pages/goodsDetails/goodsDetails",
     "pages/orderConfirmation/orderConfirmation",
-    "pages/orderList/orderList",
+    
     "pages/orderDetails/orderDetails",
       "pages/test/test"
 

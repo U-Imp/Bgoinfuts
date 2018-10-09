@@ -65,3 +65,6 @@ page{
 .themeColor{
   color: #f54281;
 }
+.borBotGray{
+  border-bottom:1px dashed #EDEDED; 
+}

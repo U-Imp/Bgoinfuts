@@ -1,17 +1,91 @@
 Page({
   data: {
+    getData:{
+      status0OrderList:[
+        {
+          orderNum:'ADHJ154541215',
+          stutus:'未支付',
+          goods:[{
+            src:'http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/photo.png',
+            goodsId:'1'
+          }, {
+              src: 'http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/photo.png',
+              goodsId: '2'
+            }, {
+              src: 'http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/photo.png',
+              goodsId: '2'
+            }, {
+              src: 'http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/photo.png',
+              goodsId: '2'
+            }, {
+              src: 'http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/photo.png',
+              goodsId: '2'
+            }, {
+              src: 'http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/tutu.gif',
+              goodsId: '2'
+            }, {
+              src: 'http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/photo.png',
+              goodsId: '2'
+            }, {
+              src: 'http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/tutu.gif',
+              goodsId: '2'
+            }, {
+              src: 'http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/photo.png',
+              goodsId: '2'
+            }],
+          price:'258',
+        }, {
+          orderNum: 'ADHJ154541215',
+          stutus: '未支付',
+          goods: [{
+            src: 'http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/tutu.gif',
+            goodsId: '2'
+          }, {
+            src: 'http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/photo.png',
+            goodsId: '2'
+          }],
+          price: '258',
+        }
+      ],
+      status1OrderList: [
+         {
+          orderNum: 'ADHJ154541215',
+          stutus: '商家备货中',
+          goods: [{
+            src: 'http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/tutu.gif',
+            goodsId: '2'
+          }, {
+            src: 'http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/photo.png',
+            goodsId: '2'
+          }],
+          price: '1258',
+        }
+      ],
+      status3OrderList: [
+        {
+          orderNum: 'ADHJ154541215',
+          stutus: '交易完成',
+          goods: [{
+            src: 'http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/tutu.gif',
+            goodsId: '2'
+          }],
+          price: '158',
+        }
+      ]
+    },
     tabForm: {
+      tabCurrent: '0',
       tabList: [
         {
-          name: '待兑换',
+          name: '待付款',
           value: 0
         },
         {
-          name: '待取货',
+          name: '已付款',
           value: 1
         },
         {
-          name: '待评价',
+          name: '待取货',
           value: 2
         },
         {
@@ -42,7 +116,7 @@ Page({
           integral: 1200
         },
       ],
-      tabCurrent: '0'
+      
     },
 
   },
