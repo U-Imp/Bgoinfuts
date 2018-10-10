@@ -9,22 +9,27 @@
         <image class="header-logo-img" src="http://img.ui.cn/data/file/3/6/4/1053463.gif?imageMogr2/auto-orient/strip" />
       </view>
     </view>
-   
-    <i-swipeout  i-class="i-swipeout-demo-item" operateWidth="{{210}}">
+   <view class='unit' wx:for="{{getData.ShoppingList}}" wx:key="index">
+    <i-swipeout  i-class="i-swipeout-demo-item" actions="{{actions}}">
         <view slot="content">
-            <i-cell 
-                i-class="i-cell-padding" 
-                title="猛虫过江" 
-                label="侏罗纪世界主题公园及豪华度假村被失控的恐龙们摧毁已有四年">
-            </i-cell>
-        </view>
-        <view slot="button" class="i-swipeout-demo-button-group">
-            <view class="i-swipeout-demo-button">点赞</view>
-            <view class="i-swipeout-demo-button">分享</view>
-            <view class="i-swipeout-demo-button">删除</view>
+           <view class="i-swipeout-wrap ">
+              <radio value="{{item.goodsId}}" checked="{{item.checked}}"  bindtap='changeRadio' class='i-swipeout-wrap-left' data-index='{{index}}' data-checked='{{item.checked}}'/>
+              <image src='{{item.goodsImg}}' class='i-swipeout-wrap-center'></image> 
+              <view class="i-swipeout-wrap-right">
+                <view>{{item.goodsName}}</view>
+                <view>{{item.goodsPrice}}💗</view>
+                <view class='clearfix'>
+                  <view class='fl'>数量</view>
+                  <i-panel slot="right-icon" wx:if="{{item.change == true}}">
+              <i-input-number data-index="{{index}}" value="{{item.goodsNum}}" min="0" max="100" bindchange="addNum" />
+            </i-panel>
+                  <view class='fr'><button class="weui-btn mini-btn" type="default" size="mini" wx:if="{{item.edit == false}}" data-name="{{item.goodsId}}" data-index="{{index}}" bindtap="handelIt">编辑</button></view>
+                </view>
+              </view>
+           </view>
         </view>
     </i-swipeout>
-
+</view>
     <!-- <block wx:for-items="{{cartForm.cartList}}" wx:key="index">
       <view class='shopping-cart-card'>
         <van-card thumb="{{item.goodsImg}}">

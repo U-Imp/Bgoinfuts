@@ -64,6 +64,24 @@ page {
 }
 
 
-.checkbox{
-  display: block;
+.i-swipeout-wrap{
+  display: flex;
+}
+.i-swipeout-wrap-left{
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.i-swipeout-wrap-center{
+  flex: 3;
+  width: 130rpx;
+  height: 130rpx;
+}
+.i-swipeout-wrap-right{
+  margin-left: 20rpx;
+  flex: 9
+}
+.unit{
+  /* display: flex; */
 }

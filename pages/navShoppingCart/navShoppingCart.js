@@ -5,11 +5,30 @@ Page({
         name: '删除',
         color: '#fff',
         fontsize: '20',
-        width: 100,
+        width: 80,
         icon: 'trash',
-        background: '#ed3f14'
+        background: '#2d8ff5'
       }
     ],
+    getData:{
+      ShoppingList:[{
+        goodsId: '1',
+        goodsName: '耳机',
+        goodsImg: 'http://img.ui.cn/data/file/7/7/6/992677.png',
+        goodsPrice: 30,
+        goodsNum: 2,
+        checked:false,
+        edit: false
+      }, {
+          goodsId: '2',
+          goodsName: '耳机',
+          goodsImg: 'http://img.ui.cn/data/file/7/7/6/992677.png',
+          goodsPrice: 30,
+          goodsNum: 2,
+          checked: false,
+          edit: false
+        }]
+    },
 
     cartForm: {
       cartTotal: 0,
@@ -87,5 +106,14 @@ Page({
     wx.navigateTo({
       url: '../orderConfirmation/orderConfirmation?options=' + options
     })
+  },
+
+
+  changeRadio:function(e){
+    let curChecked = 'getData.ShoppingList[' + e.currentTarget.dataset.index + '].checked'
+    this.setData({
+      [curChecked]: !e.currentTarget.dataset.checked
+    })
+    console.log(e.currentTarget.dataset.index)
   }
 })
