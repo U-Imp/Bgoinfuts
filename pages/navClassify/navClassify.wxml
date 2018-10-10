@@ -1,15 +1,15 @@
 <view class="container">
   <view class="left_tabbar">
     <scroll-view scroll-y="true" style="height:{{deviceHeight}}px;" class="left_tabbar_list">
-      <view bindtap="changeTab" data-index="{{index}}" data-name="{{item.tabName}}" class="left_tabbar_item {{activeIndex==index?'active':''}}" wx:for="{{tabs}}">{{item.tabName}}</view>
+      <view bindtap="changeTab" data-index="{{item}}"  class="left_tabbar_item {{activeIndex==item?'active':''}}" wx:for="{{getData.monthList}}" wx:key="index">{{item}}</view>
     </scroll-view>
   </view>
   <view class="right_content">
-    <scroll-view bindscrolltolower="getMore" scroll-y="true" style="height:{{deviceHeight}}px;" class="tab_panel">
+    <scroll-view bindscrolltolower="getMore" scroll-y="true" style="height:{{deviceHeight}}px;" class="tab_panel" >
       <view>
-        <view class='unit' wx:for="{{contentList}}" bindtap='gotoDoodsList'>
-          <view class='unit-title'>Now{{content}}</view>
-          <rich-text class='unit-content'>{{index+1}}</rich-text>
+        <view class='unit' wx:for="{{getData.dayList[activeIndex]}}" wx:key="index" bindtap='gotoDoodsList'>
+          <view class='unit-title'>{{item.showTitle}}</view>
+          <rich-text class='unit-content'>{{item.showImg}}</rich-text>
           <view class='unit-ems'>
             <em></em><em></em><em></em>
           </view>

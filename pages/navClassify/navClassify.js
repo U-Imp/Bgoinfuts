@@ -1,65 +1,45 @@
 // pages/others/lefttab/lefttab.js
 Page({
   data: {
-    activeIndex: 0,
-    content: '菜單一',
-    tabs: [
-      {
-        id: 1,
-        tabName: '12月'
-      }, {
-        id: 2,
-        tabName: '11月'
-      }, {
-        id: 3,
-        tabName: '10月'
-      }, {
-        id: 4,
-        tabName: '9月'
-      }, {
-        id: 5,
-        tabName: '8月'
-      }, {
-        id: 6,
-        tabName: '7月'
-      }, {
-        id: 7,
-        tabName: '6月'
-      }, {
-        id: 8,
-        tabName: '5月'
-      }, {
-        id: 9,
-        tabName: '4月'
-      }, {
-        id: 10,
-        tabName: '3月'
-      }, {
-        id: 11,
-        tabName: '2月'
-      }, {
-        id: 12,
-        tabName: '1月'
+    activeIndex: 10,
+    getData:{
+      monthList: [10,9,8],
+      dayList:{
+        "10": [
+          {
+            showId: "1",
+            showImg: "101",
+            showTitle: "Oct.2018"
+          }, {
+            showId: "1",
+            showImg: "102",
+            showTitle: "Oct.2018"
+          }
+        ],
+        "8": [
+          {
+            "showId": "1",
+            "showImg": "81",
+            "showTitle": "Aug.2018"
+          }, {
+            "showId": "1",
+            "showImg": "82",
+            "showTitle": "Aug.2018"
+          }
+        ],
+        "9": [
+          {
+            showId: "1",
+            showImg: "91",
+            showTitle: "Sep.2018"
+          }, {
+            showId: "1",
+            showImg: "92",
+            showTitle: "Sep.2018"
+          }
+        ],
       }
-    ],
-    contentList: [
-      { text: '菜单:' },
-      { text: '菜单:' },
-      { text: '菜单:' },
-      { text: '菜单:' },
-      { text: '菜单:' },
-      { text: '菜单:' },
-      { text: '菜单:' },
-      { text: '菜单:' },
-      { text: '菜单:' },
-      { text: '菜单:' },
-      { text: '菜单:' },
-      { text: '菜单:' },
-      { text: '菜单:' },
-      { text: '菜单:' },
-      { text: '菜单:' },
-      { text: '菜单:' }      
-    ]
+    },
   },
   onLoad: function (options) {
     // 页面初始化 options为页面跳转所带来的参数
@@ -93,18 +73,18 @@ Page({
   changeTab: function (e) {
     this.setData({
       activeIndex: e.currentTarget.dataset.index,
-      content: e.currentTarget.dataset.name
     })
   },
+  // 	滚动到底部/右边，会触发 scrolltolower 事件
   getMore: function () {
-    this.setData({
-      contentList: this.data.contentList.concat([
-        { text: '菜单:' },
-        { text: '菜单:' },
-        { text: '菜单:' },
-        { text: '菜单:' },
-        { text: '菜单:' }
-      ])
-    });
+    // this.setData({
+    //   contentList: this.data.contentList.concat([
+    //     { text: '菜单:' },
+    //     { text: '菜单:' },
+    //     { text: '菜单:' },
+    //     { text: '菜单:' },
+    //     { text: '菜单:' }
+    //   ])
+    // });
   }
 })

@@ -1,6 +1,8 @@
 {
-  "navigationBarTitleText": "购物车",
+  "navigationBarTitleText": "",
   "usingComponents": {
+   
+
     "i-button": "../../iview/button/index",
     "i-input-number": "../../iview/input-number/index",
     "i-swipeout": "../../iview/swipeout/index",

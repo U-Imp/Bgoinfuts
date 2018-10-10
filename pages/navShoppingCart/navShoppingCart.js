@@ -1,5 +1,16 @@
 Page({
   data: {
+    actions: [
+      {
+        name: '删除',
+        color: '#fff',
+        fontsize: '20',
+        width: 100,
+        icon: 'trash',
+        background: '#ed3f14'
+      }
+    ],
+
     cartForm: {
       cartTotal: 0,
       cartNums: 2,

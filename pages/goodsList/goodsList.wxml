@@ -1,7 +1,7 @@
 <view class='goods-list'>
   <view class='goods-list-wrap'>
     <block wx:for="{{cardsList}}" wx:key="id">
-      <view class="cards">
+      <view class="cards" bindtap='gotoGoodsDetails'>
         <view class="cards-block">
           <view class="cards-block-bg">
             <image class="cards-block-bg-image" src="{{item.imgUrl}}" />

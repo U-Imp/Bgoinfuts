@@ -65,4 +65,9 @@ Page({
     var that = this;
     
   },
+  gotoGoodsDetails:function(){
+    wx.navigateTo({
+      url: '../goodsDetails/goodsDetails',
+    })
+  }
 });
