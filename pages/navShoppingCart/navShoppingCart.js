@@ -11,6 +11,7 @@ Page({
       }
     ],
     getData:{
+      cartTotal:'320',
       ShoppingList:[{
         goodsId: '1',
         goodsName: '耳机',
@@ -20,6 +21,46 @@ Page({
         checked:false,
         edit: false
       }, {
+          goodsId: '2',
+          goodsName: '耳机',
+          goodsImg: 'http://img.ui.cn/data/file/7/7/6/992677.png',
+          goodsPrice: 30,
+          goodsNum: 2,
+          checked: false,
+          edit: false
+        }, {
+          goodsId: '2',
+          goodsName: '耳机',
+          goodsImg: 'http://img.ui.cn/data/file/7/7/6/992677.png',
+          goodsPrice: 30,
+          goodsNum: 2,
+          checked: false,
+          edit: false
+        }, {
+          goodsId: '2',
+          goodsName: '耳机',
+          goodsImg: 'http://img.ui.cn/data/file/7/7/6/992677.png',
+          goodsPrice: 30,
+          goodsNum: 2,
+          checked: false,
+          edit: false
+        }, {
+          goodsId: '2',
+          goodsName: '耳机',
+          goodsImg: 'http://img.ui.cn/data/file/7/7/6/992677.png',
+          goodsPrice: 30,
+          goodsNum: 2,
+          checked: false,
+          edit: false
+        }, {
+          goodsId: '2',
+          goodsName: '耳机',
+          goodsImg: 'http://img.ui.cn/data/file/7/7/6/992677.png',
+          goodsPrice: 30,
+          goodsNum: 2,
+          checked: false,
+          edit: false
+        }, {
           goodsId: '2',
           goodsName: '耳机',
           goodsImg: 'http://img.ui.cn/data/file/7/7/6/992677.png',
@@ -104,10 +145,19 @@ Page({
   toSettlement() {
     var options = JSON.stringify(this.data.cartForm)
     wx.navigateTo({
-      url: '../orderConfirmation/orderConfirmation?options=' + options
+      url: '../../orderConfirmation/orderConfirmation?options=' + options
     })
   },
 // =====================================================
+  gotoGoodsDetails:function(){
+    wx.navigateTo({
+      url: '../goodsDetails/goodsDetails',
+    })
+  },
+  // 防止 点击编辑数量时 跳转事件
+  prevent:function(e){
+    e.prevent;
+  },
 // 购物车商品选择√
   changeRadio:function(e){
     let curChecked = 'getData.ShoppingList[' + e.currentTarget.dataset.index + '].checked';
@@ -115,7 +165,7 @@ Page({
     this.setData({
       [curChecked]: !e.currentTarget.dataset.checked
     })
-    console.log(e.currentTarget.dataset.index)
+    // console.log(e.currentTarget.dataset.index)
   },
   // 编辑单条数量区显示
   editNum:function(e){
@@ -142,16 +192,11 @@ Page({
     this.setData({
       [curNum]: e.detail.value,
     })
-
-
-    // var index = e.currentTarget.dataset.index;
-    // var itemNum = 'cartForm.cartList[' + index + '].goodsNum';
-    // var itemTotal = 'cartForm.cartList[' + index + '].goodsTotal';
-    // this.setData({
-    //   [itemNum]: e.detail.value,
-    // });
-    // this.setData({
-    //   [itemTotal]: Number(this.data.cartForm.cartList[index].goodsNum) * Number(this.data.cartForm.cartList[index].goodsPrice)
-    // })
-  }
+  },
+  // 提交付款
+  gotoOrderConfirmation:function(){
+    wx.navigateTo({
+      url: '../orderConfirmation/orderConfirmation',
+    })
+  },
 })

@@ -1,17 +1,19 @@
 {
   "pages":[
     
-    "pages/navShoppingCart/navShoppingCart",
+    
     
     "pages/index/index",
     "pages/navClassify/navClassify",
-    
+    "pages/navShoppingCart/navShoppingCart",
     "pages/navMine/navMine",
     "pages/goodsList/goodsList",
     "pages/goodsDetails/goodsDetails",
     "pages/orderConfirmation/orderConfirmation",
     "pages/orderList/orderList",
     "pages/orderDetails/orderDetails",
+
+    
       "pages/test/test"
 
   ],
