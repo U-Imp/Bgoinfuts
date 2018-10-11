@@ -107,13 +107,51 @@ Page({
       url: '../orderConfirmation/orderConfirmation?options=' + options
     })
   },
-
-
+// =====================================================
+// 购物车商品选择√
   changeRadio:function(e){
-    let curChecked = 'getData.ShoppingList[' + e.currentTarget.dataset.index + '].checked'
+    let curChecked = 'getData.ShoppingList[' + e.currentTarget.dataset.index + '].checked';
+    // console.log(curChecked)
     this.setData({
       [curChecked]: !e.currentTarget.dataset.checked
     })
     console.log(e.currentTarget.dataset.index)
+  },
+  // 编辑单条数量区显示
+  editNum:function(e){
+    console.log('e',e)
+    let curIndex = 'getData.ShoppingList[' + e.currentTarget.dataset.index + '].edit';
+    this.setData({
+      [curIndex]: !e.currentTarget.dataset.edit
+    })
+    // console.log(curIndex)
+  },
+  // 完成编辑单条数量区隐藏
+  editfinish:function(e){
+    let curIndex = 'getData.ShoppingList[' + e.currentTarget.dataset.index + '].edit';
+    console.log('wdas',curIndex)
+    console.log('wdas', e)
+    this.setData({
+      [curIndex]: !e.currentTarget.dataset.edit
+    })
+  },
+  // 修改数量
+  addNumber(e) {
+    console.log('ww',e);
+    let curNum = 'getData.ShoppingList[' + e.currentTarget.dataset.index + '].goodsNum';
+    this.setData({
+      [curNum]: e.detail.value,
+    })
+
+
+    // var index = e.currentTarget.dataset.index;
+    // var itemNum = 'cartForm.cartList[' + index + '].goodsNum';
+    // var itemTotal = 'cartForm.cartList[' + index + '].goodsTotal';
+    // this.setData({
+    //   [itemNum]: e.detail.value,
+    // });
+    // this.setData({
+    //   [itemTotal]: Number(this.data.cartForm.cartList[index].goodsNum) * Number(this.data.cartForm.cartList[index].goodsPrice)
+    // })
   }
 })

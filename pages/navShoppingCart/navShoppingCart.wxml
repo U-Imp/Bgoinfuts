@@ -3,7 +3,7 @@
     <view class="shopping-cart-header">
       <view class="header-text">
         <view class="header-text-title">购物车</view>
-        <view class="header-text-desc">共{{cartForm.cartNums}}件宝贝</view>
+        <view class="header-text-desc">向左滑动宝贝即可删除哟</view>
       </view>
       <view class="header-logo">
         <image class="header-logo-img" src="http://img.ui.cn/data/file/3/6/4/1053463.gif?imageMogr2/auto-orient/strip" />
@@ -16,14 +16,17 @@
               <radio value="{{item.goodsId}}" checked="{{item.checked}}"  bindtap='changeRadio' class='i-swipeout-wrap-left' data-index='{{index}}' data-checked='{{item.checked}}'/>
               <image src='{{item.goodsImg}}' class='i-swipeout-wrap-center'></image> 
               <view class="i-swipeout-wrap-right">
-                <view>{{item.goodsName}}</view>
-                <view>{{item.goodsPrice}}💗</view>
-                <view class='clearfix'>
-                  <view class='fl'>数量</view>
-                  <i-panel slot="right-icon" wx:if="{{item.change == true}}">
-              <i-input-number data-index="{{index}}" value="{{item.goodsNum}}" min="0" max="100" bindchange="addNum" />
-            </i-panel>
-                  <view class='fr'><button class="weui-btn mini-btn" type="default" size="mini" wx:if="{{item.edit == false}}" data-name="{{item.goodsId}}" data-index="{{index}}" bindtap="handelIt">编辑</button></view>
+                <view class='goodsName'>{{item.goodsName}}</view>
+                <view>{{item.goodsPrice}} ♥</view>
+                <view class='clearfix goodsNum'>
+                  <view class='fl' wx:if="{{item.edit == false}}">数量:{{item.goodsNum}}</view>
+                  <i-panel slot="right-icon" wx:if="{{item.edit == true}}">
+                  <i-input-number i-class="inputNumber" style="display:inline-block" data-index="{{index}}" value="{{item.goodsNum}}" min="1" max="100" bindchange="addNumber" />
+                </i-panel>
+                  <view class='fr'>
+                    <button class="weui-btn mini-btn editBtn" type="{{item.edit?'primary':'default'}}" size="mini"  data-edit="{{item.edit}}" data-index="{{index}}" bindtap="editNum">{{item.edit?'完成':'编辑'}}</button>
+                    <!-- <button class="weui-btn mini-btn" type="primary" size="mini" wx:if="{{item.edit == true}}" data-edit="{{item.edit}}" data-index="{{index}}" bindtap="editfinish" >完成</button> -->
+                  </view>
                 </view>
               </view>
            </view>
@@ -48,9 +51,9 @@
         </van-card>
       </view>
     </block> -->
-    <view class="shopping-cart-total">合计{{cartForm.cartTotal}}积分</view>
+    <view class="shopping-cart-total">合计消耗：{{cartForm.cartTotal}} ♥</view>
     <view class="shopping-cart-button">
-      <i-button bind:click="toSettlement" shape="circle" type="success">去结算
+      <i-button bind:click="toSettlement" shape="circle" type="primary">买买买
       </i-button>
     </view>
   </view>

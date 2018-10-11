@@ -67,6 +67,10 @@ page {
 .i-swipeout-wrap{
   display: flex;
 }
+.unit .i-swipeout-demo-item{
+  border-bottom: 1px dashed #dedede;
+  background:transparent;
+}
 .i-swipeout-wrap-left{
   flex: 2;
   display: flex;
@@ -79,9 +83,31 @@ page {
   height: 130rpx;
 }
 .i-swipeout-wrap-right{
+  color: #333;
   margin-left: 20rpx;
-  flex: 9
+  flex: 8
 }
-.unit{
-  /* display: flex; */
+.goodsName{
+  font-size: 30rpx;
+}
+.goodsNum{
+  height: 70rpx;
+}
+.editBtn{
+  margin-right: 5rpx
+}
+/* 更改数量按钮三方组件样式部分 */
+.unit .inputNumber{
+  color: #f44393;
+  border-radius: 20px;
+  font-size:14px;
+}
+.unit .inputNumber view {
+  /* border-radius: 20px;
+  min-width: 32px; */
+  /* border-color: transparent; */
+}
+.unit .inputNumber input{
+  /* border-radius: 20px; */
+  /* border-color: transparent; */
 }
