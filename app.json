@@ -12,8 +12,8 @@
     "pages/orderConfirmation/orderConfirmation",
     "pages/orderList/orderList",
     "pages/orderDetails/orderDetails",
-
     
+"pages/membershipCard/membershipCard",
       "pages/test/test"
 
   ],

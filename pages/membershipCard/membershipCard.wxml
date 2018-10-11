@@ -1,0 +1,17 @@
+<!--pages/membershipCard/membershipCard.wxml-->
+<view class='membershipCard'>
+  <view class='membershipCard-wrap'>
+    <view class="membershipCard-header">
+      <view class="header-text">
+        <view class="header-text-title">会员卡</view>
+      </view>
+      <view class="header-logo">
+        <!-- <image class="header-logo-img" src="http://img.ui.cn/data/file/3/6/4/1053463.gif?imageMogr2/auto-orient/strip" /> -->
+      </view>
+    </view>
+    <view class='context'>
+      <view class='unit'>
+      </view>
+    </view>
+  </view>
+</view>

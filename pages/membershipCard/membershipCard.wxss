@@ -1,0 +1,49 @@
+/* pages/membershipCard/membershipCard.wxss */
+page {
+  height: 100%;
+}
+
+.membershipCard {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: url('http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test-bg/fen.jpg') 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+
+.membershipCard-wrap {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  overflow: auto;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.membershipCard-header {
+  width: 680rpx;
+  height: 160rpx;
+  margin: 20rpx auto 0;
+  overflow: hidden;
+}
+
+.header-text {
+  width: 520rpx;
+  height: 100%;
+  line-height: 160rpx;
+  float: left;
+}
+
+.header-text-title {
+  font-size: 60rpx;
+}
+
+.header-logo {
+  width: 160rpx;
+  height: 160rpx;
+  float: left;
+}
+
+.header-logo-img {
+  width: 100%;
+  height: 100%;
+}

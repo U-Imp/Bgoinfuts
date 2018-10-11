@@ -44,9 +44,9 @@ Page({
   
   // 我的会员卡
   membershipCard: function (e) {
-    // wx.navigateTo({
-    //   url: '../modifyPhone/modifyPhone',
-    // })
+    wx.navigateTo({
+      url: '../membershipCard/membershipCard',
+    })
   },
   // 积分兑换
   giftCredits: function (e) {
