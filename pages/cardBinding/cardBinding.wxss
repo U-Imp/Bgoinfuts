@@ -17,6 +17,7 @@ page {
   margin: auto;
   overflow: auto;
   background-color: rgba(255, 255, 255, 0.8);
+  color:#333;
 }
 
 .cardBinding-header {
@@ -46,4 +47,64 @@ page {
 .header-logo-img {
   width: 100%;
   height: 100%;
+}
+.mess {
+  width: 690rpx;
+  height: 89rpx;
+  line-height: 89rpx;
+  font-size: 34rpx;
+  background: rgba(255, 255, 255, 0.568);
+  margin: 0 auto 3rpx;
+  padding: 0 30rpx;
+  border-bottom: 1px dashed #dedede;
+}
+.mess_left {
+  float:  left;
+  width: 508rpx;
+  height: 89rpx;
+  
+}
+.mess_full{
+  width: 100%;
+}
+.mess_left input {
+  width: 340rpx;
+  height: 89rpx;
+  display: block;
+  float: right;
+  font-size: 33rpx;
+  color: #B2B2B2;
+}
+.mess_full input{
+  width: 520rpx;
+}
+.mess_right {
+  float:  left;
+  width: 180rpx;
+  height: 89rpx;
+  color: #f34393;
+  letter-spacing: 0;
+  text-align: center;
+  font-size: 32rpx;
+  line-height: 89rpx;
+  border-left: 1px solid #F4F4F4;
+}
+.picker{
+  display: inline-block;
+  width: 520rpx;
+}
+.ok {
+   width: 690rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  background: #f34393;
+  border-radius: 50rpx;
+  font-size: 36rpx;
+  color: #FFFFFF;
+  margin: 0 auto;
+}
+button[class="ok"]::after {
+  border:0;
+  border-radius: 50rpx;
+  /* background: #dedede; */
 }

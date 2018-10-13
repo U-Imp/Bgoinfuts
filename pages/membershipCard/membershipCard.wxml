@@ -5,19 +5,26 @@
       <view class="header-text">
         <view class="header-text-title">会员卡</view>
       </view>
-      <view class="header-logo">
-        <!-- <image class="header-logo-img" src="http://img.ui.cn/data/file/3/6/4/1053463.gif?imageMogr2/auto-orient/strip" /> -->
+      <view class="header-logo" bindtap='gotoCardBinding'>
+        <image class="header-logo-img" src="http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test-bg/%E4%BC%9A%E5%91%98%E5%8D%A1.png" />
+        <rich-text class='addCard'>添加卡</rich-text>
       </view>
     </view>
     <view class='context'>
-      <view class='unit' wx:for="{{getData.cardsList}}" wx:key="index" bindtap='gotoCardBinding'>
-        <view class="unit-top">
-          <view class='shopName'>{{item.cardName}}</view>
-          <!-- <view class='shopAddress'>{{item.shopAddress}}</view> -->
-          <image src="{{item.src}}" mode="aspectFill"></image>
-        </view>
-        <view class='unit-bottom'>{{!!item.cardNum?item.cardNum:'去绑定会员卡➟'}}</view>
-      </view>
+    <view wx:for="{{getData.cardsList}}" wx:key="index" class='unit-wrap'>
+      <i-swipeout  i-class="i-swipeout-demo-item" actions="{{actions}}">
+          <view slot="content">
+            <view class='unit'  >
+              <view class="unit-top">
+                <view class='shopName'>{{item.cardName}}</view>
+                <image src="{{item.src}}" mode="aspectFill"></image>
+              </view>
+              <view class='unit-bottom'>{{item.cardNum}}</view>
+            </view>
+          </view>
+      </i-swipeout>
+    </view>
+      
     </view>
   </view>
 </view>

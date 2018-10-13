@@ -10,7 +10,40 @@
       </view>
     </view>
     <view class='context'>
-      
+      <form bindsubmit="formSubmit" bindreset="formReset">
+      <view class='mess clearfix'>
+          <view class='mess_left mess_full'>
+            店铺名称 :
+            <picker class="picker" bindchange="bindPickerChange" value="{{index}}" range="{{shops}}">
+                <view class="picker">
+                    {{shops[index]}}
+                </view>
+            </picker>
+          </view>
+        </view>
+        <view class='mess clearfix'>
+          <view class='mess_left mess_full'>
+            会员卡号 :<input name="vip" type='number'  bindinput="vipInput" placeholder='输入会员卡号' maxlength='15' value='{{vip}}'></input>
+          </view>
+        </view>
+        <view class='mess clearfix'>
+          <view class='mess_left'>
+            手机号码 :<input type='number' name='phone' maxlength='11' placeholder='输入手机号' value="{{phone}}" bindinput="phoneInput" bindblur="phoneInputblur"></input>
+          </view>
+          <view class='mess_right' bindtap='bindButtonTap' disabled='{{disabled}}' >{{text}}</view>
+        </view>
+        <view class='mess clearfix'>
+          <view class='mess_left mess_full'>
+            验 证 码 :<input name="seccode" type='number'  bindinput="seccodeInput" placeholder='输入验证码' maxlength='6' value='{{seccode}}'></input>
+          </view>
+        </view>
+        <view class="weui-msg__extra-area" >
+          <view class="weui-footer">
+              <button class='ok' formType="submit" disabled="{{phone=='' || seccode=='' }}">确定</button>
+              
+          </view>
+        </view>
+      </form>
     </view>
   </view>
 </view>

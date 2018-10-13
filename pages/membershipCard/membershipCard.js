@@ -5,6 +5,16 @@ Page({
    * 页面的初始数据
    */
   data: {
+    actions: [
+      {
+        name: '删除',
+        color: '#fff',
+        fontsize: '20',
+        width: 80,
+        icon: 'trash',
+        background: '#2d8ff5'
+      }
+    ],
     getData:{
       cardsList:[{
         cardId:'1',
@@ -13,12 +23,12 @@ Page({
         src:'http://img.ui.cn/data/file/3/6/4/1830463.jpg',
       }, {
         cardId: '2',
-          cardNum: '',
+          cardNum: '343',
           cardName: '万达店 大连市和平广场4F4-1208',
         src: 'http://img.ui.cn/data/file/0/1/8/1661810.jpg',
       }, {
         cardId: '3',
-          cardNum: '',
+          cardNum: '343',
           cardName: '中山店 大连市和平广场4F4-1208',
           src: 'http://img.ui.cn/data/file/1/7/2/1896271.jpg',
       }, {
