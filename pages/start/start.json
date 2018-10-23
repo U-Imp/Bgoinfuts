@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "",
+  "usingComponents": {
+    "i-radio": "../../iview/radio/index",
+    "i-button": "../../iview/button/index",
+    "i-input-number": "../../iview/input-number/index",
+    "i-swipeout": "../../iview/swipeout/index",
+    "van-card": "../../vant/card/index"
+  }
+}

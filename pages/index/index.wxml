@@ -2,21 +2,21 @@
   <view class='index-wrap'>
     <view class="index-header">
       <view class="index-header-text">
-        <view class="index-header-text-title">{{getData.h1}}</view>
-        <view class="index-header-text-desc">{{getData.desc}}</view>
+        <view class="index-header-text-title">{{getData.homeInfo.titleMaster}}</view>
+        <view class="index-header-text-desc">{{getData.homeInfo.titleSlaver}}</view>
       </view>
       <view class="index-header-logo">
-        <image class="index-header-logo-img" src="http://img.ui.cn/data/file/3/6/4/1053463.gif?imageMogr2/auto-orient/strip" />
+        <image class="index-header-logo-img" src="{{getData.homeInfo.titleTagImg}}" />
       </view>
     </view>
     <view class="index-cards">
       <swiper class='index-cards-swiper' indicator-dots="{{indicatorDots}}" vertical="{{vertical}}" autoplay="{{autoplay}}" interval="{{interval}}" circular="{{circular}}" duration="{{duration}}" previous-margin="100rpx"
         next-margin="100rpx">
-        <block wx:for-items="{{getData.cardList}}" wx:key="index">
+        <block wx:for-items="{{getData.list}}" wx:key="index">
           <swiper-item bindtap='gotoGoodsDetails'>
             <view class="cards-swiper-item">
               <view class="cards-item-bg">
-                <image class="cards-item-bg-image" src="{{item.imgUrl}}" />
+                <image class="cards-item-bg-image" src="{{item.img}}" />
               </view>
               <view class="cards-item-mes">
                 <view class="cards-item-title">{{item.title}}</view>

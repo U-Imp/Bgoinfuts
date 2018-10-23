@@ -1,3 +1,4 @@
+const app = getApp();
 Page({
   data: {
     getData:{
@@ -25,11 +26,33 @@ Page({
     indicatorDots: false,
     // 滑动方向是否为纵向
     vertical: false,
-    autoplay: false,
+    autoplay: true,
     // 是否采用衔接滑动
     circular: true,
     duration: 500,
     interval: 5000
+  },
+  onLoad:function(){
+    this.getData();
+  },
+  getData:function(){
+    const that = this;
+    app.Ajax(
+      'Mall',
+      'POST',
+      'GetHome',
+      {  },
+      function (json) {
+        console.log('json',json);
+        if (json.success) {
+          that.setData({
+            getData: json.data
+          })
+        } else {
+          app.Toast('', 'none', 3000, json.msg.code);
+        }
+      }
+    )
   },
   gotoGoodsDetails:function(){
     wx.navigateTo({

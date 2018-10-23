@@ -1,0 +1,27 @@
+/* pages/start/start.wxss */
+page{
+  /* height: 100%; */
+  /* width: 150%;
+  height: 200px; */
+  /* background: url('http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/fengche.gif') no-repeat  center -45%; */
+  background: url('http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/qunnv.gif') no-repeat  center -30%;
+} 
+.img{
+  width: 300rpx;
+}
+.register{
+  position: fixed;
+  top: 350rpx ;
+  width: 100%;
+  margin: auto;
+}
+.register .registerBtn {
+  border-radius: 50rpx;
+  margin: auto;
+  width: 40%;
+  color:#fff!important;
+  background: #f44393!important;
+}
+.register .button-hover{
+  opacity: 0.8
+}

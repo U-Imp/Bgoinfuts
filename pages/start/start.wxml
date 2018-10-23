@@ -1,0 +1,9 @@
+<!--pages/start/start.wxml-->
+<!-- <view>Loading</view> -->
+<!-- <image class='img' src='http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/qingqiqiu.gif' mode="widthFix" bindtap='login'></image> -->
+<!-- <view class="authorization-button">
+      <i-button bind:click="register" shape="circle" i-class="registerBtn">授权注册</i-button>
+    </view> -->
+    <view class='register'>
+    <button class='registerBtn' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" >授权注册</button>
+    </view>

@@ -14,8 +14,8 @@
     "pages/orderDetails/orderDetails",
     "pages/membershipCard/membershipCard",
     "pages/cardBinding/cardBinding",
-      "pages/test/test"
-
+      "pages/test/test",
+    "pages/start/start"
   ],
   "window":{
     "backgroundTextStyle":"light",
