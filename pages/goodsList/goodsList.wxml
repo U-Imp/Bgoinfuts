@@ -1,12 +1,12 @@
 <view class='goods-list'>
   <view class='goods-list-wrap'>
-    <block wx:for="{{cardsList}}" wx:key="id">
-      <view class="cards" bindtap='gotoGoodsDetails'>
+    <block wx:for="{{getData.list}}" wx:key="id">
+      <view class="cards" bindtap='gotoGoodsDetails' data-goodsId='{{item.goodsId}}'>
         <view class="cards-block">
           <view class="cards-block-bg">
-            <image class="cards-block-bg-image" src="{{item.imgUrl}}" />
+            <image class="cards-block-bg-image" src="{{item.goodsImg}}" />
           </view>
-          <view class="cards-block-title">{{item.title}}</view>
+          <view class="cards-block-title">{{item.goodsTitle}}</view>
         </view>
       </view>
     </block>

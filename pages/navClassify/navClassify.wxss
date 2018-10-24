@@ -110,7 +110,7 @@ Page::after{
   height: 165rpx;
   background: rgba(255, 255, 255,0.85);
   margin: 20rpx 20rpx 0rpx 0rpx;
-  float: right;
+  float: left;
 }
 .unit-title{
 color: #777;

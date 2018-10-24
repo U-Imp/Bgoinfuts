@@ -1,4 +1,5 @@
 // pages/others/lefttab/lefttab.js
+const app = getApp();
 Page({
   data: {
     activeIndex: 10,
@@ -58,10 +59,32 @@ Page({
   },
   onShow: function () {
     // 页面显示
+    this.getData();
   },
-  gotoDoodsList:function(){
+  getData:function(){
+    const that = this;
+    app.Ajax(
+      'Mall',
+      'POST',
+      'GetShowDay',
+      {},
+      function (json) {
+        // console.log('json', json);
+        if (json.success) {
+          that.setData({
+            getData: json.data,
+            activeIndex: json.data.monthList[0]
+          })
+        } else {
+          app.Toast('', 'none', 3000, json.msg.code);
+        }
+      }
+    )
+  },
+  gotoGoodsList:function(e){
+    console.log('aa', e.currentTarget.dataset.showid)
     wx.navigateTo({
-      url: '../goodsList/goodsList',
+      url: '../goodsList/goodsList?showId=' + e.currentTarget.dataset.showid,
     })
   },
   onHide: function () {

@@ -7,7 +7,7 @@
   <view class="right_content">
     <scroll-view bindscrolltolower="getMore" scroll-y="true" style="height:{{deviceHeight}}px;" class="tab_panel" >
       <view>
-        <view class='unit' wx:for="{{getData.dayList[activeIndex]}}" wx:key="index" bindtap='gotoDoodsList'>
+        <view class='unit' wx:for="{{getData.dayList[activeIndex]}}" wx:key="index" data-showId='{{item.showId}}' bindtap='gotoGoodsList'>
           <view class='unit-title'>{{item.showTitle}}</view>
           <rich-text class='unit-content'>{{item.showImg}}</rich-text>
           <view class='unit-ems'>
