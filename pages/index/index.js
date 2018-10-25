@@ -43,7 +43,7 @@ Page({
       'GetHome',
       {  },
       function (json) {
-        console.log('json',json);
+        // console.log('json',json);
         if (json.success) {
           that.setData({
             getData: json.data
@@ -54,14 +54,33 @@ Page({
       }
     )
   },
-  gotoGoodsDetails:function(){
+  gotoGoodsDetails:function(e){
+    // console.log('w', e.currentTarget.dataset.goodsid)
     wx.navigateTo({
-      url: '../goodsDetails/goodsDetails',
+      url: '../goodsDetails/goodsDetails?goodsId=' + e.currentTarget.dataset.goodsid,
     })
   },
-  addtoCart:function(){
-    wx.showToast({
-      title: '成功添加至购物车',
-    })
+  addtoCart:function(e){
+    const that = this;
+    app.Ajax(
+      'Order',
+      'POST',
+      'InputCart',
+      {
+        goodsId: e.currentTarget.dataset.goodsid,
+        goodsNum: 1
+      },
+      function (json) {
+        // console.log('json', json);
+        if (json.success) {
+          wx.showToast({
+            title: '成功添加至购物车',
+          })
+        } else {
+          app.Toast('', 'none', 3000, json.msg.code);
+        }
+      }
+    )
+    
   }
 })

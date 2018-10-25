@@ -13,7 +13,7 @@
       <swiper class='index-cards-swiper' indicator-dots="{{indicatorDots}}" vertical="{{vertical}}" autoplay="{{autoplay}}" interval="{{interval}}" circular="{{circular}}" duration="{{duration}}" previous-margin="100rpx"
         next-margin="100rpx">
         <block wx:for-items="{{getData.list}}" wx:key="index">
-          <swiper-item bindtap='gotoGoodsDetails'>
+          <swiper-item bindtap='gotoGoodsDetails' data-goodsId='{{item.urlValue}}'>
             <view class="cards-swiper-item">
               <view class="cards-item-bg">
                 <image class="cards-item-bg-image" src="{{item.img}}" />
@@ -21,7 +21,7 @@
               <view class="cards-item-mes">
                 <view class="cards-item-title">{{item.title}}</view>
                 <view class="cards-item-price">♥ {{item.price}}</view>
-                <van-icon class="cards-item-icon1" name="cart" size="50rpx" color="#80848f" catchtap='addtoCart'/>
+                <van-icon class="cards-item-icon1" name="cart" size="50rpx" color="#80848f" catchtap='addtoCart' data-goodsId='{{item.urlValue}}'/>
                  <van-icon class="cards-item-icon2" name="like" size="50rpx" color="#f54281"/> 
                 <!-- <i-icon class="cards-item-icon2" type="activity" size="30" color="#80848f" /> -->
               </view>

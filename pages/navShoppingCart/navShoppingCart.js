@@ -1,3 +1,4 @@
+const app = getApp();
 Page({
   data: {
     actions: [
@@ -11,14 +12,15 @@ Page({
       }
     ],
     getData:{
-      cartTotal:'320',
-      ShoppingList:[{
+      totalPrice:'320',
+      list:[{
         goodsId: '1',
         goodsName: '耳机',
         goodsImg: 'http://img.ui.cn/data/file/7/7/6/992677.png',
         goodsPrice: 30,
         goodsNum: 2,
-        checked:false,
+        goodsStock:10,
+        cartChecked:false,
         edit: false
       }, {
           goodsId: '2',
@@ -26,7 +28,8 @@ Page({
           goodsImg: 'http://img.ui.cn/data/file/7/7/6/992677.png',
           goodsPrice: 30,
           goodsNum: 2,
-          checked: false,
+          goodsStock: 10,
+          cartChecked: false,
           edit: false
         }, {
           goodsId: '2',
@@ -34,7 +37,8 @@ Page({
           goodsImg: 'http://img.ui.cn/data/file/7/7/6/992677.png',
           goodsPrice: 30,
           goodsNum: 2,
-          checked: false,
+          goodsStock: 10,
+          cartChecked: true,
           edit: false
         }, {
           goodsId: '2',
@@ -42,7 +46,8 @@ Page({
           goodsImg: 'http://img.ui.cn/data/file/7/7/6/992677.png',
           goodsPrice: 30,
           goodsNum: 2,
-          checked: false,
+          goodsStock: 10,
+          cartChecked: false,
           edit: false
         }, {
           goodsId: '2',
@@ -50,7 +55,8 @@ Page({
           goodsImg: 'http://img.ui.cn/data/file/7/7/6/992677.png',
           goodsPrice: 30,
           goodsNum: 2,
-          checked: false,
+          goodsStock: 10,
+          cartChecked: false,
           edit: false
         }, {
           goodsId: '2',
@@ -58,7 +64,8 @@ Page({
           goodsImg: 'http://img.ui.cn/data/file/7/7/6/992677.png',
           goodsPrice: 30,
           goodsNum: 2,
-          checked: false,
+          goodsStock: 10,
+          cartChecked: false,
           edit: false
         }, {
           goodsId: '2',
@@ -66,7 +73,8 @@ Page({
           goodsImg: 'http://img.ui.cn/data/file/7/7/6/992677.png',
           goodsPrice: 30,
           goodsNum: 2,
-          checked: false,
+          goodsStock: 10,
+          cartChecked: false,
           edit: false
         }]
     },
@@ -97,9 +105,11 @@ Page({
     }
   },
   onLoad: function (options) {
+    this.getData();
     // 生命周期函数--监听页面加载
-    var that = this;
-    this.computed();
+
+    // var that = this;
+    // this.computed();
   },
   // 计算总积分
   computed() {
@@ -149,6 +159,25 @@ Page({
     })
   },
 // =====================================================
+  getData:function(){
+    const that = this;
+    app.Ajax(
+      'Order',
+      'POST',
+      'GetCart',
+      {},
+      function (json) {
+        console.log('json', json);
+        if (json.success) {
+          // that.setData({
+          //   getData: json.data,
+          // })
+        } else {
+          app.Toast('', 'none', 3000, json.msg.code);
+        }
+      }
+    )
+  },
   gotoGoodsDetails:function(){
     wx.navigateTo({
       url: '../goodsDetails/goodsDetails',
@@ -170,7 +199,7 @@ Page({
   // 编辑单条数量区显示
   editNum:function(e){
     console.log('e',e)
-    let curIndex = 'getData.ShoppingList[' + e.currentTarget.dataset.index + '].edit';
+    let curIndex = 'getData.list[' + e.currentTarget.dataset.index + '].edit';
     this.setData({
       [curIndex]: !e.currentTarget.dataset.edit
     })
@@ -178,9 +207,9 @@ Page({
   },
   // 完成编辑单条数量区隐藏
   editfinish:function(e){
-    let curIndex = 'getData.ShoppingList[' + e.currentTarget.dataset.index + '].edit';
-    console.log('wdas',curIndex)
-    console.log('wdas', e)
+    let curIndex = 'getData.list[' + e.currentTarget.dataset.index + '].edit';
+    // console.log('wdas',curIndex)
+    // console.log('wdas', e)
     this.setData({
       [curIndex]: !e.currentTarget.dataset.edit
     })
@@ -188,7 +217,7 @@ Page({
   // 修改数量
   addNumber(e) {
     console.log('ww',e);
-    let curNum = 'getData.ShoppingList[' + e.currentTarget.dataset.index + '].goodsNum';
+    let curNum = 'getData.list[' + e.currentTarget.dataset.index + '].goodsNum';
     this.setData({
       [curNum]: e.detail.value,
     })

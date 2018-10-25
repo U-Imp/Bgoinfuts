@@ -11,11 +11,11 @@
     </view>
     <view class="shoppingList">
     
-   <view class='unit' wx:for="{{getData.ShoppingList}}" wx:key="index" bindtap='gotoGoodsDetails'>
+   <view class='unit' wx:for="{{getData.list}}" wx:key="index" bindtap='gotoGoodsDetails'>
     <i-swipeout  i-class="i-swipeout-demo-item" actions="{{actions}}">
         <view slot="content">
            <view class="i-swipeout-wrap ">
-              <radio value="{{item.goodsId}}" checked="{{item.checked}}"  catchtap='changeRadio' class='i-swipeout-wrap-left' data-index='{{index}}' data-checked='{{item.checked}}'/>
+              <radio value="{{item.goodsId}}" checked="{{item.cartChecked}}"  catchtap='changeRadio' class='i-swipeout-wrap-left' data-index='{{index}}' data-checked='{{item.cartChecked}}'/>
               <image src='{{item.goodsImg}}' class='i-swipeout-wrap-center'></image> 
               <view class="i-swipeout-wrap-right">
                 <view class='goodsName'>{{item.goodsName}}</view>
@@ -23,7 +23,7 @@
                 <view class='clearfix goodsNum' catchtap="prevent">
                   <view class='fl' wx:if="{{item.edit == false}}">数量:{{item.goodsNum}}</view>
                   <i-panel slot="right-icon" wx:if="{{item.edit == true}}">
-                  <i-input-number i-class="inputNumber" style="display:inline-block" data-index="{{index}}" value="{{item.goodsNum}}" min="1" max="100"  bindchange="addNumber" />
+                  <i-input-number i-class="inputNumber" style="display:inline-block" data-index="{{index}}" value="{{item.goodsNum}}" min="1" max="{{item.goodsStock}}"  bindchange="addNumber" />
                 </i-panel>
                   <view class='fr'>
                     <button class="weui-btn mini-btn editBtn" type="{{item.edit?'primary':'default'}}" size="mini"  data-edit="{{item.edit}}" data-index="{{index}}" catchtap="editNum">{{item.edit?'完成':'编辑'}}</button>
@@ -57,7 +57,7 @@
     </view>
     <view class="shopping-cart-button">
     <!-- <i-button bind:click="submit" type="primary" long="true">♥ 提交付款</i-button> -->
-      <i-button bind:click="gotoOrderConfirmation" shape="circle" i-class="buyBtn">合计消耗：{{getData.cartTotal}} ♥ --- 去买买买
+      <i-button bind:click="gotoOrderConfirmation" shape="circle" i-class="buyBtn">合计消耗：{{getData.totalPrice}} ♥ --- 去买买买
       </i-button>
     </view>
   </view>

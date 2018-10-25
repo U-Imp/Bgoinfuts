@@ -2,8 +2,8 @@
   <view class='goods-details-wrap'>
     <view class="goods-details-header">
       <view class="header-text">
-        <view class="header-text-title">{{getData.title}}</view>
-        <view class="header-text-desc">{{getData.brief}}</view>
+        <view class="header-text-title">{{getData.goodsName}}</view>
+        <view class="header-text-desc">{{getData.goodsDesc}}</view>
       </view>
       <view class="header-logo">
         <image class="header-logo-img" src="http://img.ui.cn/data/file/3/6/4/1053463.gif?imageMogr2/auto-orient/strip" />
@@ -12,18 +12,19 @@
     <view class="goods-details-cards">
       <swiper class='goods-details-cards-swiper' indicator-dots="{{goodsForm.indicatorDots}}" vertical="{{goodsForm.vertical}}" autoplay="{{goodsForm.autoplay}}" interval="{{goodsForm.interval}}" circular="{{goodsForm.circular}}" duration="{{goodsForm.duration}}"
         previous-margin="60rpx" next-margin="60rpx">
-        <block wx:for-items="{{getData.goodsList}}" wx:key="index">
+        <block wx:for-items="{{getData.mainImgs}}" wx:key="index">
           <swiper-item>
             <view class="cards-swiper-item">
-              <image class="cards-item-image" src="{{item.imgUrl}}" />
+              <image class="cards-item-image" src="{{item.img}}" />
             </view>
           </swiper-item>
         </block>
       </swiper>
     </view>
     <view class="goods-details-number">
-      <text class="goods-pirce">￥{{getData.price}}</text>
-      <text class="goods-sold">已售{{getData.sold}}</text>
+      <text class="goods-pirce">￥{{getData.goodsPrice}}</text>
+      <text class="goods-sold">已售{{getData.sales}}</text>
+      <text class="goods-sold">库存{{getData.goodsStock}}</text>
     </view>
     <!-- <view class="goods-details-icon">
       <block wx:for-items="{{goodsForm.iconList}}">
@@ -43,12 +44,12 @@
         <i-sticky-item i-class="i-sticky-demo-title">
           <view class="i-sticky-title" slot="title">商品详情</view>
           <view class="" slot="content">
-            <block wx:for-items="{{getData.detailsList}}" wx:key="index">
-              <view wx:if="{{item.detailStatus == 0}}">
-                <image class="sticky-item-img" src="{{item.imgUrl}}" mode='widthFix'/>
+            <block wx:for-items="{{getData.infoImgs}}" wx:key="index">
+              <view wx:if="{{item.img != ''}}">
+                <image class="sticky-item-img" src="{{item.img}}" mode='widthFix'/>
               </view>
-              <view class="sticky-item-text" wx:if="{{item.detailStatus == 1}}">{{item.textMes}}
-              </view>
+              <!-- <view class="sticky-item-text" wx:if="{{item.detailStatus == 1}}">{{item.textMes}}
+              </view> -->
             </block>
           </view>
         </i-sticky-item>
@@ -71,7 +72,7 @@
       <van-cell-group>
         <van-cell title="{{ popupForm.status == 1 ? '添加数量' : '兑换数量' }}" border="true">
           <i-panel slot="right-icon" title="基础用法">
-            <i-input-number value="{{popupForm.status == 1 ? popupForm.numCart : popupForm.numConvert}}" min="0" max="100" bindchange="numChange" data-status='{{popupForm.status}}'/>
+            <i-input-number value="{{popupForm.status == 1 ? popupForm.numCart : popupForm.numConvert}}" min="1" max="{{getData.goodsStock}}" bindchange="numChange" data-status='{{popupForm.status}}'/>
           </i-panel>
         </van-cell>
       </van-cell-group>
