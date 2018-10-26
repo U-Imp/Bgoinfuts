@@ -11,29 +11,29 @@
     <!--兑换地址  -->
     <view class="pickAddress">
       <view class="pickAddress-title">领取地址:</view>
-      <view class="">{{getData.pickAddress}}</view>
+      <view class="">{{getData.addr}}</view>
     </view>
     <!--商品信息  -->
-    <block wx:for-items="{{getData.orderList}}" wx:key="index">
+    <block wx:for-items="{{getData.list}}" wx:key="index">
       <view class="unit clearfix">
         <view class='fl unit-left'>
-          <image class='unit-left-pic' src='http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/mao.gif' mode='widthFix'></image>
+          <image class='unit-left-pic' src='{{item.goodsImg}}' mode='widthFix'></image>
         </view>
         <view class='fr unit-right'>
           <rich-text class='unit-right-name'>{{item.goodsName}}</rich-text>
           <rich-text>
             <text>{{item.goodsPrice}}❤</text>
-            <text class='fr'>{{item.goodsNum}}</text>
+            <text class='fr'>{{item.num}}</text>
           </rich-text>
         </view>
       </view>
     </block>
     <view class='cell'>
-      <input type="text"  placeholder="订单备注（选填）" bindinput="bindKeyInput"></input>
+      <input type="text" value='{{getData.orderRemark}}' placeholder="订单备注（选填）" bindinput="bindKeyInput" ></input>
     </view>
     <view class='cell'>
       <text>合计：</text>
-      <text class='fr'>{{getData.orderTotal}} ❤</text>
+      <text class='fr'>{{getData.total}} ❤</text>
     </view>
     <!--订单备注  -->
     <!-- <van-cell-group>

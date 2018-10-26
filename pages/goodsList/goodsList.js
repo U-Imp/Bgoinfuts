@@ -86,9 +86,10 @@ Page({
       }
     )
   },
-  gotoGoodsDetails:function(){
+  gotoGoodsDetails:function(e){
+    // console.log('e',e)
     wx.navigateTo({
-      url: '../goodsDetails/goodsDetails',
+      url: '../goodsDetails/goodsDetails?goodsId='+e.currentTarget.dataset.goodsid,
     })
   }
 });

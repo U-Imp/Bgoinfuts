@@ -94,7 +94,7 @@ Page({
     }
   },
   onLoad:function(option){
-    console.log('option',option)
+    // console.log('option',option)
     this.getData(option.goodsId)
   },
   getData: function (goodsId){
@@ -105,11 +105,11 @@ Page({
       'GetGoods',
       { goodsId: goodsId },
       function (json) {
-        console.log('json', json);
+        // console.log('json', json);
         if (json.success) {
-          // that.setData({
-          //   getData: json.data
-          // })
+          that.setData({
+            getData: json.data
+          })
         } else {
           app.Toast('', 'none', 3000, json.msg.code);
         }
@@ -180,18 +180,21 @@ Page({
     }
     else {
       var obj = {
-        imgUrl: this.data.popupForm.imgUrl,
-        price: this.data.popupForm.price,
-        title: this.data.popupForm.title,
+        goodsId: this.data.getData.goodsId,
+        cartId:'',
         num: this.data.popupForm.numConvert,
-        total: Number(this.data.popupForm.price) * Number(this.data.popupForm.numConvert)
+
+        // imgUrl: this.data.popupForm.imgUrl,
+        // price: this.data.popupForm.price,
+        // title: this.data.popupForm.title,
+        // total: Number(this.data.popupForm.price) * Number(this.data.popupForm.numConvert)
       }
-      wx.navigateTo({
-        url: '../orderConfirmation/orderConfirmation'
-      })
       // wx.navigateTo({
-      //   url: '../orderConfirmation/orderConfirmation?params=' + JSON.stringify(obj)
+      //   url: '../orderConfirmation/orderConfirmation'
       // })
+      wx.navigateTo({
+        url: '../orderConfirmation/orderConfirmation?params=' + JSON.stringify(obj)
+      })
     }
   },
   numChange(e) {
