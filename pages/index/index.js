@@ -82,5 +82,10 @@ Page({
       }
     )
     
+  },
+  gotoStoresList:function(){
+    wx.navigateTo({
+      url: '../storesList/storesList',
+    })
   }
 })

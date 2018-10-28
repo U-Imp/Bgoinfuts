@@ -25,40 +25,43 @@ Page({
         }
       ],
       orderRemark: '',
-      orderTotal: 0,
+      total: 0,
     },
   },
   onLoad: function (options) {
-    // console.log('订单确认', options)
+    console.log('订单确认', JSON.parse(options.params))
+    this.setData({
+      getData: JSON.parse(options.params)
+    })
     // var that = this;
-    var objArr = [JSON.parse(options.params)];
-    // console.log(objArr)
-    this.PreOrder(objArr)
+    // var objArr = [JSON.parse(options.params)];
+    // // console.log(objArr)
+    // this.PreOrder(objArr)
     // this.setData({
     //   'orderForm.orderTotal': obj.cartTotal,
     //   'orderForm.orderList': obj.cartList,
     // })
   },
   // 预生成订单
-  PreOrder:function(obj){
-    const that = this;
-    app.Ajax(
-      'Order',
-      'POST',
-      'PreOrder',
-       obj ,
-      function (json) {
-        // console.log('json', json);
-        if (json.success) {
-          that.setData({
-            getData: json.data
-          })
-        } else {
-          app.Toast('', 'none', 3000, json.msg.code);
-        }
-      }
-    )
-  },
+  // PreOrder:function(obj){
+  //   const that = this;
+  //   app.Ajax(
+  //     'Order',
+  //     'POST',
+  //     'PreOrder',
+  //      obj ,
+  //     function (json) {
+  //       // console.log('json', json);
+  //       if (json.success) {
+  //         that.setData({
+  //           getData: json.data
+  //         })
+  //       } else {
+  //         app.Toast('', 'none', 3000, json.msg.code);
+  //       }
+  //     }
+  //   )
+  // },
   // 添加备注
   bindKeyInput:function(e){
     this.setData({
@@ -75,13 +78,57 @@ Page({
       preOrderId: this.data.getData.preOrderId
     }
     console.log(this.data.getData.orderRemark)
+    const that = this;
+    app.Ajax(
+      'Order',
+      'POST',
+      'PayOrder',
+      { ...send },
+      function (json) {
+        console.log('json', json);
+        if (json.success) {
+
+          wx.showModal({
+            title: '您的消费',
+            content: '需支付：❤' + that.data.getData.total,
+            confirmText:'确认支付',
+            success:function(res){
+              if (res.confirm) {
+                app.Toast('支付成功', 'none', 3000);
+                setTimeout(function () {
+                  wx.switchTab({
+                    url: '../index/index'
+                  })
+                }, 2600)
+              } else if (res.cancel) {
+                app.Toast('支付失败', 'none', 3000);
+                setTimeout(function () {
+                  wx.redirectTo({
+                    url: '../orderList/orderList'
+                  })
+                }, 2600)
+              }
+            },
+            fail:function(){
+              app.Toast('', 'none', 3000, json.msg.code);
+            }
+          })
+          // that.setData({
+          //   getData: json.data,
+          // })
+        } else {
+          app.Toast('', 'none', 3000, json.msg.code);
+          
+        }
+      }
+    )
     // var that = this;
     // var options = JSON.stringify(this.data.orderForm);
     // wx.navigateTo({
     //   url: '../orderDetails/orderDetails?options=' + options
     // })
-    wx.redirectTo({
-      url: '../orderList/orderList'
-    })
+    // wx.redirectTo({
+    //   url: '../orderList/orderList'
+    // })
   }
 });

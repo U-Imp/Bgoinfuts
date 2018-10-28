@@ -5,7 +5,7 @@
         <view class="index-header-text-title">{{getData.homeInfo.titleMaster}}</view>
         <view class="index-header-text-desc">{{getData.homeInfo.titleSlaver}}</view>
       </view>
-      <view class="index-header-logo">
+      <view class="index-header-logo" bindtap='gotoStoresList'>
         <image class="index-header-logo-img" src="{{getData.homeInfo.titleTagImg}}" />
       </view>
     </view>

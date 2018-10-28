@@ -1,5 +1,7 @@
+const app = getApp()
 Page({
   data: {
+    orderStatus: ['未支付', '商家备货中', '待取货','交易完成'],
     getData:{
       status0OrderList:[
         {
@@ -93,57 +95,51 @@ Page({
           value: 3
         }
       ],
-      orderList: [
-        {
-          status: 0,
-          serialNumber: 'OD3242378898342',
-          title: '大毛球玩偶',
-          imgUrl: 'https://i.loli.net/2017/08/21/599a521472424.jpg',
-          integral: 1200
-        },
-        {
-          status: 1,
-          serialNumber: 'OD3242378898342',
-          title: '大毛球玩偶',
-          imgUrl: 'https://i.loli.net/2017/08/21/599a521472424.jpg',
-          integral: 1200
-        },
-        {
-          status: 2,
-          serialNumber: 'OD3242378898342',
-          title: '大毛球玩偶',
-          imgUrl: 'https://i.loli.net/2017/08/21/599a521472424.jpg',
-          integral: 1200
-        },
-      ],
-      
     },
 
   },
 
   onLoad: function (options) {
-    var that = this;
-    console.log(options);
+    // var that = this;
+    // console.log(options);
+    this.setData({
+      'tabForm.tabCurrent': options.status
+    })
+    this.getData();
   },
-
+getData:function(){
+  const that = this;
+  app.Ajax(
+    'Order',
+    'POST',
+    'GetOrderList',
+    {},
+    function (json) {
+      // console.log('ajson', json);
+      if (json.success) {
+        that.setData({
+          getData: json.data
+        })
+      } else {
+        app.Toast('', 'none', 3000, json.msg.code);
+      }
+    }
+  )
+},
   tabHandel({ detail }) {
-    console.log(detail)
+    // console.log(detail)
     this.setData({
       'tabForm.tabCurrent': detail.key
     });
-    console.log(detail)
+    // console.log(detail)
   },
-  gotoOrderDetails:function(){
+  gotoOrderDetails:function(e){
+    // console.log('~~', e.currentTarget.dataset.orderid)
     wx.navigateTo({
-      url: '../orderDetails/orderDetails'
+      url: '../orderDetails/orderDetails?orderId=' + e.currentTarget.dataset.orderid
     })
   },
-  examineIt(){
-    console.log(1)
-    wx.navigateTo({
-      url: '../orderList/orderList'
-    })
-  }
+
   
 
 });

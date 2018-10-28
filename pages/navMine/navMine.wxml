@@ -17,31 +17,31 @@
     <view class='content_all'>
       <view class='' bindtap='consumptionfunction'  >
         <navigator class='looks-view' url="/pages/orderList/orderList?status=0">
-        <text class='content_num'>{{1}}</text>
+        <text class='content_num'>{{getData.unPay}}</text>
         <text class='content_method'>待付款</text>
         </navigator>
       </view>
       <view class='borL'>
       <navigator class='looks-view' url="/pages/orderList/orderList?status=1">
-        <text class='content_num'>{{0}}</text>
+        <text class='content_num'>{{getData.pay}}</text>
         <text class='content_method'>已付款</text>
       </navigator>
       </view>
       <view class='borL borR'>
       <navigator class='looks-view' url="/pages/orderList/orderList?status=2">
-        <text class='content_num'>{{0}}</text>
+        <text class='content_num'>{{getData.inStore}}</text>
         <text class='content_method'>待取货</text>
       </navigator>
       </view>
       <view class=''>
       <navigator class='looks-view' url="/pages/orderList/orderList?status=3">
-        <text class='content_num'>{{0}}</text>
+        <text class='content_num'>{{getData.done}}</text>
         <text class='content_method'>已完成</text>
       </navigator>
       </view>
     </view>
-    <view class='hot' type="default" type="default" bindtap="openConfirm" >剩余❤值</view>
-    <view class='cash'>❤<text>{{getData.payMoney}}</text></view>
+    <view class='hot' type="default" type="default" bindtap="openConfirm" >剩余❤值{{getData.heart}}</view>
+    <view class='cash'>❤<text>{{getData.heart}}</text></view>
   </view>
   
 
@@ -71,9 +71,8 @@
     <view class='clear'></view>
     
     <!-- 弹窗图层 -->
-      <view class="drawer_screen" bindtap="setModalStatus" data-status="0" wx:if="{{showModalStatus}}"></view>
+      <!-- <view class="drawer_screen" bindtap="setModalStatus" data-status="0" wx:if="{{showModalStatus}}"></view>
       <view animation="{{animationData}}" class="drawer_attr_box" wx:if="{{showModalStatus}}">
-      <!-- <view class="close_icon" bindtap="setModalStatus" data-status="0">×</view> -->
         <view class="drawer_attr_content">
           <view class="drawer_attr_content_name">提现申请成功</view>
           <view class="drawer_attr_content_text">提现金额： {{applyRecordData.applyAddr==''?'¥':'₩'}} {{applyRecordData.money}}</view>
@@ -81,7 +80,7 @@
           <view class="drawer_attr_content_text">{{applyRecordData.applyAddr==''?'预计转账时间':'最早提现时间'}}：{{applyRecordData.payTime}}</view>
           <view class="drawer_attr_content_ok" bindtap="setModalStatus" data-status="0">我知道了</view>
         </view>
-      </view>
+      </view> -->
     <!-- 弹窗图层 -->
    
 </view>

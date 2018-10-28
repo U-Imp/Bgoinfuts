@@ -1,12 +1,12 @@
 {
   "pages":[
-    
+    "pages/navMine/navMine",
     
     
     "pages/index/index",
     "pages/navClassify/navClassify",
     "pages/navShoppingCart/navShoppingCart",
-    "pages/navMine/navMine",
+    
     "pages/goodsList/goodsList",
     "pages/goodsDetails/goodsDetails",
     "pages/orderConfirmation/orderConfirmation",
@@ -14,6 +14,9 @@
     "pages/orderDetails/orderDetails",
     "pages/membershipCard/membershipCard",
     "pages/cardBinding/cardBinding",
+
+    "pages/storesList/storesList",
+    "pages/storesDetails/storesDetails",
       "pages/test/test",
     "pages/start/start"
   ],

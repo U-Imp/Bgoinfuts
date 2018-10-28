@@ -26,7 +26,7 @@
                   <i-input-number i-class="inputNumber" style="display:inline-block" data-index="{{index}}" value="{{item.goodsNum}}" min="1" max="{{item.goodsStock}}"  bindchange="addNumber" />
                 </i-panel>
                   <view class='fr'>
-                    <button class="weui-btn mini-btn editBtn" type="{{item.edit?'primary':'default'}}" size="mini"  data-edit="{{item.edit}}" data-index="{{index}}" catchtap="editNum">{{item.edit?'完成':'编辑'}}</button>
+                    <button class="weui-btn mini-btn editBtn" type="{{item.edit?'primary':'default'}}" size="mini"  data-edit="{{item.edit}}" data-goodsNum="{{item.goodsNum}}" data-cartId="{{item.cartId}}" data-index="{{index}}" catchtap="{{item.edit?'editfinish':'editNum'}}">{{item.edit?'完成':'编辑'}}</button>
                     <!-- <button class="weui-btn mini-btn" type="primary" size="mini" wx:if="{{item.edit == true}}" data-edit="{{item.edit}}" data-index="{{index}}" bindtap="editfinish" >完成</button> -->
                   </view>
                 </view>

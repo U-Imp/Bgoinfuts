@@ -1,5 +1,7 @@
+const app = getApp();
 Page({
   data: {
+    orderState: ['待支付', '已支付', '待取货', '已完成'],
     getData: {
       status:'待支付',
       orderNumber:'GSJ6734823623784',
@@ -31,11 +33,31 @@ Page({
   onLoad: function (options) {
     // var that = this;
     // var obj = JSON.parse(options.params);
-    // console.log(obj)
+    console.log(options)
+    this.getData(options.orderId)
     // this.setData({
     //   'orderForm.orderTotal': obj.cartTotal,
     //   'orderForm.orderList': obj.cartList,
     // })
+  },
+  getData: function (orderId){
+    const that = this;
+    app.Ajax(
+      'Order',
+      'POST',
+      'GetOrderInfo',
+      { orderId: orderId},
+      function (json) {
+        // console.log('ajson', json);
+        if (json.success) {
+          that.setData({
+            getData: json.data
+          })
+        } else {
+          app.Toast('', 'none', 3000, json.msg.code);
+        }
+      }
+    )
   },
   // 添加备注
   bindKeyInput: function (e) {

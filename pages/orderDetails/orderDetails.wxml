@@ -2,7 +2,7 @@
   <view class='order-confirmation-wrap'>
     <view class="order-confirmation-header">
       <view class="header-text">
-        <view class="header-text-title">{{getData.status}}</view>
+        <view class="header-text-title">{{orderState[getData.state]}}</view>
       </view>
       <view class="header-logo">
         <image class="header-logo-img" src="http://img.ui.cn/data/file/3/6/4/1053463.gif?imageMogr2/auto-orient/strip" />
@@ -11,7 +11,7 @@
     <!--订单号  -->
     <view class="pickAddress">
       <view class="pickAddress-title">订单号:</view>
-      <view class="">{{getData.orderNumber}}</view>
+      <view class="">{{getData.orderCode}}</view>
     </view>
     <!--兑换地址  -->
     <view class="pickAddress">
@@ -19,16 +19,16 @@
       <view class="">{{getData.pickAddress}}</view>
     </view>
     <!--商品信息  -->
-    <block wx:for-items="{{getData.orderList}}" wx:key="index">
+    <block wx:for-items="{{getData.list}}" wx:key="index">
       <view class="unit clearfix">
         <view class='fl unit-left'>
-          <image class='unit-left-pic' src='http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/mao.gif' mode='widthFix'></image>
+          <image class='unit-left-pic' src='{{item.goodsImg}}' mode='widthFix'></image>
         </view>
         <view class='fr unit-right'>
           <rich-text class='unit-right-name'>{{item.goodsName}}</rich-text>
           <rich-text>
-            <text>{{item.goodsPrice}}❤</text>
-            <text class='fr'>{{item.goodsNum}}</text>
+            <text>{{item.price}}❤</text>
+            <text class='fr'>{{item.num}}</text>
           </rich-text>
         </view>
       </view>
@@ -36,7 +36,7 @@
    
     <view class='cell'>
       <text>合计：</text>
-      <text class='fr'>{{getData.orderTotal}} ❤</text>
+      <text class='fr'>{{getData.total}} ❤</text>
     </view>
     
     <!--订单备注  -->

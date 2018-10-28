@@ -1,0 +1,65 @@
+<view class='stores-list'>
+  <view class='stores-list-wrap'>
+    <view class="stores-list-header">
+      <view class="header-text">
+        <view class="header-text-title">店铺列表</view>
+        <view class="header-text-desc">共{{cardsForm.cardsNum}}家店铺</view>
+      </view>
+      <!-- <view class="header-logo">
+        <image class="header-logo-img" src="http://img.ui.cn/data/file/3/6/4/1053463.gif?imageMogr2/auto-orient/strip" />
+      </view> -->
+    </view>
+
+    <view class='stores-list-cards-wrap'>
+      <block wx:for-items="{{ cardsForm.cardsList }}" wx:key="{{item.id}}">
+        <!-- <view class='stores-list-cards' data-index="{{index}}" bindtap='examineIt'>
+            <view class='cards-title'>
+              <view>{{item.title}}</view>
+            </view>
+            <view class='cards-img'>
+              <image src='{{item.imgUrl}}'></image>
+            </view>
+            <view class='cards-content'>
+              <view>{{item.content}}</view>
+            </view>
+        </view> -->
+        <!-- <view class='stores-list-card' data-index="{{index}}" bindtap='examineIt'>
+          <view class='card-image'>
+            <image src='{{item.imgUrl}}'></image>
+          </view>
+
+          <view class='card-mes'>
+            <view class='card-title'>{{item.title}}</view>
+            <view class='card-content'>{{item.content}}</view>
+          </view>
+        </view> -->
+        <view class='stores-cards' data-index="{{index}}" bindtap='examineIt'>
+            <view class='card-text'>
+              <view class='card-name'>{{item.title}}</view>
+              <view class='card-btn'>点击进入 ></view>
+            </view>
+            <view class='card-bg'>
+              <image src='{{item.imgUrl}}'></image>
+            </view>
+        </view>
+      </block>
+    </view>
+
+    <!-- <block wx:for-items="{{ cardsForm.cardsList }}" wx:key="{{item.id}}">
+      <view class='stores-list-cards' data-index="{{index}}" bindtap='examineIt'>
+        <view class='stores-cards-item'>
+          <view class='cards-title'>
+            <view>{{item.title}}</view>
+          </view>
+          <view class='cards-img'>
+            <image src='{{item.imgUrl}}'></image>
+          </view>
+          <view class='cards-content'>
+            <view>{{item.content}}</view>
+          </view>
+        </view>
+      </view>
+    </block> -->
+
+  </view>
+</view>

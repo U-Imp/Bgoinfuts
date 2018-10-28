@@ -1,0 +1,56 @@
+<view class='stores-details'>
+  <view class='stores-details-wrap'>
+    <view class="stores-details-header">
+      <view class="header-logo">
+        <image class="header-logo-img" src="{{storesDetails.logo}}" />
+      </view>
+      <view class="header-text">
+        <view class="header-text-title">{{storesDetails.name}}</view>
+        <view class="header-text-desc">{{storesDetails.content}}</view>
+      </view>
+    </view>
+
+    <view class="stores-details-msg">
+      <view class="msg-address">店铺地址:{{storesDetails.address}}</view>
+      <view class="msg-tel">店铺电话:{{storesDetails.tel}}</view>
+    </view>
+
+    <view class="stores-details-swiper">
+      <swiper class="swiper-item" indicator-dots="{{storesDetails.indicatorDots}}" vertical="{{storesDetails.vertical}}" autoplay="{{storesDetails.autoplay}}" interval="{{storesDetails.interval}}" duration="{{storesDetails.duration}}">
+        <block wx:for-items="{{storesDetails.imgList}}" wx:key="{{index}}">
+          <swiper-item>
+            <image class="header-logo-img" src="{{item.imgUrl}}" />
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+
+    <!--上新 -->
+    <view class="stores-details-new">
+      <view class="new-header">
+        <view class='new-header-title'>店铺上新</view>
+        <view class='new-header-icon'>
+          <van-icon name="shop" color="red" />
+        </view>
+      </view>
+
+      <view class='new-list-wrap'>
+        <block wx:for-items="{{storesDetails.newShopList}}" wx:key="{{index}}">
+          <view class='new-list-item'>
+            <view class='item-img'>
+              <image src="{{item.imgUrl}}" />
+            </view>
+            <view class='item-title'>
+              {{item.title}}
+            </view>
+             <view class='item-content'>
+              {{item.content}}
+            </view>
+
+          </view>
+        </block>
+      </view>
+    </view>
+
+  </view>
+</view>

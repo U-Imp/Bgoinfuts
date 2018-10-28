@@ -179,7 +179,7 @@ Page({
       // })
     }
     else {
-      var obj = {
+      var objArr = [{
         goodsId: this.data.getData.goodsId,
         cartId:'',
         num: this.data.popupForm.numConvert,
@@ -188,14 +188,37 @@ Page({
         // price: this.data.popupForm.price,
         // title: this.data.popupForm.title,
         // total: Number(this.data.popupForm.price) * Number(this.data.popupForm.numConvert)
-      }
+      }]
       // wx.navigateTo({
       //   url: '../orderConfirmation/orderConfirmation'
       // })
-      wx.navigateTo({
-        url: '../orderConfirmation/orderConfirmation?params=' + JSON.stringify(obj)
-      })
+
+      this.PreOrder(objArr)
+      
+      
     }
+  },
+  PreOrder: function (obj) {
+    const that = this;
+    app.Ajax(
+      'Order',
+      'POST',
+      'PreOrder',
+      obj,
+      function (json) {
+        // console.log('json', json);
+        if (json.success) {
+          wx.navigateTo({
+            url: '../orderConfirmation/orderConfirmation?params=' + JSON.stringify(json.data)
+          })
+          // that.setData({
+          //   getData: json.data
+          // })
+        } else {
+          app.Toast('', 'none', 3000, json.msg.code);
+        }
+      }
+    )
   },
   numChange(e) {
     if (e.currentTarget.dataset.status == 1) {

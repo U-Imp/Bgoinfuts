@@ -3,44 +3,37 @@ const app = getApp()
 Page({
   data: {
     getData:{},
-    applyRecordData:{},
-    disabled: false,
   },
   
   onLoad: function () {
+    this.getData();
   },
-
+  getData:function(){
+    const that = this;
+    app.Ajax(
+      'Member',
+      'POST',
+      'GetMemberInfo',
+      {  },
+      function (json) {
+        console.log('ajson',json);
+        if (json.success) {
+          that.setData({
+            getData: json.data
+          })
+        }else{
+          app.Toast('', 'none', 3000, json.msg.code);
+        }
+      }
+    )
+  },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function (res) {
-    this.getMainInfo();
   },
-  getMainInfo:function(){
-    const that = this;
-  //   app.Ajax(
-  //     'User',
-  //     'POST',
-  //     'GetMainInfo',
-  //     {  },
-  //     function (json) {
-  //       // console.log('ajson',json);
-  //       if (json.success) {
-  //         that.setData({
-  //           getData: json.data
-  //         })
-  //       }else{
-  //         app.Toast('', 'none', 3000, json.msg.code);
-  //         // wx.showToast({
-  //         //   title: json.msg.msg,
-  //         //   icon: 'none',
-  //         //   duration: 2500
-  //         // });
-  //       }
-  //     }
-  //   )
-  },
+  
   
   // 我的会员卡
   membershipCard: function (e) {

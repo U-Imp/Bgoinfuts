@@ -1,0 +1,140 @@
+page {
+  height: 100%;
+}
+
+.stores-details {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: url('http://img.ui.cn/data/file/8/6/4/1053468.gif?imageMogr2/auto-orient/strip') 0 0 no-repeat;
+  background-size: 100% 100%;
+}
+
+.stores-details-wrap {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  overflow: auto;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.stores-details-header {
+  width: 680rpx;
+  height: 180rpx;
+  margin: auto;
+  overflow: hidden;
+  border-bottom: 0.1rpx solid #d7d7d7;
+}
+
+.header-logo {
+  width: 140rpx;
+  height: 140rpx;
+  margin-top: 20rpx;
+  float: left;
+}
+
+.header-logo-img {
+  width: 100%;
+  height: 100%;
+}
+
+.header-text {
+  width: 500rpx;
+  height: 140rpx;
+  margin: 20rpx;
+  float: left;
+}
+
+.header-text-title {
+  font-size: 35rpx;
+  line-height: 65rpx;
+}
+
+.header-text-desc {
+  font-size: 25rpx;
+  color: #888;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: box;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.stores-details-msg{
+  width: 680rpx;
+  height: 160rpx;
+  margin: auto;
+  overflow: hidden;
+  border-bottom: 0.1rpx solid #d7d7d7;
+}
+.msg-address{
+  height: 80rpx;
+  line-height: 80rpx;
+  border-bottom: 0.1rpx solid #d7d7d7;
+}
+.msg-tel{
+  height: 80rpx;
+  line-height: 80rpx;
+}
+
+.stores-details-swiper{
+  width: 680rpx;
+  height: 360rpx;
+  margin: 30rpx auto 0;
+}
+.swiper-item{
+  height: 360rpx;
+}
+
+.stores-details-new{
+  width: 680rpx;
+  margin: 0 auto 30rpx ;
+}
+.new-header{
+  height: 80rpx;
+  line-height: 80rpx;
+  overflow: hidden;
+  border-bottom: 0.1rpx solid #d7d7d7;
+}
+.new-header-title{
+  float: left;
+}
+.new-header-icon{
+  float: right;
+  font-size: 38rpx;
+  line-height: 90rpx;
+}
+.new-list-wrap{
+  overflow: hidden;
+}
+.new-list-item{
+  float: left;
+  width: 340rpx;
+  height: 400rpx;
+}
+.item-img{
+  width: 200rpx;
+  height: 200rpx;
+  margin: 30rpx auto 20rpx;
+}
+.item-img image{
+  width: 100%;
+  height: 100%;
+}
+.item-title{
+  text-align: center
+}
+.item-content{
+  width: 240rpx;
+  margin: 10rpx auto 0;
+  color: #666666;
+  text-align: center;
+  font-size: 25rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: box;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}

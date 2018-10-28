@@ -79,30 +79,7 @@ Page({
         }]
     },
 
-    cartForm: {
-      cartTotal: 0,
-      cartNums: 2,
-      cartList: [
-        {
-          goodsId: 'ww123456',
-          goodsName: '丑娃娃',
-          goodsImg: 'http://img.ui.cn/data/file/7/7/6/992677.png',
-          goodsPrice: 30,
-          goodsNum: 2,
-          goodsTotal: 60,
-          change: false
-        },
-        {
-          goodsId: 'ww567890',
-          goodsName: '皮卡丘',
-          goodsImg: 'http://img.ui.cn/data/file/5/7/3/725375.jpg',
-          goodsPrice: 50,
-          goodsNum: 5,
-          goodsTotal: 250,
-          change: false
-        }
-      ]
-    }
+    
   },
   onLoad: function (options) {
     this.getData();
@@ -169,9 +146,9 @@ Page({
       function (json) {
         console.log('json', json);
         if (json.success) {
-          // that.setData({
-          //   getData: json.data,
-          // })
+          that.setData({
+            getData: json.data,
+          })
         } else {
           app.Toast('', 'none', 3000, json.msg.code);
         }
@@ -189,8 +166,8 @@ Page({
   },
 // 购物车商品选择√
   changeRadio:function(e){
-    let curChecked = 'getData.ShoppingList[' + e.currentTarget.dataset.index + '].checked';
-    // console.log(curChecked)
+    let curChecked = 'getData.list[' + e.currentTarget.dataset.index + '].cartChecked';
+    console.log(e.currentTarget.dataset)
     this.setData({
       [curChecked]: !e.currentTarget.dataset.checked
     })
@@ -203,16 +180,35 @@ Page({
     this.setData({
       [curIndex]: !e.currentTarget.dataset.edit
     })
-    // console.log(curIndex)
+    console.log(curIndex)
   },
   // 完成编辑单条数量区隐藏
   editfinish:function(e){
     let curIndex = 'getData.list[' + e.currentTarget.dataset.index + '].edit';
-    // console.log('wdas',curIndex)
-    // console.log('wdas', e)
+    console.log('wdas', e.currentTarget.dataset)
+    console.log('wdas', e)
     this.setData({
       [curIndex]: !e.currentTarget.dataset.edit
     })
+    let send = {
+      cartId: e.currentTarget.dataset.cartid,
+      goodsNum: e.currentTarget.dataset.goodsnum
+    }
+    const that = this;
+    app.Ajax(
+      'Order',
+      'POST',
+      'UpdateCart',
+      { ...send },
+      function (json) {
+        console.log('json', json);
+        if (json.success) {
+          app.Toast('修改成功', 'none', 1500);
+        } else {
+          app.Toast('', 'none', 3000, json.msg.code);
+        }
+      }
+    )
   },
   // 修改数量
   addNumber(e) {
@@ -224,8 +220,25 @@ Page({
   },
   // 提交付款
   gotoOrderConfirmation:function(){
-    wx.navigateTo({
-      url: '../orderConfirmation/orderConfirmation',
-    })
+    const that = this;
+    app.Ajax(
+      'Order',
+      'POST',
+      'PreOrder',
+      this.data.getData.list ,
+      function (json) {
+        // console.log('json', json);
+        if (json.success) {
+          wx.navigateTo({
+            url: '../orderConfirmation/orderConfirmation?params=' + JSON.stringify(json.data)
+          })
+        } else {
+          app.Toast('', 'none', 3000, json.msg.code);
+        }
+      }
+    )
+    // wx.navigateTo({
+    //   url: '../orderConfirmation/orderConfirmation',
+    // })
   },
 })

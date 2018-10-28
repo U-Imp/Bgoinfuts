@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "店铺详情",
+  "usingComponents": {
+    "i-sticky": "../../iview/sticky/index",
+    "i-sticky-item": "../../iview/sticky-item/index",
+
+    "van-icon": "../../vant/icon/index"
+  }
+}
