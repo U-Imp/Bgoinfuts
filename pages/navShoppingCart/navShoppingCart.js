@@ -78,7 +78,7 @@ Page({
           edit: false
         }]
     },
-
+    filterData:[]
     
   },
   onLoad: function (options) {
@@ -175,6 +175,14 @@ Page({
       [curChecked]: !e.currentTarget.dataset.checked
     })
     // console.log(e.currentTarget.dataset.index)
+    this.filter();
+  },
+  filter:function(){
+    // this.setData({
+    //   filterData: this.getData.list.filter(i=>i.cartChecked === true)
+    // })
+    console.log(this.getData.list)
+    
   },
   // 筛选
   // 编辑单条数量区显示
