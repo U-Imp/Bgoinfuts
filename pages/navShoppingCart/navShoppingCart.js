@@ -170,7 +170,7 @@ Page({
 // 购物车商品选择√
   changeRadio:function(e){
     let curChecked = 'getData.list[' + e.currentTarget.dataset.index + '].cartChecked';
-    // console.log(e.currentTarget.dataset)
+    console.log(e.currentTarget.dataset)
     this.setData({
       [curChecked]: !e.currentTarget.dataset.checked
     })
@@ -178,10 +178,24 @@ Page({
     this.filter();
   },
   filter:function(){
-    // this.setData({
-    //   filterData: this.getData.list.filter(i=>i.cartChecked === true)
-    // })
-    console.log(this.getData.list)
+    this.setData({
+      filterData: this.data.getData.list.filter(i=>i.cartChecked == true)
+    },()=>{
+      // console.log('1',this.data.filterData)
+      let total =0;
+      this.data.filterData.map(i=>{
+        // console.log('ss', a+=i.goodsNum * i.goodsPrice)
+        return total += i.goodsNum * i.goodsPrice
+      })
+      // console.log('a',a)
+      this.setData({
+        'getData.totalPrice': total
+      })
+    })
+    // console.log('2', this.data.filterData)
+    // console.log(this.data.getData.list.filter(i => i.cartChecked == true))
+    // console.log(this.data.getData.list.filter(item => item.cartChecked == true))
+    // console.log(this.data.getData.list)
     
   },
   // 筛选
@@ -197,8 +211,8 @@ Page({
   // 完成编辑单条数量区隐藏
   editfinish:function(e){
     let curIndex = 'getData.list[' + e.currentTarget.dataset.index + '].edit';
-    console.log('wdas', e.currentTarget.dataset)
-    console.log('wdas', e)
+    // console.log('wdas', e.currentTarget.dataset)
+    // console.log('wdas', e)
     this.setData({
       [curIndex]: !e.currentTarget.dataset.edit
     })
@@ -216,6 +230,7 @@ Page({
         // console.log('json', json);
         if (json.success) {
           app.Toast('修改成功', 'none', 1500);
+          that.filter();
         } else {
           app.Toast('', 'none', 3000, json.msg.code);
         }
@@ -254,23 +269,29 @@ Page({
   },
   // 提交付款
   gotoOrderConfirmation:function(){
-    const that = this;
-    app.Ajax(
-      'Order',
-      'POST',
-      'PreOrder',
-      this.data.getData.list ,
-      function (json) {
-        // console.log('json', json);
-        if (json.success) {
-          wx.navigateTo({
-            url: '../orderConfirmation/orderConfirmation?params=' + JSON.stringify(json.data)
-          })
-        } else {
-          app.Toast('', 'none', 3000, json.msg.code);
+    console.log(this.data.filterData)
+    console.log(!this.data.filterData)
+    if (this.data.filterData.length>0){
+      const that = this;
+      app.Ajax(
+        'Order',
+        'POST',
+        'PreOrder',
+        this.data.filterData,
+        function (json) {
+          // console.log('json', json);
+          if (json.success) {
+            wx.navigateTo({
+              url: '../orderConfirmation/orderConfirmation?params=' + JSON.stringify(json.data)
+            })
+          } else {
+            app.Toast('', 'none', 3000, json.msg.code);
+          }
         }
-      }
-    )
+      )
+    } else{
+      app.Toast('请选择宝贝哦', 'none', 1500);
+    }
     // wx.navigateTo({
     //   url: '../orderConfirmation/orderConfirmation',
     // })

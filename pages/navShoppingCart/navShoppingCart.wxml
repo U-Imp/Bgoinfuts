@@ -23,7 +23,7 @@
                 <view class='clearfix goodsNum' catchtap="prevent">
                   <view class='fl' wx:if="{{item.edit == false}}">数量:{{item.goodsNum}}</view>
                   <i-panel slot="right-icon" wx:if="{{item.edit == true}}">
-                  <i-input-number i-class="inputNumber" style="display:inline-block" data-index="{{index}}" value="{{item.goodsNum}}" min="1" max="{{item.goodsStock}}"  bindchange="addNumber" />
+                  <i-input-number i-class="inputNumber" style="display:inline-block" data-index="{{index}}" value="{{item.goodsNum}}" min="1" max="{{item.goodsStock-1}}"  bindchange="addNumber" />
                 </i-panel>
                   <view class='fr'>
                     <button class="weui-btn mini-btn editBtn" type="{{item.edit?'primary':'default'}}" size="mini"  data-edit="{{item.edit}}" data-goodsNum="{{item.goodsNum}}" data-cartId="{{item.cartId}}" data-index="{{index}}" catchtap="{{item.edit?'editfinish':'editNum'}}">{{item.edit?'完成':'编辑'}}</button>
