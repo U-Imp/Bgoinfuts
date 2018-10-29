@@ -10,7 +10,7 @@ Page({
           goodsName: '丑娃娃',
           goodsImg: 'http://img.ui.cn/data/file/7/7/6/992677.png',
           goodsPrice: 30,
-          num: 2,
+          goodsNum: 2,
           goodsTotal: 60,
           change: false
         },
@@ -19,7 +19,7 @@ Page({
           goodsName: '皮卡丘',
           goodsImg: 'http://img.ui.cn/data/file/5/7/3/725375.jpg',
           goodsPrice: 50,
-          num: 5,
+          goodsNum: 5,
           goodsTotal: 250,
           change: false
         }

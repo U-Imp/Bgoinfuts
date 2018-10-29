@@ -182,7 +182,7 @@ Page({
       var objArr = [{
         goodsId: this.data.getData.goodsId,
         cartId:'',
-        num: this.data.popupForm.numConvert,
+        goodsNum: this.data.popupForm.numConvert,
 
         // imgUrl: this.data.popupForm.imgUrl,
         // price: this.data.popupForm.price,

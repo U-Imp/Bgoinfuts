@@ -82,11 +82,14 @@ Page({
     
   },
   onLoad: function (options) {
-    this.getData();
+    // this.getData();
     // 生命周期函数--监听页面加载
 
     // var that = this;
     // this.computed();
+  },
+  onShow:function(){
+    this.getData();
   },
   // 计算总积分
   computed() {
@@ -144,7 +147,7 @@ Page({
       'GetCart',
       {},
       function (json) {
-        console.log('json', json);
+        // console.log('json', json);
         if (json.success) {
           that.setData({
             getData: json.data,
@@ -167,20 +170,21 @@ Page({
 // 购物车商品选择√
   changeRadio:function(e){
     let curChecked = 'getData.list[' + e.currentTarget.dataset.index + '].cartChecked';
-    console.log(e.currentTarget.dataset)
+    // console.log(e.currentTarget.dataset)
     this.setData({
       [curChecked]: !e.currentTarget.dataset.checked
     })
     // console.log(e.currentTarget.dataset.index)
   },
+  // 筛选
   // 编辑单条数量区显示
   editNum:function(e){
-    console.log('e',e)
+    // console.log('e',e)
     let curIndex = 'getData.list[' + e.currentTarget.dataset.index + '].edit';
     this.setData({
       [curIndex]: !e.currentTarget.dataset.edit
     })
-    console.log(curIndex)
+    // console.log(curIndex)
   },
   // 完成编辑单条数量区隐藏
   editfinish:function(e){
@@ -201,7 +205,7 @@ Page({
       'UpdateCart',
       { ...send },
       function (json) {
-        console.log('json', json);
+        // console.log('json', json);
         if (json.success) {
           app.Toast('修改成功', 'none', 1500);
         } else {
@@ -212,11 +216,33 @@ Page({
   },
   // 修改数量
   addNumber(e) {
-    console.log('ww',e);
+    // console.log('ww',e);
     let curNum = 'getData.list[' + e.currentTarget.dataset.index + '].goodsNum';
     this.setData({
       [curNum]: e.detail.value,
     })
+  },
+  // 删除
+  deleteGood:function(e){
+    // console.log(e.currentTarget.dataset.cartid)
+    const that = this;
+    app.Ajax(
+      'Order',
+      'POST',
+      'DeleteCart',
+      { cartId: e.currentTarget.dataset.cartid },
+      function (json) {
+        // console.log('json', json);
+        if (json.success) {
+          app.Toast('删除成功', 'success', 1500);
+          setTimeout(function(){
+            that.getData();
+          },1500)
+        } else {
+          app.Toast('', 'none', 3000, json.msg.code);
+        }
+      }
+    )
   },
   // 提交付款
   gotoOrderConfirmation:function(){

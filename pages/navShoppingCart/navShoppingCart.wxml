@@ -11,9 +11,9 @@
     </view>
     <view class="shoppingList">
     
-   <view class='unit' wx:for="{{getData.list}}" wx:key="index" bindtap='gotoGoodsDetails'>
-    <i-swipeout  i-class="i-swipeout-demo-item" actions="{{actions}}">
-        <view slot="content">
+   <view class='unit' wx:for="{{getData.list}}" wx:key="index" >
+    <i-swipeout  i-class="i-swipeout-demo-item" actions="{{actions}}" bind:change="deleteGood" data-cartId="{{item.cartId}}">
+        <view slot="content" bindtap='gotoGoodsDetails'>
            <view class="i-swipeout-wrap ">
               <radio value="{{item.goodsId}}" checked="{{item.cartChecked}}"  catchtap='changeRadio' class='i-swipeout-wrap-left' data-index='{{index}}' data-checked='{{item.cartChecked}}'/>
               <image src='{{item.goodsImg}}' class='i-swipeout-wrap-center'></image> 
