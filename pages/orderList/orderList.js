@@ -126,6 +126,49 @@ getData:function(){
     }
   )
 },
+  PayForOrder:function(e){
+    const that = this;
+    wx.showModal({
+      title: '您的消费',
+      showCancel: false,
+      content: '需支付：❤' + e.currentTarget.dataset.total,
+      confirmText: '确认支付',
+      success: function (res) {
+        if (res.confirm) {
+          app.Ajax(
+            'Order',
+            'POST',
+            'PayForOrder',
+            { orderId: e.currentTarget.dataset.orderid },
+            function (json) {
+              // console.log('json', json);
+              if (json.success) {
+                app.Toast('支付成功', 'none', 3000);
+                setTimeout(function () {
+                  wx.switchTab({
+                    url: '../orderList/orderList?status=1'
+                  })
+                }, 2600)
+              } else {
+                app.Toast('', 'none', 3000, json.msg.code);
+              }
+            }
+          )
+
+
+
+         
+        }
+      },
+      fail: function () {
+        app.Toast('', 'none', 3000, json.msg.code);
+      }
+    })
+
+
+    
+      
+  },
   tabHandel({ detail }) {
     // console.log(detail)
     this.setData({

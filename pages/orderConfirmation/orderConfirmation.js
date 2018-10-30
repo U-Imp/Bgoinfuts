@@ -29,7 +29,7 @@ Page({
     },
   },
   onLoad: function (options) {
-    console.log('订单确认', JSON.parse(options.params))
+    // console.log('订单确认', JSON.parse(options.params))
     this.setData({
       getData: JSON.parse(options.params)
     })
@@ -77,7 +77,7 @@ Page({
       remark: this.data.getData.orderRemark,
       preOrderId: this.data.getData.preOrderId
     }
-    console.log(this.data.getData.orderRemark)
+    // console.log(this.data.getData.orderRemark)
     const that = this;
     app.Ajax(
       'Order',
@@ -87,32 +87,8 @@ Page({
       function (json) {
         console.log('json', json);
         if (json.success) {
-
-          wx.showModal({
-            title: '您的消费',
-            content: '需支付：❤' + that.data.getData.total,
-            confirmText:'确认支付',
-            success:function(res){
-              if (res.confirm) {
-                app.Toast('支付成功', 'none', 3000);
-                setTimeout(function () {
-                  wx.switchTab({
-                    url: '../index/index'
-                  })
-                }, 2600)
-              } else if (res.cancel) {
-                app.Toast('支付失败', 'none', 3000);
-                setTimeout(function () {
-                  wx.redirectTo({
-                    url: '../orderList/orderList'
-                  })
-                }, 2600)
-              }
-            },
-            fail:function(){
-              app.Toast('', 'none', 3000, json.msg.code);
-            }
-          })
+          that.PayForOrder(json.data.orderId)
+          
           // that.setData({
           //   getData: json.data,
           // })
@@ -122,6 +98,7 @@ Page({
         }
       }
     )
+    
     // var that = this;
     // var options = JSON.stringify(this.data.orderForm);
     // wx.navigateTo({
@@ -130,5 +107,51 @@ Page({
     // wx.redirectTo({
     //   url: '../orderList/orderList'
     // })
-  }
+  },
+  // 订单支付
+  PayForOrder: function (orderId) {
+    const that = this;
+      app.Ajax(
+        'Order',
+        'POST',
+        'PayForOrder',
+        { orderId:orderId},
+        function (json) {
+          console.log('json', json);
+          if (json.success) {
+
+            wx.showModal({
+              title: '您的消费',
+              content: '需支付：❤' + that.data.getData.total,
+              confirmText: '确认支付',
+              success: function (res) {
+                if (res.confirm) {
+                  app.Toast('支付成功', 'none', 3000);
+                  setTimeout(function () {
+                    wx.switchTab({
+                      url: '../index/index'
+                    })
+                  }, 2600)
+                } else if (res.cancel) {
+                  app.Toast('支付失败', 'none', 3000);
+                  setTimeout(function () {
+                    wx.redirectTo({
+                      url: '../orderList/orderList?status=0'
+                    })
+                  }, 2600)
+                }
+              },
+              fail: function () {
+                app.Toast('', 'none', 3000, json.msg.code);
+              }
+            })
+            // that.setData({
+            //   getData: json.data,
+            // })
+          } else {
+            app.Toast('', 'none', 3000, json.msg.code);
+          }
+        }
+      )
+    }
 });

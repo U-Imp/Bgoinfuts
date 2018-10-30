@@ -28,7 +28,7 @@
           <rich-text class='unit-right-name'>{{item.goodsName}}</rich-text>
           <rich-text>
             <text>{{item.price}}❤</text>
-            <text class='fr'>{{item.num}}</text>
+            <text class='fr'>{{item.goodsNum}}</text>
           </rich-text>
         </view>
       </view>

@@ -32,7 +32,7 @@
             </scroll-view>
             <view class='unit-bottom clearfix '>
               <text class='fl unit-bottom-left'>应付：♥ {{item.total}}</text>
-              <button class="fr" type="primary" size="mini" plain="true">立即支付</button>
+              <button class="fr" type="primary" size="mini" plain="true" catchtap='PayForOrder' data-orderId="{{item.orderId}}" data-total="{{item.total}}">立即支付</button>
             </view>
           </view>
         </block>

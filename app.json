@@ -1,19 +1,19 @@
 {
   "pages":[
-    "pages/navShoppingCart/navShoppingCart",
+    "pages/membershipCard/membershipCard",
     "pages/navMine/navMine",
     
     
     "pages/index/index",
     "pages/navClassify/navClassify",
-    
+    "pages/navShoppingCart/navShoppingCart",
     
     "pages/goodsList/goodsList",
     "pages/goodsDetails/goodsDetails",
     "pages/orderConfirmation/orderConfirmation",
     "pages/orderList/orderList",
     "pages/orderDetails/orderDetails",
-    "pages/membershipCard/membershipCard",
+    
     "pages/cardBinding/cardBinding",
 
     "pages/storesList/storesList",
