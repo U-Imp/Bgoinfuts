@@ -12,14 +12,15 @@
     <view class='context'>
       <form bindsubmit="formSubmit" bindreset="formReset">
       <view class='mess clearfix'>
-          <view class='mess_left mess_full'>
-            店铺名称 :
-            <picker class="picker" bindchange="bindPickerChange" value="{{index}}" range="{{shops}}">
+          <!-- <view class='mess_left mess_full'> -->
+            <!-- 店铺名称 : -->
+            <picker  class='mess_left mess_full' bindchange="bindPickerChange" value="{{index}}" range="{{shops}}">
                 <view class="picker">
-                    {{shops[index]}}
+                    店铺名称 : {{shops[index]}}
                 </view>
+                <view class="pickerAfter"></view>
             </picker>
-          </view>
+          <!-- </view> -->
         </view>
         <view class='mess clearfix'>
           <view class='mess_left mess_full'>
