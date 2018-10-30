@@ -1,5 +1,7 @@
+const app =getApp()
 Page({
   data: {
+    getData:{},
     storesDetails: {
       logo:'http://img.ui.cn/data/file/3/6/4/1053463.gif?imageMogr2/auto-orient/strip',
       name: 'XXXX店铺',
@@ -57,9 +59,29 @@ Page({
 
   // 生命周期函数--监听页面加载
   onLoad: function (options) {
-    var that = this;
-    var id = options.id;
-    console.log(id);
+    // var that = this;
+    // var id = options.id;
+    console.log(options);
+    this.getData(options.storeId)
   },
+  getData: function (storeId){
+    const that = this;
+    app.Ajax(
+      'Mall',
+      'POST',
+      'GetStoreInfo',
+      { storeId},
+      function (json) {
+        // console.log('json',json);
+        if (json.success) {
+          that.setData({
+            getData: json.data
+          })
+        } else {
+          app.Toast('', 'none', 3000, json.msg.code);
+        }
+      }
+    )
+  }
 })
 

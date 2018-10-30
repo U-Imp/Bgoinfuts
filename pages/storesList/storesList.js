@@ -1,5 +1,7 @@
+const app = getApp();
 Page({
   data: {
+    getData:{},
     cardsForm: {
       cardsNum: 5,
       cardsList: [
@@ -40,14 +42,33 @@ Page({
   // 生命周期函数--监听页面加载
   onLoad: function (options) {
     
-    var that = this;
+    this.getData();
   },
-
+  getData:function(){
+    const that = this;
+    app.Ajax(
+      'Mall',
+      'POST',
+      'GetStoreList',
+      {},
+      function (json) {
+        console.log('json',json);
+        if (json.success) {
+          that.setData({
+            getData: json.data
+          })
+        } else {
+          app.Toast('', 'none', 3000, json.msg.code);
+        }
+      }
+    )
+  },
   examineIt(e){
-    var index = e.currentTarget.dataset.index;
-    var id = this.data.cardsForm.cardsList[index].id;
+    // console.log(e)
+    // var index = e.currentTarget.dataset.storeid;
+    // var id = this.data.cardsForm.cardsList[index].id;
     wx.navigateTo({
-      url: '../storesDetails/storesDetails?id=' + id
+      url: '../storesDetails/storesDetails?storeId=' + e.currentTarget.dataset.storeid
     })
   }
  

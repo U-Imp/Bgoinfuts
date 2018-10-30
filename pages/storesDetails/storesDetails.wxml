@@ -2,24 +2,24 @@
   <view class='stores-details-wrap'>
     <view class="stores-details-header">
       <view class="header-logo">
-        <image class="header-logo-img" src="{{storesDetails.logo}}" />
+        <image class="header-logo-img" src="{{getData.storeCardImg}}" />
       </view>
       <view class="header-text">
-        <view class="header-text-title">{{storesDetails.name}}</view>
-        <view class="header-text-desc">{{storesDetails.content}}</view>
+        <view class="header-text-title">{{getData.storeName}}</view>
+        <view class="header-text-desc">{{getData.storeDesc}}</view>
       </view>
     </view>
 
     <view class="stores-details-msg">
-      <view class="msg-address">店铺地址:{{storesDetails.address}}</view>
-      <view class="msg-tel">店铺电话:{{storesDetails.tel}}</view>
+      <view class="msg-address">店铺地址:{{getData.storeAddr}}</view>
+      <view class="msg-tel">店铺电话:{{getData.storeTel}}</view>
     </view>
 
     <view class="stores-details-swiper">
       <swiper class="swiper-item" indicator-dots="{{storesDetails.indicatorDots}}" vertical="{{storesDetails.vertical}}" autoplay="{{storesDetails.autoplay}}" interval="{{storesDetails.interval}}" duration="{{storesDetails.duration}}">
-        <block wx:for-items="{{storesDetails.imgList}}" wx:key="{{index}}">
+        <block wx:for-items="{{getData.storeImgs}}" wx:key="{{index}}">
           <swiper-item>
-            <image class="header-logo-img" src="{{item.imgUrl}}" />
+            <image class="header-logo-img" src="{{item.storeImg}}" />
           </swiper-item>
         </block>
       </swiper>
@@ -35,16 +35,16 @@
       </view>
 
       <view class='new-list-wrap'>
-        <block wx:for-items="{{storesDetails.newShopList}}" wx:key="{{index}}">
+        <block wx:for-items="{{getData.storeGoods}}" wx:key="{{index}}">
           <view class='new-list-item'>
             <view class='item-img'>
-              <image src="{{item.imgUrl}}" />
+              <image src="{{item.storeGoodsImg}}" />
             </view>
             <view class='item-title'>
-              {{item.title}}
+              {{item.storeGoodsName}}
             </view>
              <view class='item-content'>
-              {{item.content}}
+              {{item.storeGoodsDesc}}
             </view>
 
           </view>
