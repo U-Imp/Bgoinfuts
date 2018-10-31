@@ -6,7 +6,9 @@
         <view class="index-header-text-desc">{{getData.homeInfo.titleSlaver}}</view>
       </view>
       <view class="index-header-logo" bindtap='gotoStoresList'>
-        <image class="index-header-logo-img" src="{{getData.homeInfo.titleTagImg}}" />
+        <!-- <image class="index-header-logo-img" src="{{getData.homeInfo.titleTagImg}}" /> -->
+        <image class="index-header-logo-img" src="http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-cubic/h1.gif" />
+        <rich-text>点我点我！</rich-text>
       </view>
     </view>
     <view class="index-cards">
