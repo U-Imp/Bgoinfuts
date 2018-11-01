@@ -8,7 +8,7 @@
       <view class="index-header-logo" bindtap='gotoStoresList'>
         <!-- <image class="index-header-logo-img" src="{{getData.homeInfo.titleTagImg}}" /> -->
         <image class="index-header-logo-img" src="http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-cubic/h1.gif" />
-        <rich-text>点我点我！</rich-text>
+        <view class='index-header-logo-click'>点我点我！</view>
       </view>
     </view>
     <view class="index-cards">

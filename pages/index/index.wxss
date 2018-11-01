@@ -26,11 +26,12 @@ page {
 .index-header {
   width: 680rpx;
   height: 160rpx;
-  margin: 20rpx auto 0;
+  margin: 0rpx auto 0;
   overflow: hidden;
 }
 
 .index-header-text {
+  margin-top: 20rpx;
   width: 520rpx;
   height: 100%;
   line-height: 80rpx;
@@ -56,7 +57,12 @@ page {
   width: 120rpx;
   height: 120rpx;
 }
-
+.index-header-logo-click{
+  height: 40rpx;
+  line-height: 1;
+  font-size: 24rpx;
+  color: #f44393;
+}
 
 .index-cards {
   width: 100%;
