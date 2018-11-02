@@ -55,10 +55,13 @@
     </block> -->
     <!-- <view class="shopping-cart-total">合计消耗：{{cartForm.cartTotal}} ♥</view> -->
     </view>
-    <view class="shopping-cart-button">
+    <view class="shopping-cart-button" hidden="{{getData.list==''}}">
     <!-- <i-button bind:click="submit" type="primary" long="true">♥ 提交付款</i-button> -->
       <i-button bind:click="gotoOrderConfirmation" shape="circle" i-class="buyBtn">合计消耗：{{getData.totalPrice}} ♥ --- 去买买买
       </i-button>
+    </view>
+    <view class='nothingImage' hidden="{{getData.list!=''}}">
+      <button class='nothingBtn'>车空了, 去逛逛</button>
     </view>
   </view>
 </view>
