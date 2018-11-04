@@ -1,2 +1,60 @@
 <!--pages/coin/coin.wxml-->
-<text>pages/coin/coin.wxml</text>
+<view class='coin'>
+  <view class='coin-wrap'>
+    <view class="coin-header">
+      <view class="header-text">
+        <view class="header-text-title">{{getData.title}}</view>
+        <view class="header-text-desc">{{getData.integral}}</view>
+      </view>
+    </view>
+    <view class='coin-cards-wrap'>
+      <block wx:for-items="{{ getData.coinList }}" wx:key="{{index}}">
+        <view class='coin-cards' data-storeId="{{item.id}}">
+
+          <view class='cards-bg'>
+            <image src='{{item.imgUrl}}'></image>
+          </view>
+          <view class='cards-text'>
+            <view class='card-name'>{{item.title}}</view>
+            <view class='card-content'>{{item.content}}</view>
+          </view>
+
+          <view class='cards-btn' data-index="{{index}}" bindtap='exchange'>兑换</view>
+
+        </view>
+      </block>
+    </view>
+
+   
+  </view>
+
+
+  <view class="coin-popup">
+    <van-popup show="{{ popupForm.visible }}" 
+               position="{{ popupForm.position }}" 
+               overlay="{{ popupForm.overlay }}" 
+               overlay-style="background-color: rgba(0,0,0,0.5)" 
+               bind:close="closePopup">
+      <!--卡片  -->
+      <view class="weui-media-box weui-media-box_appmsg">
+        <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+          <image class="weui-media-box__thumb" src="{{popupForm.imgUrl}}" />
+        </view>
+        <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+          <view class="weui-media-box__title">{{ popupForm.title }}</view>
+          <view class="weui-media-box__desc">拥有积分可兑换{{ popupForm.maxNum }}❤值</view>
+        </view>
+      </view>
+      <!--单元格  -->
+      <van-cell-group>
+        <van-cell title="兑换" border="true">
+          <i-panel slot="right-icon" title="基础用法">
+            <i-input-number value="{{popupForm.numCoin}}" min="1" max="{{popupForm.maxNum}}" bindchange="numChange"/>
+          </i-panel>
+        </van-cell>
+      </van-cell-group>
+      <!--按钮  -->
+      <i-button bind:click="addPopup" shape="circle" type="primary">立即兑换</i-button>
+    </van-popup>
+  </view>
+</view>

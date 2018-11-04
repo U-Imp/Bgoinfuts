@@ -1,1 +1,90 @@
-/* pages/coin/coin.wxss */
+page {
+  height: 100%;
+}
+.coin {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  /* background: url('http://img.ui.cn/data/file/8/6/4/1053468.gif?imageMogr2/auto-orient/strip') 0 0 no-repeat;
+  background-size: 100% 100%; */
+}
+.coin-wrap {
+  width: 100%;
+  margin: auto;
+  overflow: auto;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.coin-header {
+  width: 680rpx;
+  height: 160rpx;
+  margin: 20rpx auto 0;
+  overflow: hidden;
+}
+.header-text {
+  width: 520rpx;
+  height: 100%;
+  line-height: 80rpx;
+  float: left;
+}
+.header-text-title {
+  font-size: 50rpx;
+}
+.header-text-desc {
+  font-size: 35rpx;
+  color: #888;
+}
+.coin-cards-wrap{
+   width: 680rpx;
+   margin: auto;
+}
+.coin-cards{
+  width: 100%;
+  height: 240rpx;
+  overflow: hidden;
+  border-radius: 10rpx;
+  box-shadow: 0 5px 15px 0 rgba(0, 0, 0, 0.30);
+  margin: 0 auto 30rpx;
+}
+.cards-bg{
+  width: 200rpx;
+  height: 200rpx;
+  float: left;
+  margin: 20rpx;
+}
+.cards-bg image{
+  width: 100%;
+  height: 100%;
+}
+.cards-text{
+  width: 300rpx;
+  height: 100%;
+  float: left;
+  margin-right: 20rpx;
+}
+.card-name{
+  height: 120rpx;
+  line-height: 120rpx;
+  font-size: 38rpx;
+}
+.card-content{
+  font-size: 26rpx;
+  color: #888;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: box;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.cards-btn{
+  width: 120rpx;
+  height: 100%;
+  line-height: 240rpx;
+  float: left;
+  text-align: center;
+  background-color:aqua;
+}
+/*加入购物车弹框  */
+.coin-popup {
+  width: 100%;
+}

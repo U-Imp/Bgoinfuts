@@ -16,9 +16,11 @@
     
     "pages/cardBinding/cardBinding",
     "pages/membershipCard/membershipCard",
+
+    "pages/coin/coin",
     "pages/storesList/storesList",
     "pages/storesDetails/storesDetails",
-    "pages/coin/coin",
+    
       "pages/test/test",
     "pages/start/start"
   ],
