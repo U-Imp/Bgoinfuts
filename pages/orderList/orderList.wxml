@@ -55,6 +55,7 @@
             </view>
           </view>
            <view class="noRecord" hidden="{{getData.payList != ''}}">{{noRecord}}</view>
+           <view class="bottomLine" hidden="{{getData.payList == ''}}">{{bottomLine}}</view>
         </block>
         <!-- ---------待取货------------ -->
         <block wx:if="{{tabForm.tabCurrent=='2'}}">
@@ -73,6 +74,7 @@
             </view>
           </view>
           <view class="noRecord" hidden="{{getData.inStoreList != ''}}">{{noRecord}}</view>
+          <view class="bottomLine" hidden="{{getData.inStoreList == ''}}">{{bottomLine}}</view>
         </block>
         <!-- ---------已完成------------ -->
         <block wx:if="{{tabForm.tabCurrent=='3'}}">
@@ -92,6 +94,7 @@
             </view>
           </view>
           <view class="noRecord" hidden="{{getData.doneList != ''}}">{{noRecord}}</view>
+          <view class="bottomLine" hidden="{{getData.doneList == ''}}">{{bottomLine}}</view>
         </block>
     
       </view>

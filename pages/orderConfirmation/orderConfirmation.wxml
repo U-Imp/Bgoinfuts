@@ -5,7 +5,7 @@
         <view class="header-text-title">订单确认</view>
       </view>
       <view class="header-logo">
-        <image class="header-logo-img" src="http://img.ui.cn/data/file/3/6/4/1053463.gif?imageMogr2/auto-orient/strip" />
+        <!-- <image class="header-logo-img" src="http://img.ui.cn/data/file/3/6/4/1053463.gif?imageMogr2/auto-orient/strip" /> -->
       </view>
     </view>
     <!--兑换地址  -->

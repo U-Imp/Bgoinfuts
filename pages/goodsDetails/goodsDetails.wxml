@@ -5,8 +5,9 @@
         <view class="header-text-title">{{getData.goodsName}}</view>
         <view class="header-text-desc">{{getData.goodsDesc}}</view>
       </view>
-      <view class="header-logo">
-        <image class="header-logo-img" src="http://img.ui.cn/data/file/3/6/4/1053463.gif?imageMogr2/auto-orient/strip" />
+      <view class="header-logo" bindtap='gotoStoresList'>
+        <image class="header-logo-img" src="http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-cubic/hh1.gif" />
+        <view class='header-logo-click'>点我点我！</view>
       </view>
     </view>
     <view class="goods-details-cards">

@@ -47,10 +47,15 @@ page {
 }
 
 .header-logo-img {
-  width: 100%;
-  height: 100%;
+  width: 120rpx;
+  height: 120rpx;
 }
-
+.header-logo-click{
+  height: 40rpx;
+  line-height: 1;
+  font-size: 24rpx;
+  color: #f44393;
+}
 .goods-details-cards {
   width: 100%;
   height: 610rpx;

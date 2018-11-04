@@ -18,12 +18,13 @@
     "pages/membershipCard/membershipCard",
     "pages/storesList/storesList",
     "pages/storesDetails/storesDetails",
+    "pages/coin/coin",
       "pages/test/test",
     "pages/start/start"
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#f54281",
     "navigationBarTitleText": "嗨~",
     "navigationBarTextStyle":"#fff"
   },

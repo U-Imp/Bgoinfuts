@@ -125,7 +125,7 @@ page {
 }
 .nothingImage{
   height:300rpx; 
-  background: url('http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-cubic/h3.gif')   no-repeat center;
+  background: url('http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-cubic/hh3.gif')   no-repeat center;
   position: relative;
   background-size:30% auto;
   }

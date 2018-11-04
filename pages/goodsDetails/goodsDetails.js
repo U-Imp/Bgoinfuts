@@ -232,7 +232,11 @@ Page({
       })
     }
   },
-
+  gotoStoresList: function () {
+    wx.navigateTo({
+      url: '../storesList/storesList',
+    })
+  }
   // onChange(event) {
   //   console.log(event.detail, 'click right menu callback data')
   // },

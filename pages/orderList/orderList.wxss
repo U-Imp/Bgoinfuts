@@ -124,13 +124,14 @@ page {
   
   top: 45%;
   text-align: center;
-  background: url('http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-cubic/h2.gif') no-repeat center 0%;
+  background: url('http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-cubic/hh2.gif') no-repeat center 0%;
 background-size:180rpx 180rpx;
 padding:220rpx 0 0;
 
 }
 .bottomLine{
-  color:#ddd6d6;
+  font-size: 24rpx;
+  color:#999;
   padding: 0 20rpx 0;
     margin: 20rpx 0;
     line-height: 1px;

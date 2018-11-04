@@ -43,9 +43,9 @@ Page({
   },
   // 积分兑换
   giftCredits: function (e) {
-    // wx.navigateTo({
-    //   url: '../modifyBankcard/modifyBankcard',
-    // })
+    wx.navigateTo({
+      url: '../coin/coin',
+    })
   },
 
 });
