@@ -1,4 +1,5 @@
 // pages/membershipCard/membershipCard.js
+const app = getApp();
 Page({
 
   /**
@@ -58,7 +59,26 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getData();
+  },
+  getData: function () {
+    const that = this;
+    app.Ajax(
+      'Member',
+      'POST',
+      'GetMemberStoreList',
+      {},
+      function (json) {
+        console.log('json',json);
+        if (json.success) {
+          that.setData({
+            getData: json.data
+          })
+        } else {
+          app.Toast('', 'none', 3000, json.msg.code);
+        }
+      }
+    )
   },
   gotoCardBinding:function(){
     wx.navigateTo({

@@ -11,15 +11,15 @@
       </view>
     </view>
     <view class='context'>
-    <view wx:for="{{getData.cardsList}}" wx:key="index" class='unit-wrap'>
+    <view wx:for="{{getData}}" wx:key="index" class='unit-wrap'>
       <i-swipeout  i-class="i-swipeout-demo-item" actions="{{actions}}">
           <view slot="content">
             <view class='unit'  >
               <view class="unit-top">
-                <view class='mainShop'></view>
-                <image src="{{item.src}}" mode="aspectFill"></image>
+                <view wx:if="{{item.isDefault}}" class='mainShop'></view>
+                <image src="{{item.storeCardImg}}" mode="aspectFill"></image>
               </view>
-              <view class='unit-bottom'>{{item.cardNum}}</view>
+              <view class='unit-bottom'>{{item.cardCode}}</view>
             </view>
           </view>
       </i-swipeout>
