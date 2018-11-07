@@ -29,13 +29,20 @@ page {
 .header-text {
   width: 520rpx;
   height: 100%;
-  line-height: 160rpx;
+  line-height: 80rpx;
   float: left;
 }
 
 .header-text-title {
-  font-size: 60rpx;
+  font-size: 50rpx;
 }
+
+.header-text-desc {
+  font-size: 24rpx;
+  color: #777;
+}
+
+
 
 .header-logo {
   width:150rpx;
@@ -79,16 +86,20 @@ height:80rpx;
   width:100%;
   height:180rpx;
 }
-.unit-top .mainShop{
+.unit-top .normalShop{
   position: absolute;
-  top: 0;
-  left:-26rpx;
-  background: url('http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-cubic/mainShop.png') no-repeat center;
+  top: 15rpx;
+  left:10rpx;
+  background: url('http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-cubic/gift.png') no-repeat center;
   background-size: 100% 100%;
-  width:135rpx;
-  height:110rpx;
+  width:70rpx;
+  height:65rpx;
   
 
+}
+.unit-top .mainShop{
+  background: url('http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-cubic/active-gift.png') no-repeat center;
+  background-size: 100% 100%;
 }
 .unit-top image{
   width:100%;

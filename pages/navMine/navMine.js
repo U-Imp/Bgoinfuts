@@ -6,34 +6,35 @@ Page({
   },
   
   onLoad: function () {
+    
+  },
+  
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
     this.getData();
   },
-  getData:function(){
+  getData: function () {
     const that = this;
     app.Ajax(
       'Member',
       'POST',
       'GetMemberInfo',
-      {  },
+      {},
       function (json) {
         // console.log('ajson',json);
         if (json.success) {
           that.setData({
             getData: json.data
           })
-        }else{
+        } else {
           app.Toast('', 'none', 3000, json.msg.code);
         }
       }
     )
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function (res) {
-  },
-  
   
   // 我的会员卡
   membershipCard: function (e) {

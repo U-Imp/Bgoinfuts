@@ -16,29 +16,37 @@ Page({
         background: '#2d8ff5'
       }
     ],
-    getData:{
-      cardsList:[{
+   
+      getData:[{
         cardId:'1',
-        cardNum:'D234345454',
+        storeId:1,
+        cardCode:'D234345454',
         cardName:'和平店 大连市和平广场4F4-1208',
-        src:'http://img.ui.cn/data/file/3/6/4/1830463.jpg',
+        isDefault:false,
+        storeCardImg:'http://img.ui.cn/data/file/3/6/4/1830463.jpg',
       }, {
         cardId: '2',
-          cardNum: '343',
+          storeId: 2,
+          cardCode: '343',
+          isDefault: false,
           cardName: '万达店 大连市和平广场4F4-1208',
-        src: 'http://img.ui.cn/data/file/0/1/8/1661810.jpg',
+          storeCardImg: 'http://img.ui.cn/data/file/0/1/8/1661810.jpg',
       }, {
         cardId: '3',
-          cardNum: '343',
+          storeId: 3,
+          cardCode: '343',
+          isDefault: true,
           cardName: '中山店 大连市和平广场4F4-1208',
-          src: 'http://img.ui.cn/data/file/1/7/2/1896271.jpg',
+          storeCardImg: 'http://img.ui.cn/data/file/1/7/2/1896271.jpg',
       }, {
         cardId: '4',
-          cardNum: 'K234345454',
+          storeId: 4,
+          cardCode: 'K234345454',
+          isDefault: false,
           cardName: '港湾店 大连市和平广场4F4-1208',
-        src: 'http://img.ui.cn/data/file/7/8/6/1366687.png',
+          storeCardImg: 'http://img.ui.cn/data/file/7/8/6/1366687.png',
       }]
-    }
+    
   },
 
   /**
@@ -59,7 +67,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getData();
+    // this.getData();
   },
   getData: function () {
     const that = this;
@@ -74,6 +82,29 @@ Page({
           that.setData({
             getData: json.data
           })
+        } else {
+          app.Toast('', 'none', 3000, json.msg.code);
+        }
+      }
+    )
+  },
+  alreadyMainShop:function(){
+    // console.log('alreadyMainShop')
+    app.Toast('已经是主店铺啦', 'success', 1500);
+  },
+  setDefaultMemberStore:function(e){
+    // console.log('setDefaultMemberStore')
+    // console.log(e.currentTarget.dataset.storeid)
+    const that = this;
+    app.Ajax(
+      'Member',
+      'POST',
+      'SetDefaultMemberStore',
+      { storeId: e.currentTarget.dataset.storeid},
+      function (json) {
+        // console.log('json', json);
+        if (json.success) {
+          app.Toast('设置成功啦', 'success', 1500);
         } else {
           app.Toast('', 'none', 3000, json.msg.code);
         }

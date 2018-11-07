@@ -4,6 +4,8 @@
     <view class="membershipCard-header">
       <view class="header-text">
         <view class="header-text-title">会员卡</view>
+        <view class="header-text-desc">点击会员卡内的🎁设置领取兑换礼品店铺喔</view>
+        
       </view>
       <view class="header-logo" bindtap='gotoCardBinding'>
         <image class="header-logo-img" src="http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test-bg/%E4%BC%9A%E5%91%98%E5%8D%A1.png" />
@@ -16,7 +18,8 @@
           <view slot="content">
             <view class='unit'  >
               <view class="unit-top">
-                <view wx:if="{{item.isDefault}}" class='mainShop'></view>
+                <view class="normalShop {{item.isDefault?'mainShop':''}}" 
+               data-storeId='{{item.storeId}}' catchtap="{{item.isDefault?'alreadyMainShop':'setDefaultMemberStore'}}"></view>
                 <image src="{{item.storeCardImg}}" mode="aspectFill"></image>
               </view>
               <view class='unit-bottom'>{{item.cardCode}}</view>
