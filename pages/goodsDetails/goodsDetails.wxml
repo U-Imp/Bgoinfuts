@@ -25,7 +25,7 @@
     <view class="goods-details-number">
       <text class="goods-pirce">￥{{getData.goodsPrice}}</text>
       <text class="goods-sold">已售{{getData.sales}}</text>
-      <text class="goods-sold">库存{{getData.goodsStock}}</text>
+      <text class="goods-sold">{{getData.goodsStock==0?'售罄':'库存'+getData.goodsStock}}</text>
     </view>
     <!-- <view class="goods-details-icon">
       <block wx:for-items="{{goodsForm.iconList}}">
@@ -35,9 +35,12 @@
         </view>
       </block>
     </view> -->
-    <view class="goods-details-btn">
+    <view class="goods-details-btn" hidden="{{getData.goodsStock==0}}">
       <i-button data-id='btn-item-1' i-class='btn-item' inline="true" type="warning" shape="circle" size="small" bind:click="showPopup">加入购物车</i-button>
       <i-button data-id='btn-item-2' i-class='btn-item' inline="true" type="primary" shape="circle" size="small" bind:click="showPopup">立即兑换</i-button>
+    </view>
+    <view class="goods-details-btn" hidden="{{getData.goodsStock!==0}}">
+      <i-button data-id='btn-item-2' i-class='btn-item' inline="true" type="primary" shape="circle" size="small" >遗憾，卖光啦</i-button>
     </view>
     <!--吸顶容器 -->
     <view class="i-sticky-demo">

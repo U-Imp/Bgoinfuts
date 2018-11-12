@@ -111,47 +111,47 @@ Page({
   // 订单支付
   PayForOrder: function (orderId) {
     const that = this;
-      app.Ajax(
-        'Order',
-        'POST',
-        'PayForOrder',
-        { orderId:orderId},
-        function (json) {
-          console.log('json', json);
-          if (json.success) {
-
-            wx.showModal({
-              title: '您的消费',
-              content: '需支付：❤' + that.data.getData.total,
-              confirmText: '确认支付',
-              success: function (res) {
-                if (res.confirm) {
-                  app.Toast('支付成功', 'none', 3000);
-                  setTimeout(function () {
-                    wx.switchTab({
-                      url: '../index/index'
-                    })
-                  }, 2600)
-                } else if (res.cancel) {
-                  app.Toast('支付失败', 'none', 3000);
-                  setTimeout(function () {
-                    wx.redirectTo({
-                      url: '../orderList/orderList?status=0'
-                    })
-                  }, 2600)
-                }
-              },
-              fail: function () {
-                app.Toast('', 'none', 3000, json.msg.code);
-              }
+    wx.showModal({
+      title: '您的消费',
+      content: '需支付：❤' + that.data.getData.total,
+      confirmText: '确认支付',
+      success: function (res) {
+        if (res.confirm) {
+          that.PayForOrderAjax(orderId);
+        } else if (res.cancel) {
+          app.Toast('支付失败', 'none', 3000);
+          setTimeout(function () {
+            wx.redirectTo({
+              url: '../orderList/orderList?status=0'
             })
-            // that.setData({
-            //   getData: json.data,
-            // })
-          } else {
-            app.Toast('', 'none', 3000, json.msg.code);
-          }
+          }, 2600)
         }
-      )
-    }
+      },
+      fail: function () {
+        app.Toast('', 'none', 3000, json.msg.code);
+      }
+    })
+  },
+  PayForOrderAjax: function (orderId){
+    const that = this;
+    app.Ajax(
+      'Order',
+      'POST',
+      'PayForOrder',
+      { orderId: orderId },
+      function (json) {
+        // console.log('json', json);
+        if (json.success) {
+          app.Toast('支付成功', 'none', 3000);
+          setTimeout(function () {
+            wx.switchTab({
+              url: '../index/index'
+            })
+          }, 2600)
+        } else {
+          app.Toast('', 'none', 3000, json.msg.code);
+        }
+      }
+    )
+  }
 });

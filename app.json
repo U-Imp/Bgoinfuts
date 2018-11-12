@@ -1,13 +1,13 @@
 {
   "pages":[
     
-    "pages/navMine/navMine",
+   
     
     
     "pages/index/index",
     "pages/navClassify/navClassify",
     "pages/navShoppingCart/navShoppingCart",
-    
+    "pages/navMine/navMine",
     "pages/goodsList/goodsList",
     "pages/goodsDetails/goodsDetails",
     "pages/orderConfirmation/orderConfirmation",

@@ -92,29 +92,31 @@ App({
   Toast: function (title, icon, duration, code) {
     let content = title;
     switch (code) {
+      // 个人中心
       case 10001:
-        content = '您已经绑定过店铺'
+        content = '会员已存在'
         break;
       case 10002:
-        content = '二维码无效哦'
+        content = '会员注册异常'
         break;
       case 10003:
-        content = '绑定店铺失败'
+        content = '设置默认会员店铺失败'
         break;
+      case 10004:
+        content = '获取验证码错误'
+        break;
+        // 商城
       case 10101:
-        content = '无效的店铺用户'
+        content = '首页加载失败'
         break;
       case 10102:
-        content = '无效的店铺Id'
-        break;
-      case 10201:
-        content = '请重新扫描二维码'
+        content = '无效的商品'
         break;
       case 10202:
         content = '上传失败'
         break;
-      case 10301:
-        content = '验证码错误'
+      case 10103:
+        content = '没有足够库存'
         break;
       case 10302:
         content = '用户已存在'
@@ -122,48 +124,48 @@ App({
       case 10303:
         content = '无效的二维码'
         break;
-      case 10304:
-        content = '手机号已存在'
+      case 10104:
+        content = '更新购物车失败'
         break;
-      case 10305:
-        content = '更新手机号失败'
+      case 10105:
+        content = '删除购物车失败'
         break;
-      case 10306:
-        content = '注册用户失败'
+      case 10106:
+        content = '请先绑定会员卡哦'
         break;
-      case 10401:
-        content = '无效的店铺'
+      case 10107:
+        content = '无效的预订单号'
         break;
-      case 10402:
-        content = '用户不存在'
+      case 10108:
+        content = '	生成订单失败'
         break;
-      case 10403:
-        content = '绑定银行卡错误'
+      case 10109:
+        content = '无效的订单状态'
         break;
-      case 10404:
-        content = '请先绑定银行卡'
+      case 10110:
+        content = '没有足够的心值'
         break;
-      case 10405:
-        content = '申请提现失败'
+      case 10111:
+        content = '支付订单失败'
         break;
-      case 10501:
-        content = '操作员已存在'
+      case 10112:
+        content = '	无效的店铺'
         break;
-      case 10502:
-        content = '注册操作员失败'
-        break;
-      case 10503:
-        content = '无效的操作员码'
-        break;
-      case 10601:
-        content = '当前没有相关款项需要操作哦'
-        break;
-      case 10602:
-        content = '收款失败'
-        break;
-      case 10603:
-        content = '收款失败'
-        break;
+      // case 10502:
+      //   content = '注册操作员失败'
+      //   break;
+      // case 10503:
+      //   content = '无效的操作员码'
+      //   break;
+      // case 10601:
+      //   content = '当前没有相关款项需要操作哦'
+      //   break;
+      // case 10602:
+      //   content = '收款失败'
+      //   break;
+      // case 10603:
+      //   content = '收款失败'
+        // break;
       default:
         console.log(1);
     }
