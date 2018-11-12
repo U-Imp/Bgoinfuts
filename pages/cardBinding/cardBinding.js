@@ -9,7 +9,7 @@ Page({
     text: '获取验证码', //按钮文字
     currentTime: 60, //倒计时
     disabled: false, //倒计时按钮是否禁用
-    vip:'',  //会员卡号
+    // vip:'',  //会员卡号
     phone: '', //手机号
     seccode: '', //验证码
     index: 0, //店
@@ -24,7 +24,28 @@ Page({
   },
   formSubmit: function (e) {
     console.log('form发生了submit事件，携带数据为：', e.detail.value)
-    
+    app.Ajax(
+      // 方法组名称为：User（代购用户），不是系统通用用户Users
+      'Member',
+      'POST',
+      'BindMemberStore',
+      { 
+        checkCode: this.data.seccode, 
+        phone: this.data.phone,
+        // storeId:1,
+        // cardCode:''
+      },
+      function (json) {
+        console.log('json',json);
+        if (json.success) {
+          wx.navigateBack({
+            url: '../membershipCard/membershipCard'
+          })
+        } else {
+          app.Toast('', 'none', 3000, json.msg.code);
+        }
+      }
+    )
   },
   // 选择店
   bindPickerChange:function(e){
@@ -80,12 +101,32 @@ Page({
       //   icon: 'none',
       //   duration: 2000
       // });
-    } else {
+    } else if (this.data.phone.length==11){
       that.countDown();
       that.setData({
         disabled: true,
       })
       // 调方法
+      app.Ajax(
+        'Member',
+        'POST',
+        'CheckCode',
+        { phone: this.data.phone },
+        function (json) {
+          // console.log('json',json);
+          if (json.success) {
+            app.Toast('短信验证码已发送', 'none', 2000);
+          } else {
+            app.Toast('', 'none', 3000, json.msg.code);
+          }
+        }, function (res) {
+          app.Toast(res, 'none', 3000);
+        }
+      )
+
+
+    } else if (this.data.phone.length<11){
+      app.Toast('请输入正确的手机号', 'none', 2000);
     }
 
   },

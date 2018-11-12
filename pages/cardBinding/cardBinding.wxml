@@ -22,11 +22,11 @@
             </picker>
           <!-- </view> -->
         </view>
-        <view class='mess clearfix'>
+        <!-- <view class='mess clearfix'>
           <view class='mess_left mess_full'>
             会员卡号 :<input name="vip" type='number'  bindinput="vipInput" placeholder='输入会员卡号' maxlength='15' value='{{vip}}'></input>
           </view>
-        </view>
+        </view> -->
         <view class='mess clearfix'>
           <view class='mess_left'>
             手机号码 :<input type='number' name='phone' maxlength='11' placeholder='输入手机号' value="{{phone}}" bindinput="phoneInput" bindblur="phoneInputblur"></input>
