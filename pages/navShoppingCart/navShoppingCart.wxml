@@ -5,9 +5,9 @@
         <view class="header-text-title">购物车</view>
         <view class="header-text-desc">向左滑动宝贝即可删除哟</view>
       </view>
-      <view class="header-logo">
+      <!-- <view class="header-logo">
         <image class="header-logo-img" src="http://img.ui.cn/data/file/3/6/4/1053463.gif?imageMogr2/auto-orient/strip" />
-      </view>
+      </view> -->
     </view>
     <view class="shoppingList">
     

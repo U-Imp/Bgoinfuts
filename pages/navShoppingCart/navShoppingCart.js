@@ -170,7 +170,7 @@ Page({
 // 购物车商品选择√
   changeRadio:function(e){
     let curChecked = 'getData.list[' + e.currentTarget.dataset.index + '].cartChecked';
-    console.log(e.currentTarget.dataset)
+    // console.log(e.currentTarget.dataset)
     this.setData({
       [curChecked]: !e.currentTarget.dataset.checked
     })
@@ -269,8 +269,8 @@ Page({
   },
   // 提交付款
   gotoOrderConfirmation:function(){
-    console.log(this.data.filterData)
-    console.log(!this.data.filterData)
+    // console.log(this.data.filterData)
+    // console.log(!this.data.filterData)
     if (this.data.filterData.length>0){
       const that = this;
       app.Ajax(

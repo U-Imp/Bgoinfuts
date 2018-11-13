@@ -40,7 +40,7 @@
         </view>
         <view class="weui-msg__extra-area" >
           <view class="weui-footer">
-              <button class='ok' formType="submit" disabled="{{phone=='' || seccode=='' }}">确定</button>
+              <button class='ok' formType="submit" disabled="{{phone=='' || seccode==''|| phone.length!==11}}">确定</button>
               
           </view>
         </view>

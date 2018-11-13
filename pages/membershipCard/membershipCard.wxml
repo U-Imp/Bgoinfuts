@@ -14,8 +14,8 @@
     </view>
     <view class='context'>
     <view wx:for="{{getData}}" wx:key="index" class='unit-wrap'>
-      <i-swipeout  i-class="i-swipeout-demo-item" actions="{{actions}}">
-          <view slot="content">
+      <!-- <i-swipeout  i-class="i-swipeout-demo-item" actions="{{actions}}">
+          <view slot="content"> -->
             <view class='unit'  >
               <view class="unit-top">
                 <view class="normalShop {{item.isDefault?'mainShop':''}}" 
@@ -24,8 +24,8 @@
               </view>
               <view class='unit-bottom'>{{item.cardCode}}</view>
             </view>
-          </view>
-      </i-swipeout>
+          <!-- </view>
+      </i-swipeout> -->
     </view>
       
     </view>
