@@ -100,11 +100,30 @@ App({
         content = '会员注册异常'
         break;
       case 10003:
-        content = '设置默认会员店铺失败'
+        content = '用户已绑定'
         break;
       case 10004:
+        content = '无效会员卡'
+        break;
+      case 10005:
+        content = '绑定会员卡错误'
+        break;
+      case 10006:
+        content = '无效验证码'
+        break;
+      case 10007:
+        content = '处理积分同步错误'
+        break;
+      case 10008:
+        content = '兑换积分错误'
+        break;
+      case 10009:
+        content = '设置默认会员店铺失败'
+        break;
+      case 10010:
         content = '获取验证码错误'
         break;
+
         // 商城
       case 10101:
         content = '首页加载失败'
@@ -112,17 +131,8 @@ App({
       case 10102:
         content = '无效的商品'
         break;
-      case 10202:
-        content = '上传失败'
-        break;
       case 10103:
         content = '没有足够库存'
-        break;
-      case 10302:
-        content = '用户已存在'
-        break;
-      case 10303:
-        content = '无效的二维码'
         break;
       case 10104:
         content = '更新购物车失败'
@@ -151,23 +161,55 @@ App({
       case 10112:
         content = '	无效的店铺'
         break;
-      // case 10502:
-      //   content = '注册操作员失败'
-      //   break;
-      // case 10503:
-      //   content = '无效的操作员码'
-      //   break;
-      // case 10601:
-      //   content = '当前没有相关款项需要操作哦'
-      //   break;
-      // case 10602:
-      //   content = '收款失败'
-      //   break;
-      // case 10603:
-      //   content = '收款失败'
-        // break;
+
+        // 通用
+      case 201:
+        content = 'APPID错误'
+        break;
+      case 202:
+        content = '签名错误'
+        break;
+      case 404:
+        content = '没有找到'
+        break;
+      case 500:
+        content = '内部错误'
+        break;
+      case 1000:
+        content = '	微信组件异常'
+        break;
+      case 3000:
+        content = '支付错误'
+        break;
+      case 3001:
+        content = '支付金额不能为0'
+        break;
+      case 3002:
+        content = '支付返回异常'
+        break;
+      case 4000:
+        content = '无效的Token'
+        break;
+      case 4001:
+        content = '无效的方法名'
+        break;
+      case 4002:
+        content = '无效的参数'
+        break;
+      case 4003:
+        content = '接口权限不足'
+        break;
+      case 4004:
+        content = '接口的参数不对'
+        break;
+      case 4005:
+        content = '接口数据库操作失败'
+        break;
+      case 4006:
+        content = '需要登陆'
+        break;
       default:
-        console.log(1);
+        console.log(code);
     }
     wx.showToast({
       title: content,

@@ -1,47 +1,62 @@
 // pages/coin/coin.js
+const app =getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    title: 'Wow~',
+    dec:'来兑换积分的人最好看了~',
     getData: {
-      title: '当前可用❤值',
-      integral: 13000,
-      coinList: [
+      heart: 13000,
+      list: [
         {
           id: 'a1',
+          storeMemberId:1,
+          point:'53500',
+          storeRate:25,
           imgUrl: 'http://img.ui.cn/data/file/0/2/7/751720.jpg',
           title: '店铺1',
           content: '我是一家神奇的店铺,一家神奇的店铺,神奇的店铺,的店铺,店铺,铺',
         },
         {
           id: 'a2',
+          storeMemberId: 2,
+          point: '5200',
+          storeRate: 25,
           imgUrl: 'http://img.ui.cn/data/file/2/7/7/693772.jpg',
           title: '店铺2',
           content: '我比第一家还要神奇',
         },
         {
           id: 'a3',
+          storeMemberId: 3,
+          point: '53500',
+          storeRate: 25,
           imgUrl: 'http://img.ui.cn/data/file/9/7/0/626079.gif',
           title: '店铺3',
           content: '他们吹牛,我会动,我最神奇',
         },
         {
           id: 'a4',
+          storeMemberId: 4,
+          point: '53500',
+          storeRate: 25,
           imgUrl: 'http://img.ui.cn/data/file/6/1/8/616816.png',
           title: '店铺4',
           content: '你们都是辣鸡',
         },
         {
           id: 'a5',
+          storeMemberId: 5,
+          point: '53500',
+          storeRate: 25,
           imgUrl: 'http://img.ui.cn/data/file/1/3/1/674131.png',
           title: '店铺4',
           content: '呵呵',
         }
       ],
-      coinForm:{},
-      coinVisible: false,
     },
     // 弹出框
     popupForm: {
@@ -53,6 +68,9 @@ Page({
       title: '',
       maxNum: 10,
       numCoin: 10,
+      point:56000,
+      storeMemberId:null,
+      storeRate:null
     }
   },
 
@@ -61,46 +79,72 @@ Page({
    */
   onLoad: function(options) {},
   /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {},
-  /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {},
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {},
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {},
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {},
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {},
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function() {},
+  onShow: function() {
+    this.getData();
+  },
+  getData:function(){
+    const that = this;
+    app.Ajax(
+      'Member',
+      'POST',
+      'GetRemoteStore',
+      {  },
+      function (json) {
+        // console.log('json', json);
+        if (json.success) {
+          that.setData({
+            getData: json.data
+          })
+        } else {
+          app.Toast('', 'none', 3000, json.msg.code);
+        }
+      }
+    )
+  },
+
   
   // 打开弹出框
   exchange(e){
-    var that = this;
+    // console.log(e.currentTarget.dataset)
+    const that = this;
     var index = e.currentTarget.dataset.index;
     this.setData({
-      'popupForm.id': that.data.getData.coinList[index].id,
-      'popupForm.imgUrl': that.data.getData.coinList[index].imgUrl,
-      'popupForm.title': that.data.getData.coinList[index].title,
-      'popupForm.maxNum': 10,
-      'popupForm.numCoin': 10,
-      'popupForm.visible': true
+      // 'popupForm.id': that.data.getData.list[index].id,
+      'popupForm.imgUrl': that.data.getData.list[index].storeImg,
+      'popupForm.title': that.data.getData.list[index].storeName,
+      'popupForm.storeMemberId': e.currentTarget.dataset.storememberid,
+     
+
+
+      
+      // 'popupForm.maxNum': 10,
+      // 'popupForm.numCoin': 10,
+      // 'popupForm.visible': true
     })
+    app.Ajax(
+      'Member',
+      'POST',
+      'GetRemoteStoreInfo',
+      { storeMemberId: e.currentTarget.dataset.storememberid},
+      function (json) {
+        // console.log('json', json);
+        if (json.success) {
+          that.setData({
+            'popupForm.maxNum': parseInt(json.data.point / json.data.storeRate),
+            'popupForm.point': json.data.point,
+            'popupForm.numCoin': parseInt(json.data.point / json.data.storeRate),
+            'popupForm.storeRate': json.data.storeRate,
+            'popupForm.visible': true
+          })
+        } else {
+          app.Toast('', 'none', 3000, json.msg.code);
+        }
+      }
+    )
+    
+    
   },
 
   // 关闭弹出框
@@ -120,8 +164,33 @@ Page({
   // 立即兑换
   addPopup(){
     console.log(this.data.popupForm);
-    this.setData({
-      'popupForm.visible': false
-    })
+    const that = this;
+    const params = {
+      storeMemberId: this.data.popupForm.storeMemberId,
+      point: this.data.popupForm.numCoin * this.data.popupForm.storeRate 
+    }
+    // console.log('params',params)
+    app.Ajax(
+      'Member',
+      'POST',
+      'ExchangeHeart',
+      params,
+      function (json) {
+        // console.log('json', json);
+        if (json.success) {
+          that.setData({
+            'popupForm.visible': false
+          })
+          that.getData();
+          app.Toast('兑换成功', 'success', 1500);
+          // setTimeout(function(){
+            
+            
+          // },2000)
+        } else {
+          app.Toast('', 'none', 3000, json.msg.code);
+        }
+      }
+    )   
   }
 })

@@ -3,23 +3,25 @@
   <view class='coin-wrap'>
     <view class="coin-header">
       <view class="header-text">
-        <view class="header-text-title">{{getData.title}}</view>
-        <view class="header-text-desc">{{getData.integral}}</view>
+        <view class="header-text-title">{{title}}{{getData.heart}}❤</view>
+        <view class="header-text-desc">{{dec}}</view>
       </view>
     </view>
     <view class='coin-cards-wrap'>
-      <block wx:for-items="{{ getData.coinList }}" wx:key="{{index}}">
-        <view class='coin-cards' data-storeId="{{item.id}}">
+      <block wx:for-items="{{ getData.list }}" wx:key="{{index}}">
+        <view class='coin-cards' data-storeId="{{item.storeId}}">
 
           <view class='cards-bg'>
-            <image src='{{item.imgUrl}}'></image>
+            <image src='{{item.storeImg}}'></image>
           </view>
           <view class='cards-text'>
-            <view class='card-name'>{{item.title}}</view>
-            <view class='card-content'>{{item.content}}</view>
+            <view class='card-name'>{{item.storeName}}</view>
+            <view class='card-content'>拥有当前店铺{{item.point}}积分</view>
+            <view class='card-content'>本店兑换比例{{item.storeRate}}积分=1❤</view>
+            <!-- <view class='card-content'>本店铺兑换❤比例{{item.storeRate}}:1</view> -->
           </view>
 
-          <view class='cards-btn' data-index="{{index}}" bindtap='exchange'>兑换</view>
+          <view class='cards-btn' data-index="{{index}}" data-storeMemberId="{{item.storeMemberId}}"  bindtap='exchange'>兑换</view>
 
         </view>
       </block>
@@ -42,7 +44,8 @@
         </view>
         <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
           <view class="weui-media-box__title">{{ popupForm.title }}</view>
-          <view class="weui-media-box__desc">拥有积分可兑换{{ popupForm.maxNum }}❤值</view>
+          <view class="weui-media-box__desc">拥有{{ popupForm.point }}积分</view>
+          <view class="weui-media-box__desc">可兑换{{ popupForm.maxNum }}❤值</view>
         </view>
       </view>
       <!--单元格  -->

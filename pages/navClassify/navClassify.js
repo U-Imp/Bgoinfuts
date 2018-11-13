@@ -82,7 +82,7 @@ Page({
     )
   },
   gotoGoodsList:function(e){
-    console.log('aa', e.currentTarget.dataset.showid)
+    // console.log('aa', e.currentTarget.dataset.showid)
     wx.navigateTo({
       url: '../goodsList/goodsList?showId=' + e.currentTarget.dataset.showid,
     })

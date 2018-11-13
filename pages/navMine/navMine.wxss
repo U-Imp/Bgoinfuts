@@ -3,6 +3,7 @@ page {
   width: 750rpx;
   height: 100%;
   color: #F4F4F4;
+  background: #fdf1f6;
 }
 .header {
   width: 750rpx;
@@ -165,7 +166,7 @@ line-height:89rpx;
  
 }
 .main_theme {
-  width:435rpx;
+  width:430rpx;
   font-size: 34rpx;
   color: #888;
   display: block;

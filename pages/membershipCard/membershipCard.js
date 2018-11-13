@@ -77,7 +77,7 @@ Page({
       'GetMemberStoreList',
       {},
       function (json) {
-        console.log('json',json);
+        // console.log('json',json);
         if (json.success) {
           that.setData({
             getData: json.data
