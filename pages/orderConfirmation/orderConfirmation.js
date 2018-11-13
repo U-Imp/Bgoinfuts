@@ -1,7 +1,8 @@
 const app =getApp();
 Page({
   data: {
-    getData:{
+    getData:{},
+    getDataOld:{
       preOrderId:'',
       addr:'港湾广场2338店',
       list: [
@@ -85,7 +86,7 @@ Page({
       'PayOrder',
       { ...send },
       function (json) {
-        console.log('json', json);
+        // console.log('json', json);
         if (json.success) {
           that.PayForOrder(json.data.orderId)
           

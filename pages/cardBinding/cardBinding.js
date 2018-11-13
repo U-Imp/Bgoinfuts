@@ -27,7 +27,7 @@ Page({
     this.getStoreList();
   },
   formSubmit: function (e) {
-    console.log('form发生了submit事件，携带数据为：', e.detail.value)
+    // console.log('form发生了submit事件，携带数据为：', e.detail.value)
     app.Ajax(
       // 方法组名称为：User（代购用户），不是系统通用用户Users
       'Member',
@@ -40,7 +40,7 @@ Page({
         // cardCode:''
       },
       function (json) {
-        console.log('json',json);
+        // console.log('json',json);
         if (json.success) {
           wx.navigateBack({
             url: '../membershipCard/membershipCard'
@@ -60,7 +60,7 @@ Page({
       'GetStoreList',
       {},
       function (json) {
-        console.log('json',json);
+        // console.log('json',json);
         that.setData({
           shops: json.data.storeList.map(i => i.storeName),
           storeIdList: json.data.storeList.map(i => i.storeId)
@@ -72,7 +72,7 @@ Page({
   },
   // 选择店
   bindPickerChange:function(e){
-    console.log('picker发送选择改变，携带值为', e.detail.value)
+    // console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
       index: e.detail.value,
     })

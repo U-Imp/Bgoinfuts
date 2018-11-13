@@ -1,7 +1,8 @@
 const app = getApp()
 Page({
   data: {
-    getData:{
+    getData:{},
+    getDataOld:{
       goodsId:'1',
       goodsName: '老狐狸玩偶',
       goodsDesc: '贼丑',

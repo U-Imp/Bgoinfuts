@@ -4,7 +4,8 @@ Page({
     bottomLine:'我是有底线的o(￣ヘ￣o#)',
     noRecord:'还没有记录呢，快去兑换吧~',
     orderStatus: ['未支付', '商家备货中', '待取货','交易完成'],
-    getData:{
+    getData:{},
+    getDataOld:{
       status0OrderList:[
         {
           orderNum:'ADHJ154541215',

@@ -1,7 +1,8 @@
 const app = getApp();
 Page({
   data: {
-    getData:{
+    getData:{},
+    getDataOld:{
       h1:'HOt！最热上新！',
       desc:'近期最热商品上新啦！速速来选~',
       cardList: [

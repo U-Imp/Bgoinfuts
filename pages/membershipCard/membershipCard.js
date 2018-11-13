@@ -16,8 +16,8 @@ Page({
         background: '#2d8ff5'
       }
     ],
-   
-      getData:[{
+    getData:[],
+      getDataOld:[{
         cardId:'1',
         storeId:1,
         cardCode:'D234345454',
@@ -105,6 +105,7 @@ Page({
         // console.log('json', json);
         if (json.success) {
           app.Toast('设置成功啦', 'success', 1500);
+          this.getData();
         } else {
           app.Toast('', 'none', 3000, json.msg.code);
         }
@@ -116,38 +117,5 @@ Page({
       url: '../cardBinding/cardBinding',
     })
   },
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
+  
 })

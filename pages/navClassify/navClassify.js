@@ -3,7 +3,8 @@ const app = getApp();
 Page({
   data: {
     activeIndex: 10,
-    getData:{
+    getData:{},
+    getDataOld:{
       monthList: [10,9,8],
       dayList:{
         "10": [

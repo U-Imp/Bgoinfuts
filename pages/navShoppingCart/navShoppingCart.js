@@ -11,7 +11,8 @@ Page({
         background: '#2d8ff5'
       }
     ],
-    getData:{
+    getData:{},
+    getDataOld:{
       totalPrice:'320',
       list:[{
         goodsId: '1',

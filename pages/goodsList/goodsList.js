@@ -1,6 +1,7 @@
 const app = getApp();
 Page({
   data: {
+    getData:{},
     cardsList: [
       {
         id: 0,
@@ -59,8 +60,6 @@ Page({
       },
       
     ]
-
-    
   },
   onLoad: function (options) {
     // console.log('options', options)

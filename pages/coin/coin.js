@@ -8,7 +8,8 @@ Page({
   data: {
     title: 'Wow~',
     dec:'来兑换积分的人最好看了~',
-    getData: {
+    getData:{},
+    getDataOld: {
       heart: 13000,
       list: [
         {
