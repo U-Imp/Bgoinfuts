@@ -147,7 +147,6 @@ getData:function(){
               // console.log('json', json);
               if (json.success) {
                 app.Toast('支付成功', 'none', 3000);
-                that.getData();
                 setTimeout(function () {
                   wx.switchTab({
                     url: '../orderList/orderList?status=1'

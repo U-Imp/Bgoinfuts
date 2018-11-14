@@ -4,11 +4,11 @@ Page {
 }
 Page::after{
   content: "";  
-  background: url('http://img.ui.cn/data/file/8/6/4/1053468.gif?imageMogr2/auto-orient/strip') no-repeat center;
+  background: url('http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-una/ff2.jpg') no-repeat center;
   background-size: 100% 100%; 
   /* background: url(http://img.ui.cn/data/file/3/6/1/1429163.gif?imageMogr2/auto-orient/strip) no-repeat center;  */
   /* background-size: 100% 50%;  */
-  opacity: 0.5;  
+  opacity: 0.1;  
   top: 0rpx;  
   left: 0;  
   bottom: 0;  

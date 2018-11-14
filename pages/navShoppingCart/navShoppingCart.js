@@ -159,9 +159,10 @@ Page({
       }
     )
   },
-  gotoGoodsDetails:function(){
+  gotoGoodsDetails:function(e){
+    // console.log(e.currentTarget.dataset.goodsid)
     wx.navigateTo({
-      url: '../goodsDetails/goodsDetails',
+      url: '../goodsDetails/goodsDetails?goodsId=' + e.currentTarget.dataset.goodsid
     })
   },
   // 防止 点击编辑数量时 跳转事件
@@ -297,4 +298,9 @@ Page({
     //   url: '../orderConfirmation/orderConfirmation',
     // })
   },
+  gotoIndex:function(){
+    wx.switchTab({
+      url:'../index/index'
+    })
+  }
 })

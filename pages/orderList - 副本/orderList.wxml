@@ -1,16 +1,16 @@
 <view class='order-details'>
   <view class='order-details-wrap'>
-    <!-- <view class="order-details-header">
+    <view class="order-details-header">
       <view class="header-text">
         <view class="header-text-title">订单列表</view>
       </view>
       <view class="header-logo">
         <image class="header-logo-img" src="http://img.ui.cn/data/file/3/6/4/1053463.gif?imageMogr2/auto-orient/strip" />
       </view>
-    </view> -->
+    </view>
 
     <view class="order-details-tabs">
-      <i-tabs current="{{ tabForm.tabCurrent }}" i-class="order-tab-header" color="#f44393" bindchange="tabHandel">
+      <i-tabs current="{{ tabForm.tabCurrent }}" color="#f44393" bindchange="tabHandel">
       
         <block wx:for-items="{{tabForm.tabList}}" wx:key="index">
           <i-tab key="{{item.value}}" title="{{item.name}}"></i-tab>
@@ -22,7 +22,7 @@
         <block wx:if="{{tabForm.tabCurrent=='0'}}" >
           <view class='unit' wx:for-items="{{ getData.unPayList }}" wx:key="index" bindtap='gotoOrderDetails' data-orderId="{{item.orderId}}">
             <view class='unit-top borBotGray clearfix '>
-              <text class='fl'>订单号:{{item.orderCode}}</text>
+              <text class='fl'>订单号：{{item.orderCode}}</text>
               <text class='fr unit-top-right'>{{orderStatus[0]}}</text>
             </view>
             <scroll-view class="recommend_scroll_x_box borBotGray" scroll-x="true">
@@ -42,7 +42,7 @@
         <block wx:if="{{tabForm.tabCurrent=='1'}}" >
           <view class='unit' wx:for-items="{{ getData.payList }}" wx:key="index" bindtap='gotoOrderDetails' data-orderId="{{item.orderId}}">
             <view class='unit-top borBotGray clearfix '>
-              <text class='fl'>订单号:{{item.orderCode}}</text>
+              <text class='fl'>订单号：{{item.orderCode}}</text>
               <text class='fr unit-top-right'>{{orderStatus[1]}}</text>
             </view>
             <scroll-view class="recommend_scroll_x_box borBotGray" scroll-x="true">
@@ -61,7 +61,7 @@
         <block wx:if="{{tabForm.tabCurrent=='2'}}">
           <view class='unit' wx:for-items="{{ getData.inStoreList }}" wx:key="index" bindtap='gotoOrderDetails' data-orderId="{{item.orderId}}">
             <view class='unit-top borBotGray clearfix '>
-              <text class='fl'>订单号:{{item.orderCode}}</text>
+              <text class='fl'>订单号：{{item.orderCode}}</text>
               <text class='fr unit-top-right'>{{orderStatus[2]}}</text>
             </view>
             <scroll-view class="recommend_scroll_x_box borBotGray" scroll-x="true">
@@ -80,7 +80,7 @@
         <block wx:if="{{tabForm.tabCurrent=='3'}}">
           <view class='unit' wx:for-items="{{ getData.doneList }}" wx:key="index" bindtap='gotoOrderDetails' data-orderId="{{item.orderId}}">
             <view class='unit-top borBotGray clearfix '>
-              <text class='fl'>订单号:{{item.orderCode}}</text>
+              <text class='fl'>订单号：{{item.orderCode}}</text>
               <text class='fr unit-top-right'>{{orderStatus[3]}}</text>
             </view>
             <scroll-view class="recommend_scroll_x_box borBotGray" scroll-x="true">
