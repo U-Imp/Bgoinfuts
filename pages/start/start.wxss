@@ -1,10 +1,10 @@
 /* pages/start/start.wxss */
 page{
-  /* height: 100%; */
+  height: 100%;
   /* width: 150%;
   height: 200px; */
   /* background: url('http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/fengche.gif') no-repeat  center -45%; */
-  background: url('http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/qunnv.gif') no-repeat  center -30%;
+  /* background: url('http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/qunnv.gif') no-repeat  center -30%; */
 } 
 .img{
   width: 300rpx;
@@ -15,13 +15,35 @@ page{
   width: 100%;
   margin: auto;
 }
-.register .registerBtn {
+.registerBtn {
+  font-size: 30rpx;       
   border-radius: 50rpx;
   margin: auto;
   width: 40%;
   color:#fff!important;
   background: #f44393!important;
 }
-.register .button-hover{
+.button-hover{
   opacity: 0.8
+}
+.start{
+  padding: 100rpx 0;
+  text-align: center;
+}
+.start-top{
+  width: 400rpx;
+  height: 400rpx;
+  border-radius: 200rpx;
+  overflow: hidden;
+}
+.start-second{
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 100rpx;
+  overflow: hidden;
+}
+.words{
+  font-size: 26rpx;
+  color: #555;
+  padding: 100rpx;
 }

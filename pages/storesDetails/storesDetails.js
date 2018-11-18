@@ -61,7 +61,7 @@ Page({
   onLoad: function (options) {
     // var that = this;
     // var id = options.id;
-    console.log(options);
+    // console.log(options);
     this.getData(options.storeId)
   },
   getData: function (storeId){
