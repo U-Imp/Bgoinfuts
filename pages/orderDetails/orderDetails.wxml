@@ -4,9 +4,9 @@
       <view class="header-text">
         <view class="header-text-title">{{orderState[getData.state]}}</view>
       </view>
-      <view class="header-logo">
+      <!-- <view class="header-logo">
         <image class="header-logo-img" src="http://img.ui.cn/data/file/3/6/4/1053463.gif?imageMogr2/auto-orient/strip" />
-      </view>
+      </view> -->
     </view>
     <!--订单号  -->
     <view class="pickAddress">

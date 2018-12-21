@@ -23,7 +23,7 @@
       </swiper>
     </view>
     <view class="goods-details-number">
-      <text class="goods-pirce">￥{{getData.goodsPrice}}</text>
+      <text class="goods-pirce">❤{{getData.goodsPrice}}</text>
       <text class="goods-sold">已售{{getData.sales}}</text>
       <text class="goods-sold">{{getData.goodsStock==0?'售罄':'库存'+getData.goodsStock}}</text>
     </view>
@@ -69,7 +69,7 @@
         </view>
         <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
           <view class="weui-media-box__title">{{ popupForm.title }}</view>
-          <view class="weui-media-box__desc">￥{{ popupForm.price }}</view>
+          <view class="weui-media-box__desc">❤{{ popupForm.price }}</view>
         </view>
       </view>
       <!--单元格  -->
