@@ -39,16 +39,17 @@ App({
               // console.log(!!json.data.isReg)
 
 
-              if (!json.data.isReg) {
+              if (!!json.data.isReg) {
                 // 跳转到授权登录页
                 console.log('跳转授权页');
-                wx.redirectTo({
-                  url: '../start/start',
+                wx.switchTab({
+                  url: '../index/index',
                 })
               }
             } else {
               // that.Toast('','none',2000,json.msg.code)
               console.log('here');
+              
             }
           }
         )

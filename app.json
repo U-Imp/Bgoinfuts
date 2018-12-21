@@ -2,7 +2,7 @@
   "pages":[
     
    
-    
+    "pages/start/start",
     
     "pages/index/index",
     "pages/navClassify/navClassify",
@@ -21,8 +21,8 @@
     "pages/storesList/storesList",
     "pages/storesDetails/storesDetails",
     
-      "pages/test/test",
-    "pages/start/start"
+      "pages/test/test"
+   
   ],
   "window":{
     "backgroundTextStyle":"light",

@@ -36,6 +36,9 @@ Page({
   onLoad:function(){
     this.getData();
   },
+  onShow:function(){
+
+  },
   getData:function(){
     const that = this;
     app.Ajax(
