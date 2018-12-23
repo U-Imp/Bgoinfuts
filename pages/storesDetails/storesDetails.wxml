@@ -38,7 +38,7 @@
         <block wx:for-items="{{getData.storeGoods}}" wx:key="{{index}}">
           <view class='new-list-item'>
             <view class='item-img'>
-              <image src="{{item.storeGoodsImg}}" />
+              <image src="{{item.storeGoodsImg}}" data-src="{{item.storeGoodsImg}}" bindtap='previewImage'/>
             </view>
             <view class='item-title'>
               {{item.storeGoodsName}}

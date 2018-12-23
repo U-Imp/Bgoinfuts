@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    title: 'Wow~',
+    title: '您当前拥有',
     dec:'来兑换积分的人最好看了~',
     getData:{},
     getDataOld: {
@@ -67,11 +67,14 @@ Page({
       id: '',
       imgUrl: '',
       title: '',
-      maxNum: 10,
-      numCoin: 10,
-      point:56000,
+      maxNum: 0,
+      numCoin: 0,
+      numVal:0,
+      point:0,
       storeMemberId:null,
-      storeRate:null
+      storeRate:null,
+      todayExchange:null,
+      exchangeLimit:null
     }
   },
 
@@ -132,11 +135,28 @@ Page({
       function (json) {
         // console.log('json', json);
         if (json.success) {
+          let hasMax = parseInt(json.data.point / json.data.storeRate)
+          let limitMax = json.data.exchangeLimit
+          let todayMax = json.data.todayExchange
+          let leftMax = limitMax - todayMax
+          let max;
+          if (hasMax > limitMax){
+            max = limitMax - todayMax
+          } else{
+            if (hasMax > leftMax){
+              max = leftMax
+            }else{
+              max = hasMax
+            }
+          }
           that.setData({
-            'popupForm.maxNum': parseInt(json.data.point / json.data.storeRate),
+            'popupForm.maxNum': max,
             'popupForm.point': json.data.point,
             'popupForm.numCoin': parseInt(json.data.point / json.data.storeRate),
+            'popupForm.numVal': max,
             'popupForm.storeRate': json.data.storeRate,
+            'popupForm.exchangeLimit': json.data.exchangeLimit,
+            'popupForm.todayExchange': json.data.todayExchange,
             'popupForm.visible': true
           })
         } else {
@@ -158,17 +178,17 @@ Page({
   // 计数 
   numChange(e) {
     this.setData({
-      'popupForm.numCoin': e.detail.value
+      'popupForm.numVal': e.detail.value
     })
   },
 
   // 立即兑换
   addPopup(){
-    console.log(this.data.popupForm);
+    // console.log(this.data.popupForm);
     const that = this;
     const params = {
       storeMemberId: this.data.popupForm.storeMemberId,
-      point: this.data.popupForm.numCoin * this.data.popupForm.storeRate 
+      point: this.data.popupForm.numVal * this.data.popupForm.storeRate 
     }
     // console.log('params',params)
     app.Ajax(

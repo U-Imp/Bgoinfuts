@@ -44,20 +44,26 @@
         </view>
         <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
           <view class="weui-media-box__title">{{ popupForm.title }}</view>
-          <view class="weui-media-box__desc">拥有{{ popupForm.point }}积分</view>
-          <view class="weui-media-box__desc">可兑换{{ popupForm.maxNum }}❤值</view>
+          <!-- <view class="weui-media-box__desc">店铺每日兑换心值限额{{ popupForm.exchangeLimit }}❤  </view>
+          
+          <view class="weui-media-box__desc">拥有{{ popupForm.point }}积分  价值{{ popupForm.numCoin }}❤</view>
+          <view class="weui-media-box__desc">您今日已兑换{{ popupForm.todayExchange }}❤ </view>
+          <view class="weui-media-box__desc">今日可兑换{{ popupForm.maxNum }}❤ </view> -->
+
+          <view class="weui-media-box__desc">店铺每日兑换心值限额{{ popupForm.exchangeLimit }}❤  </view>
+          <view class="weui-media-box__desc">今日可兑换{{ popupForm.maxNum }}❤ </view>
         </view>
       </view>
       <!--单元格  -->
       <van-cell-group>
         <van-cell title="兑换" border="true">
           <i-panel slot="right-icon" title="基础用法">
-            <i-input-number value="{{popupForm.numCoin}}" min="1" max="{{popupForm.maxNum}}" bindchange="numChange"/>
+            <i-input-number value="{{popupForm.numVal}}" min="1" max="{{popupForm.maxNum}}" bindchange="numChange"/>
           </i-panel>
         </van-cell>
       </van-cell-group>
       <!--按钮  -->
-      <i-button bind:click="addPopup" shape="circle" type="primary">立即兑换</i-button>
+      <i-button bind:click="addPopup" shape="circle" type="primary" disabled='{{popupForm.numVal==0}}'>立即兑换</i-button>
     </van-popup>
   </view>
 </view>

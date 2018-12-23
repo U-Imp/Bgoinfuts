@@ -82,6 +82,13 @@ Page({
         }
       }
     )
+  },
+  previewImage:function(e){
+    // console.log(e)
+    wx.previewImage({
+      current: e.currentTarget.dataset.src, // 当前显示图片的http链接
+      urls: [e.currentTarget.dataset.src] 
+    })
   }
 })
 

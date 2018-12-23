@@ -44,7 +44,7 @@
       },{ "selectedIconPath": "static/img/classify_selected.png",
         "iconPath": "static/img/classify_normal.png",
         "pagePath": "pages/navClassify/navClassify",
-        "text": "品类"
+        "text": "礼物盒"
       },{ 
         "selectedIconPath": "static/img/shopping_selected.png",
         "iconPath": "static/img/shopping_normal.png",

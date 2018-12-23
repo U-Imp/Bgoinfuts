@@ -124,6 +124,9 @@ App({
       case 10010:
         content = '获取验证码错误'
         break;
+      case 10011:
+        content = '您今天的兑换已经达到上限了哦'
+        break;
 
         // 商城
       case 10101:
@@ -161,6 +164,12 @@ App({
         break;
       case 10112:
         content = '	无效的店铺'
+        break;
+      case 10201:
+        content = '	店铺会员已存在'
+        break; 
+      case 10202:
+        content = '	同步用户信息失败'
         break;
 
         // 通用

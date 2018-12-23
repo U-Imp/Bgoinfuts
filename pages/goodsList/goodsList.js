@@ -66,6 +66,9 @@ Page({
     var that = this;
     this.getData(options.showId)
   },
+  onUnload: function () {
+    // 页面关闭
+  },
   getData:function(showId){
     const that = this;
     app.Ajax(

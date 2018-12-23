@@ -54,13 +54,21 @@ Page({
         });
       }
     });
+
+
+    
   },
   onReady: function () {
     // 页面渲染完成
   },
   onShow: function () {
+   
     // 页面显示
     this.getData();
+    // console.log('onshow', wx.getStorageSync('lastActiveIndex') || 0)
+    this.setData({
+      activeIndex: wx.getStorageSync('lastActiveIndex') || 0
+    })
   },
   getData:function(){
     const that = this;
@@ -74,7 +82,7 @@ Page({
         if (json.success) {
           that.setData({
             getData: json.data,
-            activeIndex: json.data.monthList[0]
+            activeIndex: wx.getStorageSync('lastActiveIndex') || json.data.monthList[0]
           })
         } else {
           app.Toast('', 'none', 3000, json.msg.code);
@@ -83,7 +91,7 @@ Page({
     )
   },
   gotoGoodsList:function(e){
-    // console.log('aa', e.currentTarget.dataset.showid)
+    
     wx.navigateTo({
       url: '../goodsList/goodsList?showId=' + e.currentTarget.dataset.showid,
     })
@@ -93,11 +101,13 @@ Page({
   },
   onUnload: function () {
     // 页面关闭
+    console.log('分类')
   },
   changeTab: function (e) {
     this.setData({
       activeIndex: e.currentTarget.dataset.index,
     })
+    wx.setStorageSync('lastActiveIndex', this.data.activeIndex)
   },
   // 	滚动到底部/右边，会触发 scrolltolower 事件
   getMore: function () {
