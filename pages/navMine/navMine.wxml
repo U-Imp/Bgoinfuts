@@ -40,7 +40,10 @@
       </navigator>
       </view>
     </view>
-    <view class='hot' type="default" type="default" bindtap="openConfirm" >剩余❤值{{getData.heart}}</view>
+    <view class='qrcode'>
+      <image src='http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-cubic/qrcode.png' bindtap='gotoQrcode'></image>
+    </view>
+    <!-- <view class='hot' type="default" type="default" bindtap="openConfirm" >剩余❤值{{getData.heart}}</view> -->
     <view class='cash'>❤<text>{{getData.heart}}</text></view>
   </view>
   

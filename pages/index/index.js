@@ -54,6 +54,11 @@ Page({
           })
         } else {
           app.Toast('', 'none', 3000, json.msg.code);
+          if (json.msg.code==4000){
+            setTimeout(function(){
+              that.getData();
+            },2000)
+          }
         }
       }
     )

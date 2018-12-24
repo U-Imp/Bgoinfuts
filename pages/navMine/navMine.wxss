@@ -106,6 +106,14 @@ page {
   color: #99A3A9;
   
 }
+.qrcode{
+  height: 80rpx;
+  text-align: center
+}
+.qrcode image{
+  width: 80rpx;
+  height: 80rpx
+}
 .hot {
   margin-bottom: 30rpx;
   font-size: 22rpx;

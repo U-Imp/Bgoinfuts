@@ -35,15 +35,16 @@ App({
             // console.log('~~~',json);
             if (json.success) {
               wx.setStorageSync('token', json.data.token);
+              wx.setStorageSync('scanCode', json.data.scanCode);
               // console.log(json.data.token);
               // console.log(!!json.data.isReg)
 
 
-              if (!!json.data.isReg) {
+              if (!json.data.isReg) {
                 // 跳转到授权登录页
                 console.log('跳转授权页');
                 wx.switchTab({
-                  url: '../index/index',
+                  url: '../start/start',
                 })
               }
             } else {
@@ -83,6 +84,12 @@ App({
       },
       fail: function (res) {
         wx.hideLoading();
+        wx.showModal({
+          title: '网络异常提示',
+          content: '请检查网络，并重新登录小程序',
+          showCancel:false,
+        })
+         //console.log('fa',res)
       },
       complete: function () {
         // wx.hideLoading();
@@ -201,6 +208,7 @@ App({
         content = '支付返回异常'
         break;
       case 4000:
+      
         content = '无效的Token'
         break;
       case 4001:

@@ -2,12 +2,15 @@
   "pages":[
     
    
-    "pages/start/start",
+    
     
     "pages/index/index",
     "pages/navClassify/navClassify",
     "pages/navShoppingCart/navShoppingCart",
     "pages/navMine/navMine",
+
+    "pages/qrcode/qrcode",
+
     "pages/goodsList/goodsList",
     "pages/goodsDetails/goodsDetails",
     "pages/orderConfirmation/orderConfirmation",
@@ -20,14 +23,14 @@
     "pages/coin/coin",
     "pages/storesList/storesList",
     "pages/storesDetails/storesDetails",
-    
+    "pages/start/start",
       "pages/test/test"
    
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#f54281",
-    "navigationBarTitleText": "嗨~",
+    "navigationBarTitleText": "",
     "navigationBarTextStyle":"#fff"
   },
 
