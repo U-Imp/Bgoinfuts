@@ -12,7 +12,7 @@
         <view class='coin-cards' data-storeId="{{item.storeId}}">
 
           <view class='cards-bg'>
-            <image src='{{item.storeImg}}'></image>
+            <image src='{{item.storeImg}}' mode='aspectFill'></image>
           </view>
           <view class='cards-text'>
             <view class='card-name'>{{item.storeName}}</view>
@@ -25,8 +25,12 @@
 
         </view>
       </block>
+      <block wx:if="{{getData.list== ''}}">
+        <view class='noRecord'>还没有会员卡呢，快去店里办卡吧，惊喜好礼等着你！</view>
+      </block> 
     </view>
 
+     
    
   </view>
 
@@ -49,7 +53,7 @@
           <view class="weui-media-box__desc">拥有{{ popupForm.point }}积分  价值{{ popupForm.numCoin }}❤</view>
           <view class="weui-media-box__desc">您今日已兑换{{ popupForm.todayExchange }}❤ </view>
           <view class="weui-media-box__desc">今日可兑换{{ popupForm.maxNum }}❤ </view> -->
-
+          <view class="weui-media-box__desc">拥有{{ popupForm.point }}积分  价值{{ popupForm.numCoin }}❤</view>
           <view class="weui-media-box__desc">店铺每日兑换心值限额{{ popupForm.exchangeLimit }}❤  </view>
           <view class="weui-media-box__desc">今日可兑换{{ popupForm.maxNum }}❤ </view>
         </view>

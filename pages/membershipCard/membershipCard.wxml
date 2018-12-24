@@ -13,21 +13,27 @@
       </view>
     </view>
     <view class='context'>
-    <view wx:for="{{getData}}" wx:key="index" class='unit-wrap'>
-      <!-- <i-swipeout  i-class="i-swipeout-demo-item" actions="{{actions}}">
-          <view slot="content"> -->
-            <view class='unit'  >
-              <view class="unit-top">
-                <view class="normalShop {{item.isDefault?'mainShop':''}}" 
-               data-storeId='{{item.storeId}}' catchtap="{{item.isDefault?'alreadyMainShop':'setDefaultMemberStore'}}"></view>
-                <image src="{{item.storeCardImg}}" mode="aspectFill"></image>
+    <block>
+      <view wx:for="{{getData}}" wx:key="index" class='unit-wrap'>
+        <!-- <i-swipeout  i-class="i-swipeout-demo-item" actions="{{actions}}">
+            <view slot="content"> -->
+            
+              <view class='unit' bindtap='gotoStoresDetails' data-storeId="{{item.storeId}}">
+                <view class="unit-top">
+                  <view class="normalShop {{item.isDefault?'mainShop':''}}" 
+                data-storeId='{{item.storeId}}' catchtap="{{item.isDefault?'alreadyMainShop':'setDefaultMemberStore'}}"></view>
+                  <image src="{{item.storeCardImg}}" mode="aspectFill"></image>
+                </view>
+                <view class='unit-bottom'>{{item.cardCode}}</view>
               </view>
-              <view class='unit-bottom'>{{item.cardCode}}</view>
-            </view>
-          <!-- </view>
-      </i-swipeout> -->
-    </view>
-      
+            
+            <!-- </view>
+        </i-swipeout> -->
+      </view>
+    </block>
+    <block wx:if="{{getData==''}}">
+      <view class='noRecord'>还没有会员卡呢，快去店里办卡吧，惊喜好礼等着你！</view>
+    </block>  
     </view>
   </view>
 </view>

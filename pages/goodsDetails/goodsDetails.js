@@ -237,7 +237,7 @@ Page({
     wx.navigateTo({
       url: '../storesList/storesList',
     })
-  }
+  },
   // onChange(event) {
   //   console.log(event.detail, 'click right menu callback data')
   // },
@@ -248,5 +248,22 @@ Page({
   //     scrollTop: event.scrollTop
   //   })
   // }
+  /**
+     * 用户点击右上角分享
+     */
+  onShareAppMessage: function () {
+    return {
+      title: this.data.getData.goodsName,
+      imageUrl: this.data.getData.goodsImg,
 
+      success: function (res) {
+        console.log('res', res)
+        app.Toast('转发成功', 'success', 3000);
+      },
+      fail: function (res) {
+        // 转发失败
+        app.Toast(res, 'none', 3000);
+      }
+    }
+  }
 })

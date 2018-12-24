@@ -89,6 +89,24 @@ Page({
       current: e.currentTarget.dataset.src, // 当前显示图片的http链接
       urls: [e.currentTarget.dataset.src] 
     })
+  },
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+    return {
+      title: this.data.getData.storeName,
+      imageUrl: this.data.getData.storeCardImg,
+      
+      success: function (res) {
+        console.log('res', res)
+        
+      },
+      fail: function (res) {
+        // 转发失败
+        app.Toast(res, 'none', 3000);
+      }
+    }
   }
 })
 

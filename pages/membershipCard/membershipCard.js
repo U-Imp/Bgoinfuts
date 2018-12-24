@@ -117,5 +117,9 @@ Page({
       url: '../cardBinding/cardBinding',
     })
   },
-  
+  gotoStoresDetails:function(e){
+    wx.navigateTo({
+      url: '../storesDetails/storesDetails?storeId=' + e.currentTarget.dataset.storeid
+    })
+  }
 })

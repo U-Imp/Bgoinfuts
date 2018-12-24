@@ -39,9 +39,11 @@ page {
 .cards-block-bg{
   width: 100%;
   height: 200rpx;
+  text-align:center;
+
 }
 .cards-block-bg-image{
-  width: 100%;
+  width: 200rpx;
   height: 100%;
   border-top-left-radius: 20rpx;
   border-top-right-radius: 20rpx;

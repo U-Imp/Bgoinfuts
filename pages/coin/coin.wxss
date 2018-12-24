@@ -91,3 +91,8 @@ page {
 .coin-popup {
   width: 100%;
 }
+
+
+.noRecord{
+  padding: 100px 30px;
+}

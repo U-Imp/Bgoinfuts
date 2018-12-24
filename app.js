@@ -127,6 +127,9 @@ App({
       case 10011:
         content = '您今天的兑换已经达到上限了哦'
         break;
+      case 10012:
+        content = '您的手机号在该店铺已经绑定过了哦'
+        break;
 
         // 商城
       case 10101:
