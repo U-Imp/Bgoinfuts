@@ -16,21 +16,6 @@ Page({
    */
   onShow: function () {
     this.getData();
-   
-    const that = this;
-    wx.onUserCaptureScreen(function (res) { 
-      that.setData({
-        'getData.heart': 122
-      },()=>{
-        console.log('zhe122')
-      })
-      console.log('用户截屏了') 
-      that.setData({
-        'getData.heart': 1111111
-      }, () => {
-        console.log('zhe1111')
-      })
-      })
   },
   getData: function () {
     const that = this;

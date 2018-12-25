@@ -5,9 +5,9 @@
         <view class="header-text-title">{{getData.goodsName}}</view>
         <view class="header-text-desc">{{getData.goodsDesc}}</view>
       </view>
-      <view class="header-logo" bindtap='gotoStoresList'>
-        <image class="header-logo-img" src="http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-una/shops.png" />
-        <view class='header-logo-click'>宝店在此⇧</view>
+      <view class="header-logo" bindtap='gotoIndex'>
+        <image class="header-logo-img" src="../../static/img/liyu.png" />
+        <view class='header-logo-click'>⇧逛逛首页</view>
       </view>
     </view>
     <view class="goods-details-cards">

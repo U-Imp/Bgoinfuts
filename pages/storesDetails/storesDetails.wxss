@@ -3,7 +3,17 @@ page {
   background: #fdf1f6;
   /* background-image: -webkit-linear-gradient(-135deg, #fff, #fdf1f6);  */
 }
-
+.go{
+  position: absolute;
+  top: 25rpx;
+  right: 25rpx;
+  line-height: 24rpx;
+  font-size: 24rpx;
+  color: red;
+  border: 1px solid red;
+  padding: 8rpx 10rpx;
+  border-radius: 20rpx;
+}
 .stores-details {
   position: relative;
   width: 100%;

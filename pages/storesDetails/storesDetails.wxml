@@ -8,6 +8,7 @@
         <view class="header-text-title">{{getData.storeName}}</view>
         <view class="header-text-desc">{{getData.storeDesc}}</view>
       </view>
+      <view class='go' bindtap='gotoIndex'>逛首页</view>
     </view>
 
     <view class="stores-details-msg">
@@ -50,6 +51,7 @@
           </view>
         </block>
       </view>
+      
     </view>
 
   </view>

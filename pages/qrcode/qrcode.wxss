@@ -20,7 +20,7 @@ display:block;
   margin: auto;
   background: #fff;
   box-shadow:0 10px 20px 0 rgba(0,0,0,0.20);
-  border-radius: 50rpx;
+  border-radius: 30rpx;
 }
 .img {
   width: 456rpx;

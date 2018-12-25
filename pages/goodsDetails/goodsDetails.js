@@ -233,9 +233,9 @@ Page({
       })
     }
   },
-  gotoStoresList: function () {
-    wx.navigateTo({
-      url: '../storesList/storesList',
+  gotoIndex: function () {
+    wx.switchTab({
+      url: '../index/index',
     })
   },
   // onChange(event) {

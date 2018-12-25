@@ -16,31 +16,15 @@ Page({
    */
   onLoad: function (options) {
     // this.getQRcode()
-  },
 
-  
-  getQRcode: function () {
-    qrcode = new QRCode('canvas', {
-      // usingIn: this,
-      text: wx.getStorageSync('scanCode'),
-      width: 228,
-      height: 228,
-      colorDark: "#000",
-      colorLight: "white",
-      correctLevel: QRCode.CorrectLevel.H,
-    });
-  },
-  onShow: function () {
+    const that = this;
     wx.onUserCaptureScreen(function (res) {
       console.log('用户截屏了')
-      
+      that.getReloadScanCode();
     })
-    const that = this;
-    wx.connectSocket({
-      url: 'wss://wxapp.a-cubic.com/api/gift/ws'
-    })
-
+    
     wx.onSocketOpen(function (res) {
+      console.log('WebSocket 已开启！')
       that.getQRcode();
     })
 
@@ -61,8 +45,28 @@ Page({
         }
       });
     })
+    wx.onSocketClose(function (res) {
+      console.log('WebSocket onUnload已关闭！')
+    })
+  },
 
-
+  
+  getQRcode: function () {
+    //console.log('here', wx.getStorageSync('scanCode'))
+    qrcode = new QRCode('canvas', {
+      // usingIn: this,
+      text: wx.getStorageSync('scanCode'),
+      width: 228,
+      height: 228,
+      colorDark: "#000",
+      colorLight: "white",
+      correctLevel: QRCode.CorrectLevel.H,
+    });
+  },
+  onShow: function () {
+    wx.connectSocket({
+      url: 'wss://wxapp.a-cubic.com/api/gift/ws'
+    })
   },
   getReloadScanCode: function () {
     app.Ajax(
@@ -74,21 +78,18 @@ Page({
         // console.log('GetScanCode',json);
         if (json.success) {
           wx.sendSocketMessage({
-            data: 'getPayState:' + json.data.scanCode
+            data: 'getPayState:' + json.data
           })
-          qrcode.makeCode(json.data.scanCode)
+          qrcode.makeCode(json.data)
         } else {
           app.Toast('', 'none', 3000, json.msg.code);
         }
       }
     )
   },
-  onHide: function () {
+  onUnload:function(){
     wx.closeSocket(function (rea) {
       console.log(rea)
-    })
-    wx.onSocketClose(function (res) {
-      console.log('WebSocket 已关闭！')
     })
   }
 })

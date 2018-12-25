@@ -64,6 +64,9 @@ Page({
     // console.log(options);
     this.getData(options.storeId)
   },
+  onShow:function(){
+    
+  },
   getData: function (storeId){
     const that = this;
     app.Ajax(
@@ -79,6 +82,11 @@ Page({
           })
         } else {
           app.Toast('', 'none', 3000, json.msg.code);
+          if (json.msg.code == 4000) {
+            setTimeout(function () {
+              that.getData(storeId);
+            }, 1000)
+          }
         }
       }
     )
@@ -88,6 +96,11 @@ Page({
     wx.previewImage({
       current: e.currentTarget.dataset.src, // 当前显示图片的http链接
       urls: [e.currentTarget.dataset.src] 
+    })
+  },
+  gotoIndex:function(){
+    wx.switchTab({
+      url: '../index/index',
     })
   },
   /**

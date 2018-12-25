@@ -43,7 +43,7 @@ App({
               if (!json.data.isReg) {
                 // 跳转到授权登录页
                 console.log('跳转授权页');
-                wx.switchTab({
+                wx.navigateTo({
                   url: '../start/start',
                 })
               }
