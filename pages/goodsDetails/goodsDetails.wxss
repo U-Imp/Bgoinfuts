@@ -153,3 +153,6 @@ page {
 .goods-details-popup {
   width: 100%;
 }
+.con{
+  padding: 30rpx 0 60rpx;
+}

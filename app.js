@@ -155,6 +155,9 @@ App({
         content = '删除购物车失败'
         break;
       case 10106:
+        wx.navigateTo({
+          url: '../../pages/cardBinding/cardBinding',
+        })
         content = '请先绑定会员卡哦'
         break;
       case 10107:

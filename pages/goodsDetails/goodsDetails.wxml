@@ -47,14 +47,16 @@
       <i-sticky scrollTop="{{scrollTop}}">
         <i-sticky-item i-class="i-sticky-demo-title">
           <view class="i-sticky-title" slot="title">商品详情</view>
-          <view class="" slot="content">
+          <view class="con" slot="content">
             <block wx:for-items="{{getData.infoImgs}}" wx:key="index">
               <view wx:if="{{item.img != ''}}">
                 <image class="sticky-item-img" src="{{item.img}}" mode='widthFix'/>
               </view>
+             
               <!-- <view class="sticky-item-text" wx:if="{{item.detailStatus == 1}}">{{item.textMes}}
               </view> -->
             </block>
+             <!-- <image class="sticky-item-img" src="http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-cubic/%E5%8F%91%E8%B4%A7%E8%AF%B4%E6%98%8E.png" mode='widthFix'/> -->
           </view>
         </i-sticky-item>
       </i-sticky>
