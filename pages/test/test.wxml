@@ -1,4 +1,10 @@
 <!--index.wxml-->
+<view class="section">
+  
+  <movable-area
+    style="height: 100%; width: 100%; background: #ccc;"
+    scale-area
+  >
 <view class="container">
   <view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
@@ -36,3 +42,20 @@
 </view>
 <rich-text>
 </rich-text>
+
+    <movable-view
+      style="height: 50px; width: 50px; background: blue;"
+      direction="all"
+      bindchange="onChange"
+      bindscale="onScale"
+      scale
+      scale-min="0.5"
+      scale-max="4"
+      scale-value="2"
+      x="300"
+      y="100"
+    >
+      <image style="height: 50px; width: 50px;" src='http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/tutu.gif'></image>
+    </movable-view>
+  </movable-area>
+</view>

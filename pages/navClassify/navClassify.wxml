@@ -6,13 +6,23 @@
   </view>
   <view class="right_content">
     <scroll-view bindscrolltolower="getMore" scroll-y="true" style="height:{{deviceHeight}}px;" class="tab_panel" >
-      <view>
+      
+      <view class='clearfix'>
         <view class='unit' wx:for="{{getData.dayList[activeIndex]}}" wx:key="index" data-showId='{{item.showId}}' bindtap='gotoGoodsList'>
-          <view class='unit-title'>{{item.showMonth}}</view>
-          <rich-text class='unit-content'>{{item.showDay}}</rich-text>
-          <view class='unit-ems'>
-            <em></em><em></em><em></em>
-          </view>
+        <!-- 当某个item满足条件显示日期 -->
+          <block wx:if="{{item.showId!=35}}">
+            <view class='unit-title'>{{item.showMonth}}</view>
+            <rich-text class='unit-content'>{{item.showDay}}</rich-text>
+            <view class='unit-ems'>
+              <em></em><em></em><em></em>
+            </view>
+          </block>
+          <!-- 其他显示图片 -->
+          <block wx:else>
+            <view class='unit-other-img'>
+              <image src='http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/tutu.gif' mode='widthFix'></image>
+            </view>
+          </block>
         </view>
       </view>
     </scroll-view>

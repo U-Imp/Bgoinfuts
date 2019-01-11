@@ -23,8 +23,9 @@
     "pages/coin/coin",
     "pages/storesList/storesList",
     "pages/storesDetails/storesDetails",
-    "pages/start/start",
-      "pages/test/test"
+    "pages/test/test",
+    "pages/start/start"
+      
    
   ],
   "window":{
