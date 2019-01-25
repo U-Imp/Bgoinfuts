@@ -63,7 +63,7 @@
         <!-- style='opacity:0' -->
     <view class='main_nav' >
       <view class='serviceWrap' >
-        <contact-button wx:for="{{13}}" wx:key="index" class='service' style='opacity:0' size="30" session-from="weapp" type="default-dark" ></contact-button>
+        <contact-button wx:for="{{12}}" wx:key="index" class='service' style='opacity:0' size="30" session-from="weapp" type="default-dark" ></contact-button>
       </view>
       
       

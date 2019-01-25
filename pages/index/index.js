@@ -96,5 +96,10 @@ Page({
     wx.navigateTo({
       url: '../storesList/storesList',
     })
-  }
+  },
+  goToAllGoods: function () {
+    wx.navigateTo({
+      url: '../waterfall/waterfall',
+    })
+  },
 })

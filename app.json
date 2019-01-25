@@ -3,8 +3,9 @@
     
    
     
-    
     "pages/index/index",
+    "pages/waterfall/waterfall",
+    
     "pages/navClassify/navClassify",
     "pages/navShoppingCart/navShoppingCart",
     "pages/navMine/navMine",

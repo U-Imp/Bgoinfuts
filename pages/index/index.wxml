@@ -41,18 +41,18 @@
   </view>
 </view>
 <movable-view
-      style="height: 50px; width: 50px; background: blue;"
+      style="height: 80rpx; width: 80rpx;"
       direction="all"
-      bindchange="onChange"
+      bindtap='goToAllGoods'
       bindscale="onScale"
       scale
       scale-min="0.5"
-      scale-max="4"
+      scale-max="2"
       scale-value="2"
-      x="300"
-      y="600"
+      x="340"
+      y="450"
     >
-      <image style="height: 50px; width: 50px;" src='http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/tutu.gif'></image>
+      <image style="height: 80rpx; width: 80rpx;" src='http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-una/allGoods.png'></image>
     </movable-view>
 <!-- /原内容 -->
 </movable-area>
