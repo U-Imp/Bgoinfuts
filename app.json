@@ -33,13 +33,13 @@
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#f54281",
     "navigationBarTitleText": "",
-    "navigationBarTextStyle":"#fff"
+    "navigationBarTextStyle":"white"
   },
 
   "tabBar": {
     "color": "#a9b7b7",
     "selectedColor": "#f54281",
-    "borderStyle": "#FAFAFC",
+    "borderStyle": "white",
     "list": [
       {
         "selectedIconPath": "static/img/gift_selected.png",
