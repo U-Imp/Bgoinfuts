@@ -6,6 +6,9 @@
         <view class="header-text-title">{{title}}{{getData.heart}}❤</view>
         <view class="header-text-desc">{{dec}}</view>
       </view>
+      <!-- <view class='qrcode'>
+        <image src='http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-cubic/qrcode.png' bindtap='gotoQrcode'></image>
+      </view> -->
     </view>
     <view class='coin-cards-wrap'>
       <block wx:for-items="{{ getData.list }}" wx:key="{{index}}">
@@ -20,9 +23,7 @@
             <view class='card-content'>本店兑换比例{{item.storeRate}}积分=1❤</view>
             <!-- <view class='card-content'>本店铺兑换❤比例{{item.storeRate}}:1</view> -->
           </view>
-
           <view class='cards-btn' data-index="{{index}}" data-storeMemberId="{{item.storeMemberId}}"  bindtap='exchange'>兑换</view>
-
         </view>
       </block>
       <block wx:if="{{getData.list== ''}}">

@@ -10,19 +10,19 @@
       <view class='clearfix'>
         <view class='unit' wx:for="{{getData.dayList[activeIndex]}}" wx:key="index" data-showId='{{item.showId}}' bindtap='gotoGoodsList'>
         <!-- 当某个item满足条件显示日期 -->
-          <block wx:if="{{item.showDay%3}}">
+          <!-- <block wx:if="{{item.showDay%3}}"> -->
             <view class='unit-title'>{{item.showMonth}}</view>
             <rich-text class='unit-content'>{{item.showDay}}</rich-text>
             <view class='unit-ems'>
               <em></em><em></em><em></em>
             </view>
-          </block>
+          <!-- </block> -->
           <!-- 其他显示图片 -->
-          <block wx:else>
+          <!-- <block wx:else>
             <view class='unit-other-img'>
               <image src='http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/tutu.gif' mode='scaleToFill'></image>
             </view>
-          </block>
+          </block> -->
         </view>
       </view>
     </scroll-view>

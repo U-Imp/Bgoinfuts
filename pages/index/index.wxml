@@ -40,7 +40,7 @@
     </view>
   </view>
 </view>
-<movable-view
+<!-- <movable-view
       style="height: 80rpx; width: 80rpx;"
       direction="all"
       bindtap='goToAllGoods'
@@ -53,6 +53,6 @@
       y="450"
     >
       <image style="height: 80rpx; width: 80rpx;" src='http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-una/allGoods.png'></image>
-    </movable-view>
+    </movable-view> -->
 <!-- /原内容 -->
 </movable-area>

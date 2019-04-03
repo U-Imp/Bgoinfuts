@@ -91,7 +91,15 @@ page {
 .coin-popup {
   width: 100%;
 }
-
+/* .qrcode{
+  height: 80rpx;
+  text-align:right;
+  margin-top:20rpx;
+}
+.qrcode image{
+  width: 80rpx;
+  height: 80rpx
+} */
 
 .noRecord{
   padding: 100px 30px;

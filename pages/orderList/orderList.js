@@ -6,6 +6,51 @@ Page({
     orderStatus: ['未支付', '商家备货中', '待取货','交易完成'],
     getData:{},
     getDataOld:{
+      inStoreList:[
+        {
+          orderCode:'5454547',
+          total:'123',
+          list:[
+            {
+              goodsImg: 'http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/photo.png',
+            },
+            {
+              goodsImg: 'http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/photo.png',
+            }, {
+              goodsImg: 'http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/photo.png',
+            }, {
+              goodsImg: 'http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/photo.png',
+            }, {
+              goodsImg: 'http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/photo.png',
+            }, {
+              goodsImg: 'http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/photo.png',
+            }, {
+              goodsImg: 'http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/photo.png',
+            }
+          ]
+        }, {
+          orderCode: '5454547',
+          total: '123',
+          list: [
+            {
+              goodsImg: 'http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/photo.png',
+            },
+            {
+              goodsImg: 'http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/photo.png',
+            }, {
+              goodsImg: 'http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/photo.png',
+            }, {
+              goodsImg: 'http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/photo.png',
+            }, {
+              goodsImg: 'http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/photo.png',
+            }, {
+              goodsImg: 'http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/photo.png',
+            }, {
+              goodsImg: 'http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/photo.png',
+            }
+          ]
+        }
+      ],
       status0OrderList:[
         {
           orderNum:'ADHJ154541215',

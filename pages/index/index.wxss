@@ -104,7 +104,7 @@ page {
 
 .cards-item-title {
   height: 120rpx;
-  line-height: 80rpx;
+  /* line-height: 80rpx; */
   text-indent: 20rpx;
 }
 
