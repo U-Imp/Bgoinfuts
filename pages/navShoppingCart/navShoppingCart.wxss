@@ -92,11 +92,21 @@ page {
 }
 .i-swipeout-wrap-right{
   color: #333;
+  width: 420rpx;
   margin-left: 20rpx;
-  flex: 8
+  flex: 8;
+
+ 
 }
 .goodsName{
+  overflow: hidden;
+text-overflow:ellipsis;
+white-space: nowrap;
   font-size: 30rpx;
+   display: -webkit-box;
+  /* -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden; */
 }
 .goodsNum{
   height: 70rpx;

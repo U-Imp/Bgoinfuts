@@ -213,6 +213,8 @@ App({
       case 4000:
       
         content = '无效的Token'
+        // content = '无效的Token'
+
         break;
       case 4001:
         content = '无效的方法名'

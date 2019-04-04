@@ -53,7 +53,7 @@ Page({
             getData: json.data
           })
         } else {
-          app.Toast('', 'none', 3000, json.msg.code);
+          // app.Toast('', 'none', 3000, json.msg.code);
           if (json.msg.code==4000){
             setTimeout(function(){
               that.getData();
