@@ -213,5 +213,11 @@ Page({
         }
       }
     )   
+  },
+
+  gotoQrcode(){
+    wx.navigateTo({
+      url: '../qrcodeExchange/qrcodeExchange',
+    })
   }
 })

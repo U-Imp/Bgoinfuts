@@ -6,9 +6,9 @@
         <view class="header-text-title">{{title}}{{getData.heart}}❤</view>
         <view class="header-text-desc">{{dec}}</view>
       </view>
-      <!-- <view class='qrcode'>
+      <view class='qrcode'>
         <image src='http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-cubic/qrcode.png' bindtap='gotoQrcode'></image>
-      </view> -->
+      </view>
     </view>
     <view class='coin-cards-wrap'>
       <block wx:for-items="{{ getData.list }}" wx:key="{{index}}">

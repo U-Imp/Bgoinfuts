@@ -11,6 +11,7 @@
     "pages/navMine/navMine",
 
     "pages/qrcode/qrcode",
+    "pages/qrcodeExchange/qrcodeExchange",
 
     "pages/goodsList/goodsList",
     "pages/goodsDetails/goodsDetails",

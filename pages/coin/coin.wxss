@@ -91,7 +91,7 @@ page {
 .coin-popup {
   width: 100%;
 }
-/* .qrcode{
+.qrcode{
   height: 80rpx;
   text-align:right;
   margin-top:20rpx;
@@ -99,7 +99,7 @@ page {
 .qrcode image{
   width: 80rpx;
   height: 80rpx
-} */
+}
 
 .noRecord{
   padding: 100px 30px;
