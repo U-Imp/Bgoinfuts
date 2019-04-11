@@ -231,7 +231,11 @@ getData:function(){
       url: '../orderDetails/orderDetails?orderId=' + e.currentTarget.dataset.orderid
     })
   },
-
+  gotoQrcodeGetStoreGoods(e){
+    wx.navigateTo({
+      url: '../qrcodeGetStoreGoods/qrcodeGetStoreGoods?orderId=' + e.currentTarget.dataset.orderid,
+    })
+  }
   
 
 });

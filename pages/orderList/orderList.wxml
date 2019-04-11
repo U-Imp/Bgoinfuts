@@ -13,7 +13,7 @@
       <i-tabs current="{{ tabForm.tabCurrent }}" i-class="order-tab-header" color="#f44393" bindchange="tabHandel">
       
         <block wx:for-items="{{tabForm.tabList}}" wx:key="index">
-          <i-tab key="{{item.value}}" title="{{item.name}}"></i-tab>
+          <i-tab i-class="aaaa" key="{{item.value}}" title="{{item.name}}"></i-tab>
         </block>
       </i-tabs>
       <view class='order-details-tabs-content'>
@@ -71,6 +71,7 @@
             </scroll-view>
             <view class='unit-bottom clearfix '>
               <text class='fl unit-bottom-left'>已付：♥ {{item.total}}</text>
+              <button class="fr" type="primary" size="mini" plain="true" catchtap='gotoQrcodeGetStoreGoods' data-orderId="{{item.orderId}}" >取货码</button>
             </view>
           </view>
           <view class="noRecord" hidden="{{getData.inStoreList != ''}}">{{noRecord}}</view>

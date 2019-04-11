@@ -68,6 +68,7 @@ page {
   background: transparent;
   
 }
+
 .order-details-tabs-panel{
    margin-bottom: 20rpx; 
 }

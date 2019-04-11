@@ -31,7 +31,7 @@
           <view class='mess_left'>
             手机号码 :<input type='number' name='phone' maxlength='11' placeholder='输入手机号' value="{{phone}}" bindinput="phoneInput" bindblur="phoneInputblur"></input>
           </view>
-          <view class='mess_right' bindtap='bindButtonTap' disabled='{{disabled}}' >{{text}}</view>
+          <view class='mess_right' bindtap="{{disabled?'':'bindButtonTap'}}" disabled='{{disabled}}' >{{text}}</view>
         </view>
         <view class='mess clearfix'>
           <view class='mess_left mess_full'>

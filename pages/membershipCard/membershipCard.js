@@ -17,7 +17,8 @@ Page({
       }
     ],
     getData:[],
-      getDataOld:[{
+    getDataOld:[
+        {
         cardId:'1',
         storeId:1,
         cardCode:'D234345454',
@@ -45,7 +46,8 @@ Page({
           isDefault: false,
           cardName: '港湾店 大连市和平广场4F4-1208',
           storeCardImg: 'http://img.ui.cn/data/file/7/8/6/1366687.png',
-      }]
+      }
+    ]
     
   },
 
@@ -105,7 +107,7 @@ Page({
         // console.log('json', json);
         if (json.success) {
           app.Toast('设置成功啦', 'success', 1500);
-          this.getData();
+          that.getData();
         } else {
           app.Toast('', 'none', 3000, json.msg.code);
         }

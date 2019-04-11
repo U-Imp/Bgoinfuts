@@ -16,7 +16,7 @@
     <!--兑换地址  -->
     <view class="pickAddress">
       <view class="pickAddress-title">领取地址:</view>
-      <view class="">{{getData.pickAddress}}</view>
+      <view class="">{{getData.addr}}</view>
     </view>
     <!--商品信息  -->
     <block wx:for-items="{{getData.list}}" wx:key="index">

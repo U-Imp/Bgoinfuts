@@ -8,15 +8,20 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    orderId:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(111,options)
     // this.getQRcode()
-
+    this.setData({
+      orderId: options.orderId
+    },()=>{
+      console.log('111122', this.data.orderId)
+    })
     const that = this;
     // wx.onUserCaptureScreen(function (res) {
     //   console.log('用户截屏了')
@@ -26,7 +31,7 @@ Page({
     wx.onSocketOpen(function (res) {
       console.log('WebSocket 已开启！')
       that.getQRcode();
-      that.getReloadScanCode();
+      that.getReloadScanCode(options.orderId);
     })
 
     wx.onSocketMessage(function (res) {
@@ -40,7 +45,7 @@ Page({
           // that.getScanCode();
           // 
           setTimeout(function () {
-            that.getReloadScanCode();
+            that.getReloadScanCode(that.data.orderId);
           }, 1500)
           // 
         }
@@ -69,12 +74,14 @@ Page({
       url: 'wss://wxapp.a-cubic.com/api/gift/ws'
     })
   },
-  getReloadScanCode: function () {
+  getReloadScanCode: function (orderid) {
     app.Ajax(
-      'Member',
+      'Order',
       'POST',
-      'GetExchangeScanCode',
-      {},
+      'GetStoreGoodsCode',
+      {
+        orderId: orderid
+      },
       function (json) {
         // console.log('GetScanCode',json);
         if (json.success) {

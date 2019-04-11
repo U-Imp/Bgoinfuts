@@ -25,15 +25,15 @@ page {
 }
 .cards {
   width: 50%;
-  /* height: 295rpx; */
+  height: 295rpx;
   display: inline-block; 
 }
 .cards-block{
   width: 95%;
-  /* height: 255rpx; */
+  height: 255rpx;
   margin: auto;
   background: rgba(255,255,255,0.8);
-  border-radius: 10rpx; 
+  border-radius: 16rpx; 
   box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.20);
 }
 .cards-block-bg{
@@ -51,15 +51,15 @@ page {
 .cards-block-title{
   /* width: 100%; */
   padding: 0 10rpx;
-  height: 100rpx; 
+  height: 50rpx; 
   /* line-height: 50rpx;  */
   text-align: center;
   font-size: 28rpx;
-  /* overflow: hidden;
+  overflow: hidden;
 text-overflow:ellipsis;
-white-space: nowrap; */
-display: -webkit-box;
+white-space: nowrap;
+/* display: -webkit-box;
 -webkit-box-orient: vertical;
 -webkit-line-clamp: 2;
-overflow: hidden;
+overflow: hidden; */
 }
