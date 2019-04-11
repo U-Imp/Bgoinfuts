@@ -19,8 +19,6 @@ Page({
     // this.getQRcode()
     this.setData({
       orderId: options.orderId
-    },()=>{
-      console.log('111122', this.data.orderId)
     })
     const that = this;
     // wx.onUserCaptureScreen(function (res) {
@@ -86,14 +84,9 @@ Page({
         // console.log('GetScanCode',json);
         if (json.success) {
           wx.sendSocketMessage({
-            data: json.data
+            data: 'getPayState:' +json.data
           })
           qrcode.makeCode(json.data)
-
-
-        
-
-
 
         } else {
           app.Toast('', 'none', 3000, json.msg.code);

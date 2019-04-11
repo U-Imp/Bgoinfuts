@@ -79,7 +79,7 @@ Page({
         // console.log('GetScanCode',json);
         if (json.success) {
           wx.sendSocketMessage({
-            data: json.data
+            data: 'getPayState:' +json.data
           })
           qrcode.makeCode(json.data)
 
