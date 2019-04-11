@@ -26,6 +26,7 @@ Page({
     wx.onSocketOpen(function (res) {
       console.log('WebSocket 已开启！')
       that.getQRcode();
+      that.getReloadScanCode();
     })
 
     wx.onSocketMessage(function (res) {
@@ -55,7 +56,7 @@ Page({
     //console.log('here', wx.getStorageSync('scanCode'))
     qrcode = new QRCode('canvas', {
       // usingIn: this,
-      text: wx.getStorageSync('scanCode'),
+      text: '',
       width: 228,
       height: 228,
       colorDark: "#000",
