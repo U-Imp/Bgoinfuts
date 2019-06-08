@@ -53,6 +53,11 @@ Page({
     wx.navigateTo({
       url: '../qrcode/qrcode',
     })
+  },
+  guide: function () {
+    wx.navigateTo({
+      url: '../publicArticle/publicArticle?url=https://mp.weixin.qq.com/s/RyAf-mcBHkujTG-a6JUuKA',
+    })
   }
 });
 

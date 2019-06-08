@@ -166,7 +166,8 @@ Page({
     const send = {
       remark: this.data.getData.orderRemark,
       preOrderId: this.data.getData.preOrderId,
-      storeBranchId: this.sel
+      storeBranchId: this.data.selBranch,
+      expAddr: this.data.getData.addr,
     }
     // console.log(this.data.getData.orderRemark)
     const that = this;
@@ -204,7 +205,7 @@ Page({
     const that = this;
     wx.showModal({
       title: '您的消费',
-      content: '需支付：❤' + that.data.getData.total,
+      content: '需支付：❤' + (that.data.getData.total + that.data.selExpFee),
       confirmText: '确认支付',
       success: function (res) {
         if (res.confirm) {

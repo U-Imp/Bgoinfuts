@@ -1,42 +1,32 @@
 {
-  "pages":[
-    
-   
-    
+  "pages": [
     "pages/index/index",
     "pages/waterfall/waterfall",
-    
     "pages/navClassify/navClassify",
+    "pages/navGiftBox/navGiftBox",
     "pages/navShoppingCart/navShoppingCart",
     "pages/navMine/navMine",
-
     "pages/qrcode/qrcode",
     "pages/qrcodeExchange/qrcodeExchange",
-
     "pages/goodsList/goodsList",
     "pages/goodsDetails/goodsDetails",
     "pages/orderConfirmation/orderConfirmation",
     "pages/orderList/orderList",
     "pages/orderDetails/orderDetails",
-    
     "pages/cardBinding/cardBinding",
     "pages/membershipCard/membershipCard",
-
     "pages/coin/coin",
     "pages/storesList/storesList",
     "pages/storesDetails/storesDetails",
     "pages/test/test",
     "pages/start/start"
-      
-   
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#f54281",
     "navigationBarTitleText": "",
-    "navigationBarTextStyle":"white"
+    "navigationBarTextStyle": "white"
   },
-
   "tabBar": {
     "color": "#a9b7b7",
     "selectedColor": "#f54281",
@@ -47,22 +37,26 @@
         "iconPath": "static/img/gift_normal.png",
         "pagePath": "pages/index/index",
         "text": "首页"
-      },{ "selectedIconPath": "static/img/classify_selected.png",
+      },
+      {
+        "selectedIconPath": "static/img/classify_selected.png",
         "iconPath": "static/img/classify_normal.png",
-        "pagePath": "pages/navClassify/navClassify",
+        "pagePath": "pages/navGiftBox/navGiftBox",
         "text": "礼物盒"
-      },{ 
+      },
+      {
         "selectedIconPath": "static/img/shopping_selected.png",
         "iconPath": "static/img/shopping_normal.png",
         "pagePath": "pages/navShoppingCart/navShoppingCart",
         "text": "购物车"
-      },{
+      },
+      {
         "selectedIconPath": "static/img/mine_selected.png",
         "iconPath": "static/img/mine_normal.png",
         "pagePath": "pages/navMine/navMine",
         "text": "我的"
       }
     ]
-  }
-  
+  },
+  "sitemapLocation": "sitemap.json"
 }

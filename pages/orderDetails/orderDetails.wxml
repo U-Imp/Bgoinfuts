@@ -36,7 +36,11 @@
    
     <view class='cell'>
       <text>合计：</text>
-      <text class='fr'>{{getData.total}} ❤</text>
+      <text class='fr'>{{getData.expFee == 0 ? getData.total : getData.total - getData.expFee}} ❤</text>
+    </view>
+    <view class='cell' wx:if='{{getData.expFee != 0}}'>
+      <text>运费：</text>
+      <text class='fr'>{{getData.expFee}} ❤</text>
     </view>
     
     <!--订单备注  -->

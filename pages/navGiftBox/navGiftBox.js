@@ -3,41 +3,41 @@ const app = getApp();
 Page({
   data: {
     activeIndex: 10,
-    //getData:{},
-    getData:{
-      monthList: ["Toy", "Home", "Other"],
+    getData:{},
+    getDataOld:{
+      monthList: [10,9,8],
       dayList:{
-        "Toy": [
+        "10": [
           {
             showId: "1",
-            showMonth: "101",
-            showDay: "Oct.2018"
+            showImg: "101",
+            showTitle: "Oct.2018"
           }, {
             showId: "1",
-            showMonth: "102",
-            showDay: "Oct.2018"
+            showImg: "102",
+            showTitle: "Oct.2018"
           }
         ],
-        "Home": [
+        "8": [
           {
             "showId": "1",
-            "showMonth": "81",
-            "showDay": "Aug.2018"
+            "showImg": "81",
+            "showTitle": "Aug.2018"
           }, {
             "showId": "1",
-            "showMonth": "82",
-            "showDay": "Aug.2018"
+            "showImg": "82",
+            "showTitle": "Aug.2018"
           }
         ],
-        "Other": [
+        "9": [
           {
             showId: "1",
-            showMonth: "91",
-            showDay: "Sep.2018"
+            showImg: "91",
+            showTitle: "Sep.2018"
           }, {
             showId: "1",
-            showMonth: "92",
-            showDay: "Sep.2018"
+            showImg: "92",
+            showTitle: "Sep.2018"
           }
         ],
       }
@@ -64,7 +64,7 @@ Page({
   onShow: function () {
    
     // 页面显示
-    //this.getData();
+    this.getData();
     // console.log('onshow', wx.getStorageSync('lastActiveIndex') || 0)
     this.setData({
       activeIndex: wx.getStorageSync('lastActiveIndex') || 0

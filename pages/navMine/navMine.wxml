@@ -71,6 +71,11 @@
       <text class='main_theme'></text>
       <text class='main_logo weui-cell__ft weui-cell__ft_in-access'></text>
     </view>
+    <view class='main_nav' bindtap='guide'>
+        <text class='main_title'>新手指南</text>
+        <text class='main_theme'></text>
+        <text class='main_logo weui-cell__ft weui-cell__ft_in-access'></text>
+      </view>
     <view class='clear'></view>
     
     <!-- 弹窗图层 -->
