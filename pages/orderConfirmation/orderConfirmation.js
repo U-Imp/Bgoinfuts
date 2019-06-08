@@ -27,12 +27,24 @@ Page({
       ],
       orderRemark: '',
       total: 0,
+      index: 0, //店
+      shops: [],
+      storeIdList: [],
+      canExp: [],
+      addrs: [],
+      expFee: [],
+      selCanExp: 0,
+      selExpFee: 0,
+      selBranch: '',
     },
   },
   onLoad: function (options) {
     // console.log('订单确认', JSON.parse(options.params))
     this.setData({
       getData: JSON.parse(options.params)
+    })
+    this.setData({
+      'getData.addr': ''
     })
     // var that = this;
     // var objArr = [JSON.parse(options.params)];
@@ -42,6 +54,9 @@ Page({
     //   'orderForm.orderTotal': obj.cartTotal,
     //   'orderForm.orderList': obj.cartList,
     // })
+  },
+  onShow: function () {
+    this.getStoreList();
   },
   // 预生成订单
   // PreOrder:function(obj){
@@ -69,21 +84,96 @@ Page({
       'getData.orderRemark': e.detail.value
     })
   },
+  getAddr(){
+    const that = this
+    wx.chooseAddress({
+      success(res) {
+        let addrStr = res.provinceName + ' ' + res.cityName + ' ' + res.countyName + ' ' + res.detailInfo + ' ' + res.userName + ' ' + res.telNumber
+        that.setData({ 'getData.addr' :  addrStr,})
+      }
+    })
+  },
+  // 店铺列表
+  getStoreList: function () {
+    const that = this;
+    app.Ajax(
+      'Mall',
+      'POST',
+      'GetStoreListV2',
+      {},
+      function (json) {
+        // console.log('json',json);
+        that.setData({
+          shops: json.data.storeList.map(i => i.storeName),
+          storeIdList: json.data.storeList.map(i => i.storeId),
+          canExp: json.data.storeList.map(i => i.canExp),
+          addrs: json.data.storeList.map(i => i.storeAddr),
+          expFee: json.data.storeList.map(i => i.expFee),
+        })
+      }, function (res) {
+        app.Toast(res, 'none', 3000);
+      }
+    )
+  },
+  // 选择店
+  bindPickerChange: function (e) {
+    this.setData({
+      index: e.detail.value,
+      selBranch: this.data.storeIdList[e.detail.value]
+    })
+    if (this.data.canExp[e.detail.value] == 1){
+      const that = this
+      wx.getSetting({
+        success(res) {
+          if (!res.authSetting['scope.address']) {
+            wx.authorize({
+              scope: 'scope.address',
+              success() {
+                that.getAddr()
+              }
+            })
+          } else {
+            that.getAddr()
+
+          }
+          that.setData(
+            { 
+              selCanExp: that.data.canExp[e.detail.value], 
+              selExpFee: that.data.expFee[e.detail.value]}
+            )
+        },
+        fail(res) {
+
+        }
+      })
+    } else{
+      this.setData({
+        'getData.addr': this.data.addrs[e.detail.value],
+        selCanExp: this.data.canExp[e.detail.value],
+        selExpFee: this.data.expFee[e.detail.value]
+      })
+    }
+  },
   // 订单提交
   submit(e){
     // 提交订单 成功后 支付心值 成功扣除心值  跳转到首页
     //                        支付失败 提示失败原因 跳转到列表待支付页
     // 提交订单 失败 保留当前页 重新提交 
+    if (this.data.getData.addr == '' || this.data.selBranch == ''){
+      app.Toast('请先选择领取礼品的店铺', 'none', 3000, '');
+      return;
+    }
     const send = {
       remark: this.data.getData.orderRemark,
-      preOrderId: this.data.getData.preOrderId
+      preOrderId: this.data.getData.preOrderId,
+      storeBranchId: this.sel
     }
     // console.log(this.data.getData.orderRemark)
     const that = this;
     app.Ajax(
       'Order',
       'POST',
-      'PayOrder',
+      'PayOrderV2',
       { ...send },
       function (json) {
         // console.log('json', json);
