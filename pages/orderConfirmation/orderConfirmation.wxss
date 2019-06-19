@@ -91,6 +91,7 @@ page {
 .picker{
   display: inline-block;
   width: 660rpx;
+  color: rgb(245, 11, 11);
 }
 .pickerAfter{
   display: inline-block;
