@@ -1,0 +1,12 @@
+<!--pages/hongBao/hongBao.wxml-->
+<view>
+  <view class="header_background">
+    <view class="content">
+      <text class='content_hongbao'>新店开张红包</text>
+      <text class='content_hongbao_money'>5💖</text>
+      <text class='content_hongbao_money'>🎁</text>
+    </view>
+  </view>
+  <view class="header_radius">
+  </view>
+</view>

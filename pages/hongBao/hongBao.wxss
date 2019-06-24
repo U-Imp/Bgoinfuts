@@ -1,0 +1,53 @@
+.header_background {
+  width: 100%;
+  height: 300rpx;
+  background: #f54281;
+
+}
+
+.header_radius {
+  width: 100%;  
+  height: 200rpx;  
+  position: relative;  
+  z-index: -1;  
+  overflow: hidden;
+}
+
+.header_radius::after {
+  content: '';
+  width: 110%;
+  height: 200rpx;
+  position: absolute;
+  left: -5%;
+  top: -70%;
+  z-index: -1;
+  border-radius: 0 0 50% 50%;
+  background: #f54281;
+}
+
+.content {
+  height: 100%;
+  margin-bottom: 10rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.content_hongbao {
+  text-align: center;
+  padding-bottom: 30rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 30rpx;
+  color: #fff;
+  padding-top: 45rpx;
+}
+
+.content_hongbao_money {
+  text-align: center;
+  padding-bottom: 30rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 50rpx;
+  color: #fff;
+  padding-top: 45rpx;
+}

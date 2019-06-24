@@ -19,7 +19,8 @@
     "pages/storesList/storesList",
     "pages/storesDetails/storesDetails",
     "pages/test/test",
-    "pages/start/start"
+    "pages/start/start",
+    "pages/hongBao/hongBao"
   ],
   "window": {
     "backgroundTextStyle": "light",
