@@ -101,3 +101,9 @@ page {
 .noRecord{
   padding: 100px 30px;
 }
+.card_text{
+
+}
+.card-text1{
+  color:#f44393;
+}
