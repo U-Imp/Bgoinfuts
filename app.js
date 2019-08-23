@@ -51,7 +51,14 @@ App({
               // that.Toast('','none',2000,json.msg.code)
               console.log('here');
             }
-            
+            wx.switchTab({
+              url: '/pages/homePage/homePage',
+            })
+          },
+          function(res){
+            wx.switchTab({
+              url: '/pages/homePage/homePage',
+            })
           }
         )
       }
