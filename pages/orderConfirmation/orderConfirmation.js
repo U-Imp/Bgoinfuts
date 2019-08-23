@@ -237,7 +237,7 @@ Page({
           app.Toast('支付成功', 'none', 3000);
           setTimeout(function () {
             wx.switchTab({
-              url: '../index/index'
+              url: '../homePage/homePage'
             })
           }, 2600)
         } else {

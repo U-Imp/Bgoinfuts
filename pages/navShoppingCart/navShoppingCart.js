@@ -300,7 +300,7 @@ Page({
   },
   gotoIndex:function(){
     wx.switchTab({
-      url:'../index/index'
+      url:'../homePage/homePage'
     })
   }
 })

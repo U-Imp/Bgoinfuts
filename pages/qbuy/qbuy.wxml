@@ -1,0 +1,44 @@
+<!--pages/coin/coin.wxml-->
+<view class='coin'>
+  <view class='coin-wrap'>
+    <view class="coin-header">
+      <view class="header-text">
+        <view class="header-text-title">{{title}}</view>
+        <!-- <view class="header-text-desc">{{dec}}</view> -->
+      </view>
+    </view>
+    <view class='coin-cards-wrap'>
+      <block wx:for-items="{{ getData }}" wx:key="{{index}}">
+        <view class='coin-cards' data-qbuyCode="{{item.qbuyCode}}">
+
+          <view class='cards-text'>
+            <view class='card-name'>活动店铺：{{item.storeName}} </view>
+            <view class='card-name1'>{{item.remark}}</view>
+            <view class='card-content'>资格兑换时间:{{item.activeTimeFrom}}至{{item.activeTimeTo}} </view>
+            <view class='card-content'>参与条件:满{{item.consumeNum}}次充值{{item.minConsume}} </view>
+          </view>
+          <view class='cards-btn' data-index="{{index}}" data-qbuyCode="{{item.activeQBuyId}}" bindtap='exchange'>查看商品</view>
+        </view>
+      </block>
+    </view>
+  </view>
+
+
+    
+  <view class="coin-popup">
+    <van-popup show="{{ popupForm.visible }}" position="{{ popupForm.position }}" overlay="{{ popupForm.overlay }}" overlay-style="background-color: rgba(0,0,0,0.5)" bind:close="closePopup">
+      <!--卡片  -->
+        <block wx:for-items="{{ popupForm.qbuyData }}" wx:key="{{index}}">
+          <view class="weui-media-box weui-media-box_appmsg" data-qbuyGoodsId="{{item.qBuyGoodsId}}">
+            <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+              <image class="weui-media-box__thumb" src="{{item.slt}}" />
+            </view>
+            <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+              <view class="weui-media-box__title">{{ item.goodsName }}</view>
+              <view class="weui-media-box__desc">❤{{ item.price }} 数量{{ item.num }}</view>
+            </view>
+          </view>
+        </block>
+    </van-popup>
+  </view>
+</view>

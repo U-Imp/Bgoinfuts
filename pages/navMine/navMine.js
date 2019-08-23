@@ -49,9 +49,14 @@ Page({
       url: '../coin/coin',
     })
   },
-  gotoQrcode:function(){
+  gotoQrcode: function () {
     wx.navigateTo({
       url: '../qrcode/qrcode',
+    })
+  },
+  gotoQbuy: function () {
+    wx.navigateTo({
+      url: '../qualification/qualification',
     })
   },
   guide: function () {

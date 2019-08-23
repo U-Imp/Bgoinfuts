@@ -95,6 +95,7 @@ Page({
   gotoStoresList:function(){
     wx.navigateTo({
       url: '../storesList/storesList',
+      // url: '../qualification/qualification',
     })
   },
   goToAllGoods: function () {

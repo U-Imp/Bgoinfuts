@@ -1,28 +1,34 @@
 <view class="container">
   <view class="left_tabbar">
     <scroll-view scroll-y="true" style="height:{{deviceHeight}}px;" class="left_tabbar_list">
-      <view bindtap="changeTab" data-index="{{item}}"  class="left_tabbar_item {{activeIndex==item?'active':''}}" wx:for="{{getData.monthList}}" wx:key="index">{{item}}</view>
+      <view bindtap="changeTab" data-index="{{item}}"  class="left_tabbar_item {{activeIndex==item?'active':''}}" wx:for="{{getData.parentList}}" wx:key="index">{{item}}</view>
     </scroll-view>
   </view>
   <view class="right_content">
     <scroll-view bindscrolltolower="getMore" scroll-y="true" style="height:{{deviceHeight}}px;" class="tab_panel" >
       
       <view class='clearfix'>
-        <view class='unit' wx:for="{{getData.dayList[activeIndex]}}" wx:key="index" data-showId='{{item.showId}}' bindtap='gotoGoodsList'>
+        <view class='cards' wx:for="{{getData.categoryList[activeIndex]}}" wx:key="index" data-showId='{{item.categoryId}}' bindtap='gotoGoodsList'>
         <!-- 当某个item满足条件显示日期 -->
           <!-- <block wx:if="{{item.showDay%3}}"> -->
-            <view class='unit-title'>{{item.showMonth}}</view>
-            <rich-text class='unit-content'>{{item.showDay}}</rich-text>
+            <!-- <view class='unit-title'>{{item.showMonth}}</view>
+            <rich-text class='unit-content'>{{item.categoryName}}</rich-text>
             <view class='unit-ems'>
-              <!-- <em></em><em></em><em></em> -->
-            </view>
+            </view> -->
           <!-- </block> -->
           <!-- 其他显示图片 -->
-          <!-- <block wx:else>
-            <view class='unit-other-img'>
-              <image src='http://llwell-wxapp.oss-cn-beijing.aliyuncs.com/A-test/tutu.gif' mode='scaleToFill'></image>
-            </view>
-          </block> -->
+          <!-- <block wx:else> -->
+            <!-- <view class='unit-other-img'>
+              <image src='{{item.categoryImg}}' mode='scaleToFill'></image>
+              
+            </view> -->
+          <view class="cards-block">
+          <view class="cards-block-bg">
+            <image class="cards-block-bg-image" src="{{item.categoryImg}}" />
+          </view>
+          <view class="cards-block-title">{{item.categoryName}}</view>
+        </view>
+         <!-- </block> -->
         </view>
       </view>
     </scroll-view>

@@ -1,6 +1,6 @@
 {
   "pages": [
-    "pages/index/index",
+    "pages/homePage/homePage",
     "pages/waterfall/waterfall",
     "pages/navClassify/navClassify",
     "pages/navGiftBox/navGiftBox",
@@ -9,6 +9,7 @@
     "pages/qrcode/qrcode",
     "pages/qrcodeExchange/qrcodeExchange",
     "pages/goodsList/goodsList",
+    "pages/goodsList/goodsListC",
     "pages/goodsDetails/goodsDetails",
     "pages/orderConfirmation/orderConfirmation",
     "pages/orderList/orderList",
@@ -20,7 +21,16 @@
     "pages/storesDetails/storesDetails",
     "pages/test/test",
     "pages/start/start",
-    "pages/hongBao/hongBao"
+    "pages/hongBao/hongBao",
+    "pages/qualification/qualification",
+    "pages/explain/explain",
+    "pages/active/active",
+    "pages/index/index",
+    "pages/qbuy/qbuy",
+    "pages/goodsListC/goodsListC",
+    "pages/activeConsume/activeConsume",
+    "pages/activeSign/activeSign",
+    "pages/onePage/onePage"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -36,14 +46,20 @@
       {
         "selectedIconPath": "static/img/gift_selected.png",
         "iconPath": "static/img/gift_normal.png",
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/homePage/homePage",
         "text": "首页"
       },
       {
         "selectedIconPath": "static/img/classify_selected.png",
         "iconPath": "static/img/classify_normal.png",
-        "pagePath": "pages/navGiftBox/navGiftBox",
-        "text": "礼物盒"
+        "pagePath": "pages/navClassify/navClassify",
+        "text": "分类"
+      },
+      {
+        "selectedIconPath": "static/img/discover_selected.png",
+        "iconPath": "static/img/discover_normal.png",
+        "pagePath": "pages/explain/explain",
+        "text": "发现"
       },
       {
         "selectedIconPath": "static/img/shopping_selected.png",

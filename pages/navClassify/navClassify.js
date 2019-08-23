@@ -6,41 +6,7 @@ Page({
     //getData:{},
     getData:{
       monthList: ["Toy", "Home", "Other"],
-      dayList:{
-        "Toy": [
-          {
-            showId: "1",
-            showMonth: "101",
-            showDay: "Oct.2018"
-          }, {
-            showId: "1",
-            showMonth: "102",
-            showDay: "Oct.2018"
-          }
-        ],
-        "Home": [
-          {
-            "showId": "1",
-            "showMonth": "81",
-            "showDay": "Aug.2018"
-          }, {
-            "showId": "1",
-            "showMonth": "82",
-            "showDay": "Aug.2018"
-          }
-        ],
-        "Other": [
-          {
-            showId: "1",
-            showMonth: "91",
-            showDay: "Sep.2018"
-          }, {
-            showId: "1",
-            showMonth: "92",
-            showDay: "Sep.2018"
-          }
-        ],
-      }
+      dayList:{}
     },
   },
   onLoad: function (options) {
@@ -64,7 +30,7 @@ Page({
   onShow: function () {
    
     // 页面显示
-    //this.getData();
+    this.getData();
     // console.log('onshow', wx.getStorageSync('lastActiveIndex') || 0)
     this.setData({
       activeIndex: wx.getStorageSync('lastActiveIndex') || 0
@@ -73,16 +39,16 @@ Page({
   getData:function(){
     const that = this;
     app.Ajax(
-      'Mall',
+      'HomePage',
       'POST',
-      'GetShowDay',
+      'GetCategoryList',
       {},
       function (json) {
         // console.log('json', json);
         if (json.success) {
           that.setData({
             getData: json.data,
-            activeIndex: wx.getStorageSync('lastActiveIndex') || json.data.monthList[0]
+            activeIndex: wx.getStorageSync('lastActiveIndex') || json.data.parentList[0]
           })
         } else {
           app.Toast('', 'none', 3000, json.msg.code);
@@ -90,10 +56,10 @@ Page({
       }
     )
   },
-  gotoGoodsList:function(e){
-    
+  gotoGoodsList: function (e) {
+    console.log('onshow', e.currentTarget.dataset)
     wx.navigateTo({
-      url: '../goodsList/goodsList?showId=' + e.currentTarget.dataset.showid,
+      url: '../goodsListC/goodsListC?showId=' + e.currentTarget.dataset.showid,
     })
   },
   onHide: function () {

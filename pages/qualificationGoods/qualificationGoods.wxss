@@ -1,0 +1,96 @@
+page {
+  /* height: 100%; */
+  background: #fdf1f6;
+}
+.goods-list {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  /* background-image: -webkit-linear-gradient(45deg, rgb(247, 112, 98), rgb(254, 81, 150)); */
+  /* background: url('http://img.ui.cn/data/file/8/6/4/1053468.gif?imageMogr2/auto-orient/strip') 0 0 no-repeat; */
+  background-size: 100% 100%;
+}
+.goods-list-wrap {
+  width: 700rpx; 
+  margin: auto;
+  margin-top: 20rpx;
+  /* height: 1180rpx; */
+  /* position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto; 
+  overflow: auto; */
+}
+.cards {
+  width: 50%;
+  height: 330rpx;
+  display: inline-block; 
+}
+.cards-block{
+  width: 95%;
+  height: 320rpx;
+  margin: auto;
+  background: rgba(255,255,255,0.8);
+  border-radius: 16rpx; 
+  box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.20);
+}
+.cards-block-bg{
+  width: 100%;
+  height: 200rpx;
+  text-align:center;
+  padding:10rpx 0 0;
+}
+.cards-block-bg-image{
+  width: 200rpx;
+  height: 100%;
+  border-top-left-radius: 20rpx;
+  border-top-right-radius: 20rpx;
+}
+.cards-block-title{
+  /* width: 100%; */
+  padding: 0 10rpx;
+  height: 50rpx; 
+  /* line-height: 50rpx;  */
+  text-align: center;
+  font-size: 28rpx;
+  overflow: hidden;
+text-overflow:ellipsis;
+white-space: nowrap;
+/* display: -webkit-box;
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 2;
+overflow: hidden; */
+}
+
+.cards-item-mes {
+  position: relative;
+}
+
+.cards-item-title {
+  text-indent: 20rpx;
+}
+
+.cards-item-price {
+  text-align: left;
+  text-indent: 20rpx;
+}
+
+.cards-item-icon1 {
+  position: absolute;
+  bottom: 0rpx;
+  right: 30rpx;
+}
+.header-text {
+  width: 520rpx;
+  height: 100%;
+  line-height: 50rpx;
+  float: left;
+  margin-bottom: 20rpx;
+}
+.header-text-desc {
+  text-indent: 20rpx;
+  font-size: 25rpx;
+  color: #222;
+}

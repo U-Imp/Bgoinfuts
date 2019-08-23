@@ -1,0 +1,262 @@
+page {
+  height: 100%;
+  background: #ffffff;
+  /* background-image: -webkit-linear-gradient(-135deg, #fff, #fdf1f6);  */
+}
+.go{
+  position: absolute;
+  top: 25rpx;
+  right: 25rpx;
+  line-height: 24rpx;
+  font-size: 24rpx;
+  color: red;
+  border: 1px solid red;
+  padding: 8rpx 10rpx;
+  border-radius: 20rpx;
+}
+.stores-details {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  /* background: #fdf1f6; */
+  /* background-image: -webkit-linear-gradient(-135deg, #fff, #fdf1f6);  */
+  /* background: url('http://img.ui.cn/data/file/8/6/4/1053468.gif?imageMogr2/auto-orient/strip') 0 0 no-repeat;
+  background-size: 100% 100%; */
+}
+
+.stores-details-wrap {
+  /* width: 100%;
+  height: 100%;
+  margin: auto; */
+  /* overflow: auto; */
+  /* background: #fdf1f6; */
+  /* background-color: rgba(255, 255, 255, 0.8); */
+}
+
+.stores-details-header {
+  width: 680rpx;
+  height: 180rpx;
+  margin: auto;
+  overflow: hidden;
+  border-bottom: 0.1rpx solid #d7d7d7;
+}
+
+.header-logo {
+  width: 140rpx;
+  height: 140rpx;
+  margin-top: 20rpx;
+  float: left;
+}
+
+.header-logo-img {
+  width: 100%;
+  height: 100%;
+}
+
+.header-text {
+  width: 500rpx;
+  height: 140rpx;
+  margin: 20rpx;
+  float: left;
+}
+
+.header-text-title {
+  font-size: 35rpx;
+  line-height: 65rpx;
+}
+
+.header-text-desc {
+  font-size: 25rpx;
+  color: #888;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: box;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.stores-details-msg{
+  width: 680rpx;
+  height: 160rpx;
+  margin: auto;
+  overflow: hidden;
+  border-bottom: 0.1rpx solid #d7d7d7;
+}
+.msg-address{
+  height: 80rpx;
+  line-height: 80rpx;
+  border-bottom: 0.1rpx solid #d7d7d7;
+}
+.msg-tel{
+  height: 80rpx;
+  line-height: 80rpx;
+}
+
+.stores-details-swiper{
+  width: 680rpx;
+  height: 300rpx;
+  margin: 30rpx auto 0;
+}
+.swiper-item{
+  height: 300rpx;
+}
+
+.stores-details-new{
+  width: 710rpx;
+  margin: 0 auto 20rpx ;
+}
+.new-header{
+  height: 80rpx;
+  line-height: 80rpx;
+  overflow: hidden;
+  border-bottom: 0.1rpx solid #d7d7d7;
+}
+.new-header-title{
+  float: left;
+}
+.new-header-icon{
+  float: right;
+  font-size: 38rpx;
+  line-height: 90rpx;
+}
+.new-list-wrap{
+  overflow: hidden;
+}
+.new-list-item{
+  float: left;
+  width: 315rpx;
+  height: 500rpx;
+  position: relative;
+  background: rgba(255,255,255,0.8);
+  border-radius: 16rpx; 
+  box-shadow: 0 3px 20px 0 rgba(0, 0, 0, 0.20);
+  margin: 20rpx;
+}
+.item-img{
+  width: 300rpx;
+  height: 300rpx;
+  margin: 20rpx auto 10rpx;
+}
+.item-img image{
+  width: 100%;
+  height: 100%;
+}
+.item-title{
+  text-align: center
+}
+.item-content{
+  width: 240rpx;
+  margin: 10rpx auto 0;
+  color: #666666;
+  text-align: center;
+  font-size: 25rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: box;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+
+.content {
+  width: 750rpx;
+  height: 100%;
+  background: #ffffff;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+.content_rebate {
+  text-align: center;
+  padding-bottom: 15rpx;
+  font-family: PingFangSC-Regular;
+  font-size: 30rpx;
+  color: #000000;
+  padding-top: 15rpx;
+}
+.content_all {
+  width: 750rpx;
+  height: 120rpx;
+  margin-top:10rpx; 
+  display: flex;
+}
+.content_all view {
+  /* width: 248rpx;
+  height: 80rpx;
+  float: left; */
+  text-align: center;
+  flex: 1;
+}
+.content_all view text {
+  display: block;
+}
+.content_center {
+  border-left: 1px solid #CED7DB;
+  border-right: 1px solid #CED7DB;
+}
+.content_method {
+  font-size: 22rpx;
+  color: #99A3A9;
+  
+}
+
+.content button {
+  width: 670rpx;
+}
+.icon{
+  height: 80rpx;
+  text-align: centeron;
+}
+.icon image{
+  width: 80rpx;
+  height: 80rpx
+}
+.icontext{
+  font-family:Microsoft YaHei;
+  font-size: 26rpx;
+  color: #232627b9;
+}
+.day{
+  text-align: center
+}
+.day image{
+  width: 680rpx;
+  height:180px;
+}
+.adv{
+  height: 140rpx;
+  text-align: center
+}
+.adv image{
+  width: 680rpx;
+  height: 170rpx
+}
+.cards-item-mes {
+  height: 255rpx;
+}
+
+.cards-item-title {
+  height: 120rpx;
+  /* line-height: 80rpx; */
+  text-indent: 20rpx;
+}
+
+.cards-item-price {
+  position: absolute;
+  bottom: 10rpx;
+  left: 20rpx;
+  font-size: 40rpx;
+}
+
+.cards-item-icon1 {
+  position: absolute;
+  bottom: 10rpx;
+  right: 100rpx;
+}
+
+.cards-item-icon2 {
+  position: absolute;
+  bottom: 10rpx;
+  right: 20rpx;
+}
