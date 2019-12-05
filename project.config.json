@@ -38,13 +38,20 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 1,
 			"list": [
 				{
 					"id": 0,
 					"name": "onePage",
 					"pathName": "pages/onePage/onePage",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": 1,
+					"name": "三方推送",
+					"pathName": "pages/start/start",
+					"query": "tempOpenId=3rd-f0f3df7b-5503-4e93-8856-c3e159db627e",
 					"scene": null
 				}
 			]

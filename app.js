@@ -11,25 +11,27 @@ App({
   globalData: {
     userInfo: null
   },
-  onLaunch: function() {
+  onLaunch: function(options) {
     var isDebug = false; //true调试状态使用本地服务器，非调试状态使用远程服务器
     if (!isDebug) {
       //远程域名
       wx.setStorageSync('domainName', "https://wxapp.a-cubic.com/api/gift/Wx/")
     } else {
       //本地测试域名
-      wx.setStorageSync('domainName', "http://localhost:54167/api/gift/Wx/")
+      wx.setStorageSync('domainName', "http://localhost:57784/api/gift/Wx/")
     }
     // 登录
     wx.login({
       success: res => {
         const that = this;
+        console.log(options.query);
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         this.Ajax(
           'Open',
           'POST',
           'Login', {
-            code: res.code
+            code: res.code,
+            tempOpenId: options.query.tempOpenId
           },
           function(json) {
             // console.log('~~~',json);
