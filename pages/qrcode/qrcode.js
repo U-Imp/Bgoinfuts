@@ -53,16 +53,23 @@ Page({
 
   
   getQRcode: function () {
+    var query = wx.createSelectorQuery();
+    var that = this;
+    query.select('.img').boundingClientRect(function (rect) {
+      qrcode = new QRCode('canvas', {
+        // usingIn: this,
+        text: '',
+        width: rect.width,
+        height: rect.width,
+        colorDark: "#000",
+        colorLight: "white",
+        correctLevel: QRCode.CorrectLevel.H,
+      });
+    }).exec();
+
+
     //console.log('here', wx.getStorageSync('scanCode'))
-    qrcode = new QRCode('canvas', {
-      // usingIn: this,
-      text: '',
-      width: 228,
-      height: 228,
-      colorDark: "#000",
-      colorLight: "white",
-      correctLevel: QRCode.CorrectLevel.H,
-    });
+    
   },
   onShow: function () {
     wx.connectSocket({

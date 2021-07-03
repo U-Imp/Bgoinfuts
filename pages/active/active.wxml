@@ -1,0 +1,20 @@
+<view class='stores-list'>
+  <view class='stores-list-wrap'>
+    <view class="stores-list-header">
+      <view class="header-text">
+        <view class="header-text-title">攻略列表</view>
+      </view>
+    </view>
+
+    <view class='stores-list-cards-wrap'>
+      <block wx:for-items="{{ getData}}" wx:key="{{index}}">
+        <view class='content'>
+          <view class='adv'>
+            <image src='{{item.pageImg}}'  data-pageUrl='{{item.pageUrl}}' data-urlType='{{item.urlType}}' bindtap='gotoActiveUrl'></image>
+          </view>
+        </view>
+      </block>
+    </view>
+
+  </view>
+</view>

@@ -11,27 +11,29 @@ App({
   globalData: {
     userInfo: null
   },
-  onLaunch: function () {
-    var isDebug = false;//true调试状态使用本地服务器，非调试状态使用远程服务器
+  onLaunch: function(options) {
+    var isDebug = false; //true调试状态使用本地服务器，非调试状态使用远程服务器
     if (!isDebug) {
       //远程域名
       wx.setStorageSync('domainName', "https://wxapp.a-cubic.com/api/gift/Wx/")
-    }
-    else {
+    } else {
       //本地测试域名
-      wx.setStorageSync('domainName', "http://192.168.0.11:53695/api/gift/Wx/")
+      wx.setStorageSync('domainName', "http://localhost:57784/api/gift/Wx/")
     }
     // 登录
     wx.login({
       success: res => {
         const that = this;
+        console.log(options.query);
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         this.Ajax(
           'Open',
           'POST',
-          'Login',
-          { code: res.code },
-          function (json) {
+          'Login', {
+            code: res.code,
+            tempOpenId: options.query.tempOpenId
+          },
+          function(json) {
             // console.log('~~~',json);
             if (json.success) {
               wx.setStorageSync('token', json.data.token);
@@ -41,26 +43,33 @@ App({
 
 
               if (!json.data.isReg) {
-                // 跳转到授权登录页
-                console.log('跳转授权页');
-                wx.navigateTo({
-                  url: '../start/start',
-                })
+                // // 跳转到授权登录页
+                // console.log('跳转授权页');
+                // wx.navigateTo({
+                //   url: '../start/start',
+                // })
               }
             } else {
               // that.Toast('','none',2000,json.msg.code)
               console.log('here');
-              
             }
+            wx.switchTab({
+              url: '/pages/homePage/homePage',
+            })
+          },
+          function(res){
+            wx.switchTab({
+              url: '/pages/homePage/homePage',
+            })
           }
         )
       }
     })
   },
-  Ajax: function (url, type, method, data, callback) {
+  Ajax: function(url, type, method, data, callback) {
     wx.showLoading({
       title: 'loading',
-      duration:1000,
+      duration: 1000,
     });
 
     var send = {
@@ -75,29 +84,28 @@ App({
       header: {
         'content-type': 'application/json' // 默认值
       }, // 设置请求的 header
-      success: function (res) {
+      success: function(res) {
         wx.hideLoading();
         // 发送请求成功执行的函数
         if (typeof callback === 'function') {
           callback(res.data);
         }
       },
-      fail: function (res) {
+      fail: function(res) {
         wx.hideLoading();
         wx.showModal({
           title: '网络异常提示',
           content: '请检查网络，并重新登录小程序',
-          showCancel:false,
+          showCancel: false,
         })
-         //console.log('fa',res)
+        //console.log('fa',res)
       },
-      complete: function () {
+      complete: function() {
         // wx.hideLoading();
       }
     })
-  }
-  ,
-  Toast: function (title, icon, duration, code) {
+  },
+  Toast: function(title, icon, duration, code) {
     let content = title;
     switch (code) {
       // 个人中心
@@ -180,7 +188,7 @@ App({
         break;
       case 10201:
         content = '	店铺会员已存在'
-        break; 
+        break;
       case 10202:
         content = '	同步用户信息失败'
         break;
@@ -211,7 +219,9 @@ App({
         content = '支付返回异常'
         break;
       case 4000:
-      
+        wx.navigateTo({
+          url: '../../pages/start/start',
+        });
         content = '无效的Token'
         // content = '无效的Token'
 
@@ -223,6 +233,9 @@ App({
         content = '无效的参数'
         break;
       case 4003:
+        wx.navigateTo({
+          url: '../../pages/start/start',
+        });
         content = '接口权限不足'
         break;
       case 4004:
@@ -232,6 +245,9 @@ App({
         content = '接口数据库操作失败'
         break;
       case 4006:
+        wx.navigateTo({
+          url: '../../pages/start/start',
+        });
         content = '需要登陆'
         break;
       default:

@@ -1,0 +1,17 @@
+{
+  "navigationBarTitleText": "线下消费",
+  "usingComponents": {
+    "i-icon": "../../iview/icon/index",
+    "i-button": "../../iview/button/index",
+    "i-sticky": "../../iview/sticky/index",
+    "i-sticky-item": "../../iview/sticky-item/index",
+    "i-input-number": "../../iview/input-number/index",
+    "van-icon": "../../vant/icon/index",
+    "van-button": "../../vant/button/index",
+    "van-popup": "../../vant/popup/index",
+    "van-card": "../../vant/card/index",
+    "van-stepper": "../../vant/stepper/index",
+    "van-cell": "../../vant/cell/index",
+    "van-cell-group": "../../vant/cell-group/index"
+  }
+}

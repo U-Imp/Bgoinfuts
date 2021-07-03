@@ -1,0 +1,67 @@
+<view class='stores-details'>
+  <view class='stores-details-wrap'>
+
+    <view class="stores-details-swiper">
+      <swiper class="swiper-item" indicator-dots="{{homePage.indicatorDots}}" vertical="{{homePage.vertical}}" autoplay="{{homePage.autoplay}}" interval="{{homePage.interval}}" duration="{{homePage.duration}}">
+        <block wx:for-items="{{getData.bannerList}}" wx:key="{{index}}">
+          <swiper-item bindtap='gotoBannerUrl' data-bannerUrl='{{item.bannerUrl}}' data-urlType='{{item.urlType}}'>
+            <image class="header-logo-img" src="{{item.bannerImg}}" />
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <view class='content'>
+      <view class='content_all'>
+      <block wx:for-items="{{getData.menuList}}" wx:key="{{index}}">
+       <view class=''  data-menuurl='{{item.menuUrl}}'  bindtap='gotoMenuUrl'>
+          <view class='icon'>
+            <image src='{{item.menuImg}}'></image>
+          </view>
+          <view class='icontext'>
+              {{item.menuName}}
+          </view>
+        </view>
+        </block>
+      </view>
+    </view>
+    <view class='content'>
+      <view class='day'>
+        <image src='{{getData.banner.bannerImg}}' data-bannerUrl='{{getData.banner.bannerUrl}}'  
+                     data-urlType='{{getData.banner.urlType}}' bindtap='gotoBannerUrl'></image>
+      </view>
+    </view>
+    <view class='content'>
+      <view class='adv'>
+         <image src='{{getData.advert.bannerImg}}' data-bannerUrl='{{getData.advert.bannerUrl}}'  
+                      data-urlType='{{getData.advert.urlType}}' bindtap='gotoBannerUrl'></image>
+      </view>
+    </view>
+    <!--上新 -->
+    <view class="stores-details-new">
+      <view class="new-header">
+        <view class='new-header-title'>店铺上新</view>
+        <view class='new-header-icon'  data-menuurl='../navGiftBox/navGiftBox'  bindtap='gotoTabUrl' >
+          <van-icon name="shop" color="red" />
+        </view>
+      </view>
+
+      <view class='new-list-wrap'>
+        <block wx:for-items="{{getData.goodsList}}" wx:key="{{index}}">
+          <view class='new-list-item'>
+            <view class='item-img'>
+              <image src="{{item.goodsImg}}"  data-goodsid='{{item.goodsId}}'  bindtap='gotoGoodsDetails' />
+            </view>
+            <view class='item-title'  data-goodsid='{{item.goodsId}}'  bindtap='gotoGoodsDetails'>
+              {{item.goodsName}}
+            </view>
+                <view class="cards-item-price">♥ {{item.goodsPrice}}</view>
+                <van-icon class="cards-item-icon1" name="cart" size="50rpx" color="#80848f" catchtap='addtoCart' data-goodsid='{{item.goodsId}}'/>
+                 <van-icon class="cards-item-icon2" name="like" size="50rpx" color="#f54281"/> 
+          </view>
+        </block>
+      </view>
+
+    </view>
+
+  </view>
+</view>

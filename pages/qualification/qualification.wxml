@@ -1,0 +1,56 @@
+<!--pages/coin/coin.wxml-->
+<view class='coin'>
+  <view class='coin-wrap'>
+    <view class="coin-header">
+      <view class="header-text">
+        <view class="header-text-title">{{title}}</view>
+        <view class="header-text-desc">{{dec}}</view>
+      </view>
+    </view>
+    <view class='coin-cards-wrap'>
+      <block wx:for-items="{{ getData }}" wx:key="{{index}}">
+        <view class='coin-cards' data-qbuyCode="{{item.qbuyCode}}">
+
+          <view class='cards-text'>
+            <view class='card-name'>{{item.storeName}}</view>
+            <view class='card-name1'>{{item.activeName}}</view>
+            <view class='card-content'>资格兑换日期：{{item.startTime}} 至 {{item.endTime}}</view>
+          </view>
+          <view class='cards-btn' data-index="{{index}}" data-qbuyCode="{{item.qbuyCode}}" bindtap='exchange'>兑换</view>
+        </view>
+      </block>
+    </view>
+  </view>
+
+
+    
+  <view class="coin-popup">
+    <van-popup show="{{ popupForm.visible }}" position="{{ popupForm.position }}" overlay="{{ popupForm.overlay }}" overlay-style="background-color: rgba(0,0,0,0.5)" bind:close="closePopup">
+      <!--卡片  -->
+        <radio-group bindchange="select">
+        <block wx:for-items="{{ popupForm.qbuyData }}" wx:key="{{index}}">
+          <view class="weui-media-box weui-media-box_appmsg" data-qbuyGoodsId="{{item.qBuyGoodsId}}">
+            <radio id="{{item.qBuyGoodsId}}" value="{{item.qBuyGoodsId}}"  checked="{{item.qBuyGoodsId==''}}"  disabled='{{!item.ifUse}}'></radio>
+            <view class="weui-media-box__hd weui-media-box__hd_in-appmsg">
+              <image class="weui-media-box__thumb" src="{{item.slt}}" />
+            </view>
+            <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">
+              <view class="weui-media-box__title">{{ item.goodsName }}</view>
+              <view class="weui-media-box__desc">❤{{ item.price }} 数量{{ item.num }}</view>
+            </view>
+          </view>
+        </block>
+      </radio-group>
+      <!--单元格  -->
+      <!-- <van-cell-group>
+        <van-cell title="兑换" border="true">
+          <i-panel slot="right-icon" title="基础用法">
+            <i-input-number value="{{popupForm.numVal}}" min="1" max="{{popupForm.maxNum}}" bindchange="numChange" />
+          </i-panel>
+        </van-cell>
+      </van-cell-group> -->
+      <!--按钮  -->
+      <i-button bind:click="addPopup" shape="circle" type="primary"  disabled='{{popupForm.bdisabled}}'>立即购买</i-button>
+    </van-popup>
+  </view>
+</view>

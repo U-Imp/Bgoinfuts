@@ -3,44 +3,10 @@ const app = getApp();
 Page({
   data: {
     activeIndex: 10,
-    getData:{},
-    getDataOld:{
-      monthList: [10,9,8],
-      dayList:{
-        "10": [
-          {
-            showId: "1",
-            showImg: "101",
-            showTitle: "Oct.2018"
-          }, {
-            showId: "1",
-            showImg: "102",
-            showTitle: "Oct.2018"
-          }
-        ],
-        "8": [
-          {
-            "showId": "1",
-            "showImg": "81",
-            "showTitle": "Aug.2018"
-          }, {
-            "showId": "1",
-            "showImg": "82",
-            "showTitle": "Aug.2018"
-          }
-        ],
-        "9": [
-          {
-            showId: "1",
-            showImg: "91",
-            showTitle: "Sep.2018"
-          }, {
-            showId: "1",
-            showImg: "92",
-            showTitle: "Sep.2018"
-          }
-        ],
-      }
+    //getData:{},
+    getData:{
+      monthList: ["Toy", "Home", "Other"],
+      dayList:{}
     },
   },
   onLoad: function (options) {
@@ -73,16 +39,16 @@ Page({
   getData:function(){
     const that = this;
     app.Ajax(
-      'Mall',
+      'HomePage',
       'POST',
-      'GetShowDay',
+      'GetCategoryList',
       {},
       function (json) {
         // console.log('json', json);
         if (json.success) {
           that.setData({
             getData: json.data,
-            activeIndex: wx.getStorageSync('lastActiveIndex') || json.data.monthList[0]
+            activeIndex: wx.getStorageSync('lastActiveIndex') || json.data.parentList[0]
           })
         } else {
           app.Toast('', 'none', 3000, json.msg.code);
@@ -90,10 +56,10 @@ Page({
       }
     )
   },
-  gotoGoodsList:function(e){
-    
+  gotoGoodsList: function (e) {
+    console.log('onshow', e.currentTarget.dataset)
     wx.navigateTo({
-      url: '../goodsList/goodsList?showId=' + e.currentTarget.dataset.showid,
+      url: '../goodsListC/goodsListC?showId=' + e.currentTarget.dataset.showid,
     })
   },
   onHide: function () {

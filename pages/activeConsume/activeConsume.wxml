@@ -1,0 +1,28 @@
+<!--pages/coin/coin.wxml-->
+<view class='coin'>
+  <view class='coin-wrap'>
+    <view class="coin-header">
+      <view class="header-text">
+        <view class="header-text-title">线下消费活动</view>
+      </view>
+    </view>
+    <view class='coin-cards-wrap'>
+      <block wx:for-items="{{ getData }}" wx:key="{{index}}">
+        <view class='coin-cards' data-storeId="{{item.activeId}}">
+
+          <view class='cards-bg'>
+            <image src='{{item.activeImg}}' mode='aspectFill'></image>
+          </view>
+          <view class='cards-text'>
+            <view class='card-name'>{{item.storeName}} {{item.remark}}</view>
+            <view class='card-name'>活动状态：{{item.activeState}}</view>
+            <view class='card-content'>消费{{item.consume}}{{item.valueType}}{{item.itemValue}}</view>
+            <view class='card-content'>活动开始时间：{{item.activeTimeFrom}}</view>
+            <view class='card-content'>活动结束时间：{{item.activeTimeTo}}</view>
+            <!-- <view class='card-content'>本店铺兑换❤比例{{item.storeRate}}:1</view> -->
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

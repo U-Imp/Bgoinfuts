@@ -49,9 +49,19 @@ Page({
       url: '../coin/coin',
     })
   },
-  gotoQrcode:function(){
+  gotoQrcode: function () {
     wx.navigateTo({
       url: '../qrcode/qrcode',
+    })
+  },
+  gotoQbuy: function () {
+    wx.navigateTo({
+      url: '../qualification/qualification',
+    })
+  },
+  guide: function () {
+    wx.navigateTo({
+      url: '../publicArticle/publicArticle?url=https://mp.weixin.qq.com/s/RyAf-mcBHkujTG-a6JUuKA',
     })
   }
 });

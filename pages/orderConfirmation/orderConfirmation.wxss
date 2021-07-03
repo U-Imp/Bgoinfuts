@@ -88,4 +88,21 @@ page {
   bottom: 0;
   left: 0;
 }
-
+.picker{
+  display: inline-block;
+  width: 660rpx;
+  color: rgb(245, 11, 11);
+}
+.pickerAfter{
+  display: inline-block;
+}
+.pickerAfter:after{
+     content: "";
+     display: inline-block;
+     height: 6px;
+     width: 6px;
+     border-width: 0px 2px 2px 0;
+     border-color: #ccc;
+     border-style: solid;
+     transform: matrix(0.71,0.71,-0.71,0.71,0,0);
+}

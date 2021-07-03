@@ -19,24 +19,35 @@ Page({
   },
   bindGetUserInfo: function (e) {
     // console.log('ee', e.detail.userInfo)
-    app.globalData.userInfo = e.detail.userInfo
-    // console.log('glo', app.globalData.userInfo)
-    app.Ajax(
-      'Open',
-      'POST',
-      'MemberReg',
-      { ...e.detail.userInfo },
-      function (json) {
-        // console.log('json',json);
-        if (json.success) {
+    wx.getSetting({
+      success: function (n) {
+        var a = n.authSetting["scope.userInfo"];
+        if (a) {
+          app.globalData.userInfo = e.detail.userInfo
+          // console.log('glo', app.globalData.userInfo)
+          app.Ajax(
+            'Open',
+            'POST',
+            'MemberReg',
+            { ...e.detail.userInfo },
+            function (json) {
+              // console.log('json',json);
+              if (json.success) {
+                wx.switchTab({
+                  url: '../homePage/homePage',
+                })
+              } else {
+                app.Toast('', 'none', 3000, json.msg.code);
+              }
+            }
+          )
+        } else { 
           wx.switchTab({
-            url: '../index/index',
+            url: '../homePage/homePage',
           })
-        } else {
-          app.Toast('', 'none', 3000, json.msg.code);
         }
       }
-    )
+    });
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
