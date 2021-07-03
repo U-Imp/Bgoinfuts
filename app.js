@@ -19,7 +19,7 @@ App({
     }
     else {
       //本地测试域名
-      wx.setStorageSync('domainName', "http://192.168.0.11:53695/api/gift/Wx/")
+      wx.setStorageSync('domainName', "http://localhost:53695/api/gift/Wx/")
     }
     // 登录
     wx.login({

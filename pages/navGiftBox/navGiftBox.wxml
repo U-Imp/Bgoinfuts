@@ -14,7 +14,7 @@
             <view class='unit-title'>{{item.showMonth}}</view>
             <rich-text class='unit-content'>{{item.showDay}}</rich-text>
             <view class='unit-ems'>
-              <!-- <em></em><em></em><em></em> -->
+              <em></em><em></em><em></em>
             </view>
           <!-- </block> -->
           <!-- 其他显示图片 -->
